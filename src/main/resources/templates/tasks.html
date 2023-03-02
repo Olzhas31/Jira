@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Index</h1>
+
+    <div>
+        <div th:each="task : ${tasks}">
+            <span>Project name: </span><span th:text="${task.projectName}"></span> <br>
+            <span>Priority </span><span th:text="${task.priority}"></span> <br>
+            <span>Summary </span><span th:text="${task.name}"></span> <br>
+            <span>Assignee </span><span th:text="${task.assigneeName}"></span> <br>
+            <span>Expert </span><span th:text="${task.getExpertName()}"></span> <br>
+            <span>Status </span><span th:text="${task.getStatus()}"></span> <br>
+            <span>Due date </span><span th:text="${task.getDueDate()}"></span> <br>
+        </div>
+    </div>
+</body>
+</html>
