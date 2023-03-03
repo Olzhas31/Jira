@@ -1,6 +1,7 @@
 package com.example.Jira.controller;
 
 import com.example.Jira.entity.User;
+import com.example.Jira.entity.states.Roles;
 import com.example.Jira.service.ITaskService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -12,13 +13,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @AllArgsConstructor
 public class MainController {
 
-    private final ITaskService taskService;
-
-    // TODO test getByUserAssignee
-    @GetMapping("/home")
+    @GetMapping( path = {"/home", "/"})
     public String showIndexPage(Model model, Authentication authentication){
-//        User user = (User) authentication.getPrincipal();
-//        model.addAttribute("tasks", taskService.getByUserAssigneeInWork(user));
+        if (authentication != null) {
+            User user = (User) authentication.getPrincipal();
+            if (user.getRole().equals(Roles.ADMIN.name())) {
+                return "admin";
+            }
+        }
         return "index";
     }
 
@@ -27,10 +29,9 @@ public class MainController {
         return "login";
     }
 
-    // TODO only admin
-    @GetMapping("/registration")
-    public String showRegistrationPage(){
-        return "registration";
+    @GetMapping("/testing")
+    public String test() {
+        return "404";
     }
 
 }

@@ -25,12 +25,15 @@ public class TaskDto {
     private String title;
     private LocalDateTime updatedTime;
     private Long acceptorId;
+    private String acceptorName;
     private Long assigneeId;
     private String assigneeName;
     private Long developerId;
+    private String developerName;
     private Long expertId;
     private String expertName;
     private Long reviewerId;
+    private String reviewerName;
     private String projectName;
     private Long projectId;
     private String status;

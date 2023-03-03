@@ -14,6 +14,8 @@ public class ProjectDto {
     private Long id;
     private String description;
     private String name;
+    private String goal;
+    private String responsibility;
 
     private String projectManagerName;
     private Long projectManagerId;

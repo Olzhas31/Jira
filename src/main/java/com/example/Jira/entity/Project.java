@@ -27,6 +27,12 @@ public class Project {
     @Column
     private String description;
 
+    @Column
+    private String goal;
+
+    @Column
+    private String responsibility;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_projects",
             joinColumns = @JoinColumn(name = "project_id"),

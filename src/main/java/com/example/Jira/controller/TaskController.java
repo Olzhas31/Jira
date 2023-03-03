@@ -5,8 +5,10 @@ import com.example.Jira.entity.User;
 import com.example.Jira.entity.states.Priority;
 import com.example.Jira.entity.states.Roles;
 import com.example.Jira.model.ProjectDto;
+import com.example.Jira.model.SprintDto;
 import com.example.Jira.model.TaskDto;
 import com.example.Jira.model.requests.CreateTaskRequest;
+import com.example.Jira.service.IEventLogService;
 import com.example.Jira.service.IProjectService;
 import com.example.Jira.service.ITaskService;
 import com.example.Jira.service.IUserService;
@@ -27,6 +29,7 @@ public class TaskController {
     private final ITaskService service;
     private final IUserService userService;
     private final IProjectService projectService;
+    private final IEventLogService log;
 
     @GetMapping("/save-task")
     public String showSaveTaskPage(Model model,
@@ -41,11 +44,11 @@ public class TaskController {
         return "create-task";
     }
 
-    // TODO add log
     // TODO add name
     @PostMapping("/save-task")
     public String saveTask(CreateTaskRequest request, Authentication authentication){
         User user = (User) authentication.getPrincipal();
+//        TODO ?????
         request.setProjectId(2L);
         TaskDto taskDto = service.save(request, user);
         return "redirect:/";
@@ -53,9 +56,23 @@ public class TaskController {
 
     // TODO only user projects
     @GetMapping("/dashboard")
-    public String showDashboardPage(Model model) {
-        model.addAttribute("projects", projectService.getAll());
+    public String showDashboardPage(Model model, Authentication authentication) {
+        User user = (User) authentication.getPrincipal();
+        model.addAttribute("projects", projectService.getProjectsByUser(user));
         return "dashboard";
+    }
+
+    @GetMapping("/kanban")
+    public String showKanbanPage(Model model) {
+//        model.addAttribute("projects", projectService.getAll());
+        return "kanban";
+    }
+
+    @GetMapping("/task")
+    public String showTask(Model model,
+            @RequestParam("id") Long id) {
+        model.addAttribute("taskDto", service.getById(id));
+        return "task";
     }
 
 }

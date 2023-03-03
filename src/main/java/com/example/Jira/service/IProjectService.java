@@ -7,6 +7,7 @@ import com.example.Jira.model.UserDto;
 import com.example.Jira.model.requests.CreateProjectRequest;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IProjectService {
 
@@ -14,11 +15,13 @@ public interface IProjectService {
 
     List<ProjectDto> getAll();
 
+    List<ProjectDto> getProjectsByUser(User user);
+
     ProjectDto getProjectById(Long projectId);
 
     List<UserDto> getUsersByProjectId(Long projectId);
 
     List<UserDto> getUsersByProjectIdAndRole(Long projectId, List<Roles> roles);
 
-    void addUserToProject(Long userId, Long projectId);
+    Map<ProjectDto, UserDto> addUserToProject(Long userId, Long projectId);
 }

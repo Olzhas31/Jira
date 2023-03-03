@@ -29,11 +29,41 @@ public class TaskMapper {
         String expertName;
         if (task.getExpert() != null) {
             expertName = task.getExpert().getUserDetail().getName() == null ?
-                    " " : task.getAssignee().getUserDetail().getName();
+                    " " : task.getExpert().getUserDetail().getName();
             expertName += task.getExpert().getUserDetail().getName() == null ?
-                    " " : task.getAssignee().getUserDetail().getName();
+                    " " : task.getExpert().getUserDetail().getName();
         } else {
             expertName = null;
+        }
+
+        String developerName;
+        if (task.getDeveloper() != null) {
+            developerName = task.getDeveloper().getUserDetail().getName() == null ?
+                    " " : task.getDeveloper().getUserDetail().getName();
+            developerName += task.getDeveloper().getUserDetail().getName() == null ?
+                    " " : task.getDeveloper().getUserDetail().getName();
+        } else {
+            developerName = null;
+        }
+
+        String reviewerName;
+        if (task.getReviewer() != null) {
+            reviewerName = task.getReviewer().getUserDetail().getName() == null ?
+                    " " : task.getReviewer().getUserDetail().getName();
+            reviewerName += task.getReviewer().getUserDetail().getName() == null ?
+                    " " : task.getReviewer().getUserDetail().getName();
+        } else {
+            reviewerName = null;
+        }
+
+        String acceptorName;
+        if (task.getReviewer() != null) {
+            acceptorName = task.getAcceptor().getUserDetail().getName() == null ?
+                    " " : task.getAcceptor().getUserDetail().getName();
+            acceptorName += task.getAcceptor().getUserDetail().getName() == null ?
+                    " " : task.getAcceptor().getUserDetail().getName();
+        } else {
+            acceptorName = null;
         }
 
         return TaskDto.builder()
@@ -48,12 +78,15 @@ public class TaskMapper {
                 .title(task.getTitle())
                 .updatedTime(task.getUpdatedTime())
                 .acceptorId(task.getAcceptor().getId())
+                .acceptorName(acceptorName)
                 .assigneeId(task.getAssignee().getId())
                 .assigneeName(assigneeName)
                 .developerId(task.getDeveloper().getId())
+                .developerName(developerName)
                 .expertId(task.getExpert().getId())
                 .expertName(expertName)
                 .reviewerId(task.getReviewer().getId())
+                .reviewerName(reviewerName)
                 .status(task.getStatus())
                 .projectId(task.getProject().getId())
                 .projectName(task.getProject().getName())

@@ -15,7 +15,9 @@ import com.example.Jira.service.IProjectService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static com.example.Jira.configuration.Constants.PROJECT_NOT_FOUND;
@@ -41,6 +43,15 @@ public class ProjectServiceImpl implements IProjectService {
     public List<ProjectDto> getAll() {
         return repository.findAll()
                 .stream()
+                .map(mapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ProjectDto> getProjectsByUser(User user) {
+        return repository.findAll()
+                .stream()
+                .filter(project -> project.getUsers().contains(user))
                 .map(mapper::toDto)
                 .collect(Collectors.toList());
     }
@@ -81,7 +92,7 @@ public class ProjectServiceImpl implements IProjectService {
     }
 
     @Override
-    public void addUserToProject(Long userId, Long projectId) {
+    public Map addUserToProject(Long userId, Long projectId) {
         Project project = repository.findById(projectId)
                 .orElseThrow(()-> new EntityNotFoundException(PROJECT_NOT_FOUND + projectId));
         User user = userRepository.findById(userId)
@@ -89,5 +100,9 @@ public class ProjectServiceImpl implements IProjectService {
 
         project.getUsers().add(user);
         repository.save(project);
+
+        Map<ProjectDto, UserDto> map = new HashMap<>();
+        map.put(mapper.toDto(project), userMapper.toDto(user));
+        return map;
     }
 }

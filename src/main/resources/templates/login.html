@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html style="font-size: 16px;" lang="ru" xmlns:th="http://www.thymeleaf.org">
+<html style="font-size: 16px;" lang="ru"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
@@ -23,16 +24,34 @@
         "name": "",
         "logo": "images/3d1cb46b-c73f-44c9-a49f-f830531c72dd.png"
     }</script>
+    <style>
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #000;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+            z-index: 9999;
+        }
+        .popup__close {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+        }
+    </style>
     <meta name="theme-color" content="#5595e8">
     <meta property="og:title" content="Login">
     <meta property="og:type" content="website">
     <meta data-intl-tel-input-cdn-path="intlTelInput/">
 </head>
-<body>
 <body class="u-body u-xl-mode" data-lang="ru">
 <header class="u-clearfix u-header u-header" id="sec-d9ff">
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <a href="https://nicepage.com" class="u-image u-logo u-image-1">
+        <a href="/" class="u-image u-logo u-image-1">
             <img src="images/3d1cb46b-c73f-44c9-a49f-f830531c72dd.png" class="u-logo-image u-logo-image-1">
         </a>
         <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1" data-responsive-from="MD">
@@ -55,21 +74,29 @@
             </div>
             <div class="u-custom-menu u-nav-container">
                 <ul class="u-nav u-spacing-2 u-unstyled u-nav-1">
-                    <li class="u-nav-item"><a
-                            class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                            href="Главная.html" style="padding: 10px 20px;">Главная</a>
-                    </li>
-                    <li class="u-nav-item"><a
-                            class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                            href="Projects.html" style="padding: 10px 20px;">Projects</a>
-                    </li>
-                    <li class="u-nav-item"><a
-                            class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                            href="Project.html" style="padding: 10px 20px;">Project</a>
-                    </li>
-                    <li class="u-nav-item"><a
-                            class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                            href="#" style="padding: 10px 20px;">Login</a>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/home}" style="padding: 10px 20px;">Home</a></li>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/kanban}" style="padding: 10px 20px;">Kanban board</a></li>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/dashboard}" style="padding: 10px 20px;">Dashboard</a></li>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/projects}" style="padding: 10px 20px;">Projects</a></li>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/profile}" sec:authorize="isAuthenticated()"
+                           style="padding: 10px 20px;">Profile</a></li>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/login}" sec:authorize="isAnonymous()" style="padding: 10px 20px;">Login</a></li>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/logout}" sec:authorize="isAuthenticated()" style="padding: 10px 20px;">Log
+                            out</a>
                     </li>
                 </ul>
             </div>
@@ -78,15 +105,19 @@
                     <div class="u-inner-container-layout u-sidenav-overflow">
                         <div class="u-menu-close"></div>
                         <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Главная.html">Главная</a>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/home}">Home</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/kanban}">Kanban
+                                board</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/dashboard}">Dashboard</a>
                             </li>
                             <li class="u-nav-item"><a class="u-button-style u-nav-link"
-                                                      href="Projects.html">Projects</a>
-                            </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Project.html">Project</a>
-                            </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#">Login</a>
-                            </li>
+                                                      th:href="@{/projects}">Projects</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/profile}"
+                                                      sec:authorize="isAuthenticated()">Profile</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/login}"
+                                                      sec:authorize="isAnonymous()">Login</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/logout}"
+                                                      sec:authorize="isAuthenticated()">Log out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -130,43 +161,40 @@
                         <div class="u-container-layout u-container-layout-2" src="">
                             <div class="u-expanded-width u-form u-form-1">
                                 <form action="login" method='POST'>
-                                    <table>
-                                        <input type='text' name='username' placeholder="username">
-                                        <input type='password' name='password' placeholder="password"/>
-                                        <input name="submit" type="submit" value="submit" />
-                                    </table>
+                                    <input type='text' name='username' placeholder="username">
+                                    <input type='password' name='password' placeholder="password"/>
+                                    <input name="submit" type="submit" value="Log in" class="u-btn u-button-style u-btn-1"/>
                                 </form>
                                 <!--                                <form action="https://forms.nicepagesrv.com/v2/form/process"-->
-<!--                                      class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email"-->
-<!--                                      name="form" style="padding: 10px;">-->
-<!--                                    <div class="u-form-group u-form-name">-->
-<!--                                        <label for="name-af7d" class="u-label">Имя *</label>-->
-<!--                                        <input type="text" placeholder="Введите Ваше имя" id="name-af7d" name="name"-->
-<!--                                               class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white"-->
-<!--                                               required="">-->
-<!--                                    </div>-->
-<!--                                    <div class="u-form-group u-form-group-2">-->
-<!--                                        <label for="text-456f" class="u-label">Пароль *</label>-->
-<!--                                        <input type="text" placeholder="Введите пароль" id="text-456f" name="password"-->
-<!--                                               class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">-->
-<!--                                    </div>-->
-<!--                                    <div class="u-align-left u-form-group u-form-submit">-->
-<!--                                        <a href="#"-->
-<!--                                           class="u-btn u-btn-submit u-button-style u-hover-palette-1-dark-1 u-palette-1-base u-btn-1">Отправить</a>-->
-<!--                                        <input type="submit" value="submit" class="u-form-control-hidden">-->
-<!--                                    </div>-->
-<!--                                    <div class="u-form-send-message u-form-send-success"> Спасибо! Ваше сообщение-->
-<!--                                        отправлено.-->
-<!--                                    </div>-->
-<!--                                    <div class="u-form-send-error u-form-send-message"> Отправка не удалась. Пожалуйста,-->
-<!--                                        исправьте ошибки и попробуйте еще раз.-->
-<!--                                    </div>-->
-<!--                                    <input type="hidden" value="" name="recaptchaResponse">-->
-<!--                                    <input type="hidden" name="formServices" value="d63bb3e430b0be33c541c12d5118d665">-->
-<!--                                </form>-->
+                                <!--                                      class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email"-->
+                                <!--                                      name="form" style="padding: 10px;">-->
+                                <!--                                    <div class="u-form-group u-form-name">-->
+                                <!--                                        <label for="name-af7d" class="u-label">Имя *</label>-->
+                                <!--                                        <input type="text" placeholder="Введите Ваше имя" id="name-af7d" name="name"-->
+                                <!--                                               class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white"-->
+                                <!--                                               required="">-->
+                                <!--                                    </div>-->
+                                <!--                                    <div class="u-form-group u-form-group-2">-->
+                                <!--                                        <label for="text-456f" class="u-label">Пароль *</label>-->
+                                <!--                                        <input type="text" placeholder="Введите пароль" id="text-456f" name="password"-->
+                                <!--                                               class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">-->
+                                <!--                                    </div>-->
+                                <!--                                    <div class="u-align-left u-form-group u-form-submit">-->
+                                <!--                                        <a href="#"-->
+                                <!--                                           class="u-btn u-btn-submit u-button-style u-hover-palette-1-dark-1 u-palette-1-base u-btn-1">Отправить</a>-->
+                                <!--                                        <input type="submit" value="submit" class="u-form-control-hidden">-->
+                                <!--                                    </div>-->
+                                <!--                                    <div class="u-form-send-message u-form-send-success"> Спасибо! Ваше сообщение-->
+                                <!--                                        отправлено.-->
+                                <!--                                    </div>-->
+                                <!--                                    <div class="u-form-send-error u-form-send-message"> Отправка не удалась. Пожалуйста,-->
+                                <!--                                        исправьте ошибки и попробуйте еще раз.-->
+                                <!--                                    </div>-->
+                                <!--                                    <input type="hidden" value="" name="recaptchaResponse">-->
+                                <!--                                    <input type="hidden" name="formServices" value="d63bb3e430b0be33c541c12d5118d665">-->
+                                <!--                                </form>-->
                             </div>
-                            <a href="https://nicepage.com/website-design"
-                               class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-button-style u-none u-btn-2">Ссылка</a>
+                            <button onclick="forgotPassword()" class="u-btn u-button-style u-btn-1">Forgot password?</button>
                         </div>
                     </div>
                 </div>
@@ -196,6 +224,21 @@
         <span>Website Builder Software</span>
     </a>.
 </section>
+
+<div class="popup" id="popup" hidden>
+    <span class="popup__close" onclick="closeForgotPassword()">X</span>
+    <h4>Чтобы восстановить пароль, обратитесь в Хелпдеск. Адрес офиса: ул. аль-Фараби, 71/11.</h4>
+</div>
+
+<script>
+    function forgotPassword() {
+        document.getElementById("popup").style.display = "block";
+    }
+
+    function closeForgotPassword() {
+        document.getElementById("popup").style.display = "none";
+    }
+</script>
 
 </body>
 </html>

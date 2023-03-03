@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="ru"
-      xmlns:th="https://www.thymeleaf.org">
+      xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
@@ -50,44 +50,40 @@
 <body class="u-body u-xl-mode" data-lang="ru">
 <header class="u-clearfix u-header u-header" id="sec-d9ff">
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <a href="https://nicepage.com" class="u-image u-logo u-image-1">
+        <a href="/" class="u-image u-logo u-image-1">
             <img th:src="@{/images/3d1cb46b-c73f-44c9-a49f-f830531c72dd.png}" class="u-logo-image u-logo-image-1">
         </a>
         <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1" data-responsive-from="MD">
-            <div class="menu-collapse"
-                 style="font-size: 1rem; letter-spacing: 0px; text-transform: uppercase; font-weight: 500;">
-                <a class="u-button-style u-custom-active-border-color u-custom-active-color u-custom-border u-custom-border-color u-custom-borders u-custom-hover-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                   href="#">
-                    <svg class="u-svg-link" viewBox="0 0 24 24">
-                        <use xlink:href="#menu-hamburger"></use>
-                    </svg>
-                    <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px"
-                         xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-                        <g>
-                            <rect y="1" width="16" height="2"></rect>
-                            <rect y="7" width="16" height="2"></rect>
-                            <rect y="13" width="16" height="2"></rect>
-                        </g>
-                    </svg>
+            <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; text-transform: uppercase; font-weight: 500;">
+                <a class="u-button-style u-custom-active-border-color u-custom-active-color u-custom-border u-custom-border-color u-custom-borders u-custom-hover-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+                    <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
+                    <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+                    </g></svg>
                 </a>
             </div>
             <div class="u-custom-menu u-nav-container">
                 <ul class="u-nav u-spacing-2 u-unstyled u-nav-1">
-                    <li class="u-nav-item"><a
-                            class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                            href="Главная.html" style="padding: 10px 20px;">Главная</a>
-                    </li>
-                    <li class="u-nav-item"><a
-                            class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                            href="Projects.html" style="padding: 10px 20px;">Projects</a>
-                    </li>
-                    <li class="u-nav-item"><a
-                            class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                            href="Project.html" style="padding: 10px 20px;">Project</a>
-                    </li>
-                    <li class="u-nav-item"><a
-                            class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                            href="#" style="padding: 10px 20px;">Login</a>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/home}" style="padding: 10px 20px;">Home</a></li>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/kanban}" style="padding: 10px 20px;">Kanban board</a></li>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/dashboard}" style="padding: 10px 20px;">Dashboard</a></li>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/projects}" style="padding: 10px 20px;">Projects</a></li>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/profile}" sec:authorize="isAuthenticated()" style="padding: 10px 20px;">Profile</a></li>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/login}" sec:authorize="isAnonymous()" style="padding: 10px 20px;">Login</a></li>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/logout}" sec:authorize="isAuthenticated()" style="padding: 10px 20px;">Log out</a>
                     </li>
                 </ul>
             </div>
@@ -96,15 +92,13 @@
                     <div class="u-inner-container-layout u-sidenav-overflow">
                         <div class="u-menu-close"></div>
                         <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Главная.html">Главная</a>
-                            </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link"
-                                                      href="Projects.html">Projects</a>
-                            </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Project.html">Project</a>
-                            </li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#">Login</a>
-                            </li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/home}">Home</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/kanban}">Kanban board</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/dashboard}">Dashboard</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/projects}">Projects</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/profile}" sec:authorize="isAuthenticated()">Profile</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/login}" sec:authorize="isAnonymous()">Login</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/logout}" sec:authorize="isAuthenticated()">Log out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -117,15 +111,9 @@
     <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-align-center u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-shape-rectangle u-group-1">
             <div class="u-container-layout">
-                <h6 class="u-align-left u-custom-font u-font-montserrat u-text u-text-default u-text-1">about us</h6>
-                <h2 class="u-align-left u-custom-font u-font-montserrat u-text u-text-2"> Fundraising for nonprofits
-                    made simple</h2>
-                <h5 class="u-align-left u-custom-font u-font-montserrat u-text u-text-palette-5-base u-text-3"> We help
-                    local nonprofits access the funding, tools, training, and support they need to become more
-                    effective.</h5>
-                <p class="u-align-left u-text u-text-4">Image from <a href="https://freepik.com"
-                                                                      class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-5-base u-btn-1">Freepik</a>
-                </p>
+                <h6 class="u-align-left u-custom-font u-font-montserrat u-text u-text-default u-text-1">about a project</h6>
+                <h2 class="u-align-left u-custom-font u-font-montserrat u-text u-text-2" th:text="${project.name}"> </h2>
+                <h5 class="u-align-left u-custom-font u-font-montserrat u-text u-text-palette-5-base u-text-3" th:text="${project.description}"></h5>
             </div>
         </div>
         <img class="u-image u-image-contain u-image-default u-image-1"
@@ -133,17 +121,14 @@
              data-image-width="608" data-image-height="820">
         <div class="u-align-center u-container-style u-group u-palette-5-base u-radius-30 u-shape-round u-group-2">
             <div class="u-container-layout u-valign-middle u-container-layout-2">
-                <h5 class="u-custom-font u-font-montserrat u-text u-text-default u-text-5"> Secure payment
-                    processor</h5>
-                <p class="u-text u-text-6">Sample text. Click to select the text box. Click again or double click to
-                    start editing the text.</p>
+                <h5 class="u-custom-font u-font-montserrat u-text u-text-default u-text-5">Goals</h5>
+                <p class="u-text u-text-6" th:text="${project.goal}"></p>
             </div>
         </div>
         <div class="u-align-center u-container-style u-grey-10 u-group u-radius-50 u-shape-round u-group-3">
             <div class="u-container-layout u-valign-middle u-container-layout-3">
-                <h5 class="u-custom-font u-font-montserrat u-text u-text-7"> A mobile friendly donation page</h5>
-                <p class="u-text u-text-8">Sample text. Click to select the text box. Click again or double click to
-                    start editing the text.</p>
+                <h5 class="u-custom-font u-font-montserrat u-text u-text-7">Responsibility</h5>
+                <p class="u-text u-text-8" th:text="${project.responsibility}"></p>
             </div>
         </div>
     </div>
@@ -200,7 +185,7 @@
                 <div class="u-align-left u-container-style u-tab-pane u-white u-tab-pane-2" id="tab-1d32"
                      role="tabpanel" aria-labelledby="link-tab-1d32">
                     <div class="u-container-layout u-container-layout-2">
-                        <button onclick="createSprint()" class="u-btn u-button-style u-btn-2">Create sprint</button>
+                        <button th:onclick="createSprint([[${isRolePM}]])" class="u-btn u-button-style u-btn-2">Create sprint</button>
                         <h3 class="u-text u-text-default u-text-2">Спринты по проекту</h3>
                         <div class="u-table u-table-responsive u-table-2">
                             <table class="u-table-entity">
@@ -231,7 +216,8 @@
                 <div class="u-align-left u-container-style u-tab-pane u-white u-tab-pane-3" id="tab-3e17"
                      role="tabpanel" aria-labelledby="link-tab-3e17">
                     <div class="u-container-layout u-container-layout-3">
-                        <button onclick="addUserToProject()" class="u-btn u-button-style u-btn-3">Add user to project</button>
+                        <button th:onclick="addUserToProject([[${isRolePM}]])"
+                                class="u-btn u-button-style u-btn-3">Add user to project</button>
                         <h3 class="u-text u-text-default u-text-3">Список исполнителей</h3>
                         <div class="u-table u-table-responsive u-table-3">
                             <table class="u-table-entity">
@@ -248,17 +234,19 @@
                                     <td class="u-table-cell">Id</td>
                                     <td class="u-table-cell">Username</td>
                                     <td class="u-table-cell">Name</td>
-                                    <td class="u-table-cell">Surname</td>
+                                    <td class="u-table-cell">Role</td>
                                     <td class="u-table-cell">Email</td>
                                     <td class="u-table-cell">Telephone number</td>
                                 </tr>
-                                <tr style="height: 65px;" th:each="users : ${usersByProject}">
-                                    <td class="u-table-cell" th:text="${users.id}"></td>
-                                    <td class="u-table-cell" th:text="${users.username}"></td>
-                                    <td class="u-table-cell" th:text="${users.name}"></td>
-                                    <td class="u-table-cell" th:text="${users.surname}"></td>
-                                    <td class="u-table-cell" th:text="${users.email}"></td>
-                                    <td class="u-table-cell" th:text="${users.phoneNumber}"></td>
+                                <tr style="height: 65px;" th:each="user : ${usersByProject}">
+                                    <td class="u-table-cell" th:text="${user.id}"></td>
+                                    <td class="u-table-cell">
+                                        <a th:href="@{'/profile?id=' + ${user.id}}" th:text="${user.username}"></a>
+                                    </td>
+                                    <td class="u-table-cell" th:text="${user.name + ' ' + user.surname}"></td>
+                                    <td class="u-table-cell" th:text="${user.role}"></td>
+                                    <td class="u-table-cell" th:text="${user.email}"></td>
+                                    <td class="u-table-cell" th:text="${user.phoneNumber}"></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -305,8 +293,8 @@
     <h2>Create new hub</h2>
     <form method="post" action="/save-hub">
         <input type="hidden" name="projectId" th:value="${projectId}">
-        <input type="text" name="name" placeholder="Name">
-        <input type="text" name="content" placeholder="Content">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="content" placeholder="Content" required>
         <input name="submit" type="submit" value="submit" />
     </form>
 </div>
@@ -316,9 +304,9 @@
     <h2>Create new sprint</h2>
     <form method="post" action="/save-sprint">
         <input type="hidden" name="projectId" th:value="${projectId}">
-        <input type="text" name="name" placeholder="Name">
-        <input type="date" name="startDate" placeholder="Start date">
-        <input type="date" name="endDate" placeholder="End date">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="date" name="startDate" placeholder="Start date" required>
+        <input type="date" name="endDate" placeholder="End date" required>
         <input name="submit" type="submit" value="submit" />
     </form>
 </div>
@@ -336,6 +324,10 @@
         <input name="submit" type="submit" value="submit" />
     </form>
 </div>
+<div class="popup" id="sprint_popup2" hidden>
+    <span class="popup__close" onclick="closeSprint()">X</span>
+    <h2>У вас нет полномочии</h2>
+</div>
 
 <script>
     function createHub() {
@@ -346,16 +338,25 @@
         document.getElementById("popup").style.display = "none";
     }
 
-    function createSprint() {
-        document.getElementById("sprint_popup").style.display = "block";
+    function createSprint(isRolePM) {
+        if (isRolePM) {
+            document.getElementById("sprint_popup").style.display = "block";
+        } else {
+            document.getElementById("sprint_popup2").style.display = "block";
+        }
     }
 
     function closeSprint() {
         document.getElementById("sprint_popup").style.display = "none";
+        document.getElementById("sprint_popup2").style.display = "none";
     }
 
-    function addUserToProject() {
-        document.getElementById("users_popup").style.display = "block";
+    function addUserToProject(isRolePM) {
+        if (isRolePM) {
+            document.getElementById("users_popup").style.display = "block";
+        } else {
+            document.getElementById("sprint_popup2").style.display = "block";
+        }
     }
 
     function closeAddUserToProject() {

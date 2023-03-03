@@ -29,7 +29,7 @@
     <meta data-intl-tel-input-cdn-path="intlTelInput/">
 </head>
 <body data-home-page="https://website4214038.nicepage.io/Главная.html?version=df046915-2b4c-4481-a3c3-4581dc45608d" data-home-page-title="Главная" class="u-body u-xl-mode" data-lang="ru"><header class="u-clearfix u-header u-header" id="sec-d9ff"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-    <a href="https://nicepage.com" class="u-image u-logo u-image-1">
+    <a href="/" class="u-image u-logo u-image-1">
         <img src="images/3d1cb46b-c73f-44c9-a49f-f830531c72dd.png" class="u-logo-image u-logo-image-1">
     </a>
     <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1" data-responsive-from="MD">
@@ -41,23 +41,44 @@
             </a>
         </div>
         <div class="u-custom-menu u-nav-container">
-            <ul class="u-nav u-spacing-2 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" th:href="@{/home}" style="padding: 10px 20px;">Home</a>
-            </li><li class="u-nav-item"><a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" th:href="@{/projects}" style="padding: 10px 20px;">Projects</a>
-            </li><li class="u-nav-item"><a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" th:href="@{/dashboard}" style="padding: 10px 20px;">Dashboard</a>
-            </li><li class="u-nav-item"><a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" th:href="@{/login}" sec:authorize="isAnonymous()" style="padding: 10px 20px;">Login</a>
-            </li><li class="u-nav-item"><a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white" th:href="@{/account}" sec:authorize="isAuthenticated()" style="padding: 10px 20px;">Account</a>
-            </li></ul>
+            <ul class="u-nav u-spacing-2 u-unstyled u-nav-1">
+                <li class="u-nav-item">
+                    <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white active"
+                       th:href="@{/home}" style="padding: 10px 20px;">Home</a></li>
+                <li class="u-nav-item">
+                    <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                       th:href="@{/kanban}" style="padding: 10px 20px;">Kanban board</a></li>
+                <li class="u-nav-item">
+                    <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                       th:href="@{/dashboard}" style="padding: 10px 20px;">Dashboard</a></li>
+                <li class="u-nav-item">
+                    <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                       th:href="@{/projects}" style="padding: 10px 20px;">Projects</a></li>
+                <li class="u-nav-item">
+                    <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                       th:href="@{/profile}" sec:authorize="isAuthenticated()" style="padding: 10px 20px;">Profile</a></li>
+                <li class="u-nav-item">
+                    <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                       th:href="@{/login}" sec:authorize="isAnonymous()" style="padding: 10px 20px;">Login</a></li>
+                <li class="u-nav-item">
+                    <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                       th:href="@{/logout}" sec:authorize="isAuthenticated()" style="padding: 10px 20px;">Log out</a>
+                </li>
+            </ul>
         </div>
         <div class="u-custom-menu u-nav-container-collapse">
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
                 <div class="u-inner-container-layout u-sidenav-overflow">
                     <div class="u-menu-close"></div>
-                    <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/home}">Home</a>
-                    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/projects}">Projects</a>
-                    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/dashboard}">Dashboard</a>
-                    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/login}" sec:authorize="isAnonymous()">Login</a>
-                    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/account}" sec:authorize="isAuthenticated()">Account</a>
-                    </li></ul>
+                    <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/home}">Home</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/kanban}">Kanban board</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/dashboard}">Dashboard</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/projects}">Projects</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/profile}" sec:authorize="isAuthenticated()">Profile</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/login}" sec:authorize="isAnonymous()">Login</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/logout}" sec:authorize="isAuthenticated()">Log out</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
@@ -79,7 +100,6 @@
             <div class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-container-layout-1">
                 <h1 class="u-custom-font u-text u-text-palette-1-light-1 u-text-1"> IT Company</h1>
                 <p class="u-text u-text-2">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident...</p>
-                <p class="u-text u-text-3">Image from <a href="https://www.freepik.com/vectors/technology" class="u-active-none u-border-1 u-border-active-grey-50 u-border-grey-75 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-btn u-button-link u-button-style u-hover-none u-none u-text-body-color u-btn-1">Freepik</a>
                 </p>
                 <a href="https://nicepage.com/k/astrology-website-templates" class="u-active-palette-1-light-1 u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-6 u-text-active-white u-text-body-alt-color u-text-hover-white u-btn-2">contact us</a>
             </div>
@@ -159,9 +179,6 @@
             </div>
         </div>
     </div>
-    <p class="u-text u-text-9">Images from&nbsp;<b>
-        <a href="https://www.freepik.com/vectors/technology" class="u-border-1 u-border-black u-border-no-left u-border-no-right u-border-no-top u-btn u-button-link u-button-style u-none u-text-body-color u-btn-4" target="_blank">Freepik</a></b>
-    </p>
 </section>
 <section class="u-align-center u-clearfix u-palette-1-base u-section-4" id="sec-dc96">
     <div class="u-clearfix u-sheet u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
@@ -582,8 +599,6 @@
                 </div>
             </div>
         </div>
-        <p class="u-text u-text-body-alt-color u-text-11">Image from <a href="https://www.freepik.com/photos/travel" class="u-active-none u-border-1 u-border-active-palette-4-light-2 u-border-hover-palette-4-light-1 u-border-no-left u-border-no-right u-border-no-top u-border-palette-4-base u-btn u-button-link u-button-style u-hover-none u-none u-text-body-alt-color u-btn-5">Freepik</a>
-        </p>
     </div>
 </section>
 <section class="u-align-center u-clearfix u-white u-section-7" id="carousel_4dc0">
@@ -599,8 +614,6 @@
         <h2 class="u-custom-font u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-palette-1-base u-text-1">Custom software solutions</h2>
         <p class="u-large-text u-text u-text-font u-text-variant u-text-2"> Quam nulla porttitor massa id neque aliquam vestibulum morbi blandit. Neque vitae tempus quam pellentesque nec nam aliquam sem. Neque ornare aenean euismod. </p>
         <a href="https://nicepage.dev" class="u-active-palette-1-light-2 u-btn u-btn-round u-button-style u-hover-palette-1-light-2 u-palette-3-base u-radius-6 u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base u-btn-1">Learn more</a>
-        <p class="u-text u-text-default u-text-3">Image from <a href="https://www.freepik.com/vectors/technology" class="u-active-none u-border-1 u-border-active-grey-50 u-border-grey-75 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-btn u-button-link u-button-style u-hover-none u-none u-text-body-color u-btn-2">Freepik</a>
-        </p>
     </div>
 </section>
 <section class="u-clearfix u-palette-1-base u-section-8" id="carousel_87c6">

@@ -38,6 +38,8 @@ public class ProjectMapper {
                 .description(project.getDescription())
                 .projectManagerId(onlyPm.get(0).getId())
                 .projectManagerName(name + ' ' + surname)
+                .goal(project.getGoal())
+                .responsibility(project.getResponsibility())
                 .build();
     }
 }

@@ -24,7 +24,7 @@ public class EventLog {
     @Column(name = "created_time", nullable = false)
     private LocalDateTime createdTime;
 
-    @Column(name = "payload", nullable = false)
+    @Column(name = "payload", nullable = false, length = 1000)
     private String payload;
 
     @ManyToOne

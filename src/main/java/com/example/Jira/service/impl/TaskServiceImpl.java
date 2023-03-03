@@ -21,8 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.example.Jira.configuration.Constants.PROJECT_NOT_FOUND;
-import static com.example.Jira.configuration.Constants.USER_NOT_FOUND;
+import static com.example.Jira.configuration.Constants.*;
 
 @Service
 @AllArgsConstructor
@@ -69,5 +68,12 @@ public class TaskServiceImpl implements ITaskService {
                 .stream()
                 .map(mapper::toDto)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public TaskDto getById(Long id) {
+        return repository.findById(id)
+                .map(mapper::toDto)
+                .orElseThrow(() -> new EntityNotFoundException(TASK_NOT_FOUND + id));
     }
 }

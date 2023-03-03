@@ -10,4 +10,6 @@ public interface ITaskService {
     TaskDto save(CreateTaskRequest request, User user);
 
     List<TaskDto> getByUserAssigneeInWork(User user);
+
+    TaskDto getById(Long id);
 }

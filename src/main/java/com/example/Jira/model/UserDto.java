@@ -20,4 +20,6 @@ public class UserDto {
     private String phoneNumber;
     private String surname;
     private String urlPicture;
+    private String role;
+    private String registerAt;
 }

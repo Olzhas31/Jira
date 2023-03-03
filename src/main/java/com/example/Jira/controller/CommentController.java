@@ -16,7 +16,6 @@ public class CommentController {
     private final ICommentService service;
 
     // TODO test
-    // TODO add log
     @PostMapping("/save-comment")
     public String saveComment(CreateCommentRequest request, Authentication authentication){
         User user = (User) authentication.getPrincipal();

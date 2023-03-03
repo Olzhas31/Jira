@@ -15,4 +15,12 @@ public class CreateHubRequest {
     private String content;
     private Long projectId;
 
+    @Override
+    public String toString() {
+        return "CreateHubRequest{" +
+                "name='" + name + '\'' +
+                ", content='" + content + '\'' +
+                ", projectId=" + projectId +
+                '}';
+    }
 }

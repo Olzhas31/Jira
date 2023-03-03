@@ -12,4 +12,7 @@ public interface IUserService extends UserDetailsService {
 
     List<UserDto> getAll();
 
+    UserDto getById(Long id);
+
+    void update(UserDto userDto);
 }
