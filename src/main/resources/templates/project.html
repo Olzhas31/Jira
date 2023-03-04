@@ -175,7 +175,9 @@
                                     <td class="u-table-cell" th:text="${hub.id}"></td>
                                     <td class="u-table-cell" th:text="${hub.name}"></td>
                                     <td class="u-table-cell" th:text="${hub.updatedTime}"></td>
-                                    <td class="u-table-cell" th:text="${hub.updaterName}"></td>
+                                    <td class="u-table-cell">
+                                        <a th:href="@{'/profile?id=' + ${hub.updaterId}}" th:text="${hub.updaterName}"></a>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>

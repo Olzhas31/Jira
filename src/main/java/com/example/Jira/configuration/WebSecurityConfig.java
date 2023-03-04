@@ -1,9 +1,11 @@
 package com.example.Jira.configuration;
 
+import com.example.Jira.entity.states.Roles;
 import com.example.Jira.service.IUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -24,7 +26,14 @@ public class WebSecurityConfig {
         http
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/home").permitAll()
+                .requestMatchers("/", "/home")
+                    .permitAll()
+                .requestMatchers(HttpMethod.POST, "/save-project", "/add-user-to-project", "/save-sprint")
+                    .hasAuthority(Roles.PROJECT_MANAGER.name())
+                .requestMatchers("/admin", "/save-user")
+                    .hasAuthority(Roles.ADMIN.name())
+                .requestMatchers(HttpMethod.POST, "/save-user")
+                    .hasAuthority(Roles.ADMIN.name())
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -39,7 +48,8 @@ public class WebSecurityConfig {
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return web -> web.ignoring().requestMatchers("/css/**", "/images/**", "/js/**", "/img/**");
+        return web -> web.ignoring().requestMatchers(
+                "/css/**", "/images/**", "/js/**", "/fonts/**");
     }
 
     @Bean

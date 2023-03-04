@@ -29,7 +29,7 @@ menu.list .viewlist {
 
 .dd {
     max-width: 100%;
-    top: 88px;
+    /*top: 88px;*/
     margin: 0 auto;
     display: block;
     vertical-align: top;
@@ -215,7 +215,7 @@ ol.kanban {
     box-sizing: border-box;
 }
 
-.title {
+.jira_title {
     align-self: flex-end;
     color: inherit;
     display: block;

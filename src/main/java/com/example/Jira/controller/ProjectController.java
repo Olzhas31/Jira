@@ -28,7 +28,6 @@ public class ProjectController {
     private final ISprintService sprintService;
     private final IEventLogService log;
 
-    // TODO only pm
     @PostMapping("/save-project")
     public String saveProject(CreateProjectRequest request, Authentication authentication){
         User user = (User) authentication.getPrincipal();
@@ -36,7 +35,7 @@ public class ProjectController {
         ProjectDto projectDto = service.save(request, user);
         log.save(user, "created new project. ProjectDto: " + projectDto);
 
-        return "redirect:/projects";
+        return "redirect:/projects/" + projectDto.getId();
     }
 
     @GetMapping("/projects")
@@ -66,13 +65,12 @@ public class ProjectController {
         return "project";
     }
 
-    //    TODO only pm
     @PostMapping("/add-user-to-project")
     public String addUserToProject(AddUserToProjectRequest request, Authentication authentication) {
         User user = (User) authentication.getPrincipal();
         log.save(user, "request to add user to project. Request: " + request);
         Map<ProjectDto, UserDto> response = service.addUserToProject(request.getUserId(), request.getProjectId());
         log.save(user, "user added to project. " + response.entrySet());
-        return "redirect:/";
+        return "redirect:/projects/" + request.getProjectId();
     }
 }

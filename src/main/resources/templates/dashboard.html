@@ -114,7 +114,12 @@
 		C60,47.739,52.646,44.247,42.117,43.007z"></path>
 </g></svg></span>
                         <h6 class="u-align-left u-custom-font u-font-montserrat u-text u-text-1">Backlog</h6>
-                        <p class="u-align-left u-text u-text-2">Sample text. Click to select the Text Element.</p>
+                        <ul class="u-align-left u-text u-text-2">
+                            <li th:each="project : ${backlog}">
+                                <a th:href="@{'/kanban?project-id=' + ${project.getProjectId()}}"
+                                   th:text="${project.getProjectName()} + ' : ' + ${project.getTaskSize()}"></a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="u-container-style u-custom-item u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-2">
@@ -142,7 +147,12 @@
 		S27.553,13,27,13z"></path>
 </g></svg></span>
                         <h6 class="u-align-left u-custom-font u-font-montserrat u-text u-text-3">Analyzing</h6>
-                        <p class="u-align-left u-text u-text-4">Sample text. Click to select the Text Element.</p>
+                        <ul class="u-align-left u-text u-text-4">
+                            <li th:each="project : ${analyzing}">
+                                <a th:href="@{'/kanban?project-id=' + ${project.getProjectId()}}"
+                                   th:text="${project.getProjectName()} + ' : ' + ${project.getTaskSize()}"></a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="u-container-align-left u-container-style u-custom-item u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-3">
@@ -150,7 +160,12 @@
                             class="u-align-left u-custom-item u-file-icon u-icon u-text-palette-1-base u-icon-3"><img
                             src="images/148799-a2e795c7.png" alt=""></span>
                         <h6 class="u-align-left u-custom-font u-font-montserrat u-text u-text-5">In progress</h6>
-                        <p class="u-align-left u-text u-text-6">Sample text. Click to select the Text Element.</p>
+                        <ul class="u-align-left u-text u-text-6">
+                            <li th:each="project : ${inProgress}">
+                                <a th:href="@{'/kanban?project-id=' + ${project.getProjectId()}}"
+                                   th:text="${project.getProjectName()} + ' : ' + ${project.getTaskSize()}"></a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="u-container-align-left u-container-style u-custom-item u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-4">
@@ -184,7 +199,12 @@
 	z M32.521,55.763c3.534-3.364,6.326-7.337,8.271-11.698c2.632,0.945,5.15,2.209,7.517,3.781
 	C44.177,52.078,38.672,54.958,32.521,55.763z"></path></svg></span>
                         <h6 class="u-align-left u-custom-font u-font-montserrat u-text u-text-7"> Waiting </h6>
-                        <p class="u-align-left u-text u-text-8">Sample text. Click to select the Text Element.</p>
+                        <ul class="u-align-left u-text u-text-8">
+                            <li th:each="project : ${waiting}">
+                                <a th:href="@{'/kanban?project-id=' + ${project.getProjectId()}}"
+                                   th:text="${project.getProjectName()} + ' : ' + ${project.getTaskSize()}"></a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="u-container-align-left u-container-style u-custom-item u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-5">
@@ -192,15 +212,25 @@
                             class="u-align-left u-custom-item u-file-icon u-icon u-icon-circle u-palette-4-base u-icon-5"><img
                             src="images/149236-2f6ed966.png" alt=""></span>
                         <h6 class="u-align-left u-custom-font u-font-montserrat u-text u-text-9"> Production deployment</h6>
-                        <p class="u-align-left u-text u-text-10">Sample text. Click to select the Text Element.</p>
+                        <ul class="u-align-left u-text u-text-10">
+                            <li th:each="project : ${deploy}">
+                                <a th:href="@{'/kanban?project-id=' + ${project.getProjectId()}}"
+                                   th:text="${project.getProjectName()} + ' : ' + ${project.getTaskSize()}"></a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="u-container-style u-custom-item u-list-item u-palette-4-base u-radius-30 u-repeater-item u-shape-round u-list-item-6">
                     <div class="u-container-layout u-similar-container u-container-layout-6"><span
                             class="u-align-left u-custom-item u-file-icon u-icon u-icon-circle u-text-palette-4-base u-white u-icon-6"><img
                             src="images/149412-8ef6c64f.png" alt=""></span>
-                        <h6 class="u-align-left u-custom-font u-font-montserrat u-text u-text-11"> Closed</h6>
-                        <p class="u-align-left u-text u-text-12">Sample text. Click to select the Text Element.</p>
+                        <h6 class="u-align-left u-custom-font u-font-montserrat u-text u-text-11"> Done</h6>
+                        <ul class="u-align-left u-text u-text-12">
+                            <li th:each="project : ${done}">
+                                <a th:href="@{'/kanban?project-id=' + ${project.getProjectId()}}"
+                                   th:text="${project.getProjectName()} + ' : ' + ${project.getTaskSize()}"></a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>

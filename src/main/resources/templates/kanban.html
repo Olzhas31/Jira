@@ -1,136 +1,239 @@
 <!DOCTYPE html>
-<html lang="en">
+<html style="font-size: 16px;" lang="ru"
+      xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>CodePen - Kanban Board</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>Kanban</title>
+    <link rel="stylesheet" th:href="@{/css/nicepage_dashboard.css}" media="screen">
+    <link rel="stylesheet" th:href="@{/css/Dashboard.css}" media="screen">
+    <link rel="stylesheet" th:href="@{/css/kanban.css}" media="screen">
+    <script class="u-script" type="text/javascript" th:src="@{/js/jquery-1.9.1.min.js}" defer=""></script>
+    <script class="u-script" type="text/javascript" th:src="@{/js/nicepage.js}" defer=""></script>
+    <meta name="generator" content="Nicepage 5.5.0, nicepage.com">
     <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Arbutus+Slab'>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css'>
-    <link rel="stylesheet" th:href="@{/css/kanban.css}">
+    <link id="u-theme-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i|Cambay:400,400i,700,700i">
+    <link id="u-page-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
 
+    <script type="application/ld+json">{
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "",
+        "logo": "images/3d1cb46b-c73f-44c9-a49f-f830531c72dd.png"
+    }</script>
+
+    <meta name="theme-color" content="#5595e8">
+    <meta property="og:title" content="Dashboard">
+    <meta property="og:type" content="website">
+    <meta data-intl-tel-input-cdn-path="intlTelInput/">
 </head>
-<body>
-<!-- partial:index.partial.html -->
-<!-- Simple MDL Progress Bar -->
-<div id="p1" class="mdl-progress mdl-js-progress"></div>
-<script>
-    document.querySelector('#p1').addEventListener('mdl-componentupgraded', function () {
-        this.MaterialProgress.setProgress(44);
-    });
-</script>
-<div class="kanban__title">
-    <h1><i class="material-icons">check</i> To do list</h1></div>
-<div class="dd">
-
-    <ol class="kanban To-do">
-        <div class="kanban__title">
-            <h2><i class="material-icons">report_problem</i> To do</h2></div>
-        <li class="dd-item" data-id="1">
-            <h3 class="title dd-handle">Do the dishes<i class=" material-icons ">filter_none</i></h3>
-            <div class="text" contenteditable="true">wwPaul Rand once said, “The public is more familiar with bad
-                fucking design than good design. It is, in effect, conditioned to prefer
-
+<body class="u-body u-xl-mode" data-lang="ru">
+<header class="u-clearfix u-header u-header" id="sec-d9ff">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <a href="/" class="u-image u-logo u-image-1">
+            <img src="images/3d1cb46b-c73f-44c9-a49f-f830531c72dd.png" class="u-logo-image u-logo-image-1">
+        </a>
+        <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1" data-responsive-from="MD">
+            <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; text-transform: uppercase; font-weight: 500;">
+                <a class="u-button-style u-custom-active-border-color u-custom-active-color u-custom-border u-custom-border-color u-custom-borders u-custom-hover-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+                    <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
+                    <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+                    </g></svg>
+                </a>
             </div>
-            <i class="material-icons" id="label blue">label</i>
-            <div class="actions">
-                <i class="material-icons" id="color">palette</i><i class="material-icons">edit</i><i
-                    class="material-icons">insert_link</i><i class="material-icons">attach_file</i></div>
-
-        </li>
-        <li class="dd-item" data-id="4">
-            <h3 class="title dd-handle"><i class=" material-icons ">filter_none</i>log-in bug</h3>
-            <div class="text" contenteditable="true">Paul Rand once said, “The public is more familiar with bad fucking
-                design than good design. It is, in effect, conditioned to prefer bad design,
+            <div class="u-custom-menu u-nav-container">
+                <ul class="u-nav u-spacing-2 u-unstyled u-nav-1">
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/home}" style="padding: 10px 20px;">Home</a></li>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white active"
+                           th:href="@{/kanban}" style="padding: 10px 20px;">Kanban board</a></li>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/dashboard}" style="padding: 10px 20px;">Dashboard</a></li>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/projects}" style="padding: 10px 20px;">Projects</a></li>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/profile}" sec:authorize="isAuthenticated()" style="padding: 10px 20px;">Profile</a></li>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/login}" sec:authorize="isAnonymous()" style="padding: 10px 20px;">Login</a></li>
+                    <li class="u-nav-item">
+                        <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
+                           th:href="@{/logout}" sec:authorize="isAuthenticated()" style="padding: 10px 20px;">Log out</a>
+                    </li>
+                </ul>
             </div>
-            <div class="actions">
-                <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i
-                    class="material-icons">attach_file</i></div>
-
-        </li>
-        <li class="dd-item" data-id="3">
-            <h3 class="title dd-handle"><i class=" material-icons ">filter_none</i>UX design</h3>
-            <div class="text" contenteditable="true">Paul Rand once said, “The public is more familiar with bad fucking
-                design than good design. It is, in effect, conditioned to prefer bad design,
+            <div class="u-custom-menu u-nav-container-collapse">
+                <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+                    <div class="u-inner-container-layout u-sidenav-overflow">
+                        <div class="u-menu-close"></div>
+                        <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/home}">Home</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/kanban}">Kanban board</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/dashboard}">Dashboard</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/projects}">Projects</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/profile}" sec:authorize="isAuthenticated()">Profile</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/login}" sec:authorize="isAnonymous()">Login</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/logout}" sec:authorize="isAuthenticated()">Log out</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
             </div>
-            <div class="actions">
-                <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i
-                    class="material-icons">attach_file</i></div>
+        </nav>
+    </div>
+</header>
 
+<section class="u-clearfix u-gradient u-section-1" id="sec-f4cc">
+    <div class="u-clearfix u-sheet u-sheet-1"></div>
+</section>
+<section class="u-clearfix u-section-3" >
+    <a th:if="${error == null}"
+       th:href="@{'/projects/' + ${projectDto.getId()}}"
+       th:text="${projectDto.getName()}"></a>
+    <span th:if="${error != null}">Вы не состоите в проектах</span>
+</section>
 
-            <div class="actions">
-                <button class="addbutt"><i class="material-icons">control_point</i> Add new</button>
-            </div>
-    </ol>
-    <ol class="kanban progress">
-        <h2><i class="material-icons">build</i> In progress</h2>
-        <li class="dd-item" data-id="5">
-            <h3 class="title dd-handle"><i class=" material-icons ">filter_none</i> title of job</h3>
-            <div class="text" contenteditable="true">Paul Rand once said, “The public is more familiar with bad fucking
-                design than good design. It is, in effect, conditioned to prefer bad design,
-            </div>
-            <div class="actions">
-                <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i
-                    class="material-icons">attach_file</i></div>
+<section class="u-clearfix u-section-3" id="sec-126e">
+<!--    <div class="u-clearfix u-sheet u-sheet-1">-->
 
-        </li>
-    </ol>
-    <ol class="kanban  Done">
-        <h2><i class="material-icons">check_circle</i> Done</h2>
-        <li class="dd-item" data-id="5">
-            <h3 class="title dd-handle"><i class=" material-icons ">filter_none</i> title of job</h3>
-            <div class="text" contenteditable="true">Paul Rand once said, “The public is more familiar with bad fucking
-                design than good design. It is, in effect, conditioned to prefer bad design,
-            </div>
-            <div class="actions">
-                <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i
-                    class="material-icons">attach_file</i></div>
-
-        </li>
-        </li>
-        <li class="dd-item" data-id="2">
-            <h3 class="title dd-handle"><i class=" material-icons ">filter_none</i> title of job</h3>
-            <div class="text" contenteditable="true">Paul Rand once said, “The public is more familiar with bad fucking
-                design than good design. It is, in effect, conditioned to prefer bad design,
-            </div>
-            <div class="actions">
-                <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i
-                    class="material-icons">attach_file</i></div>
-
-        </li>
-        <div class="actions">
-            <button class="addbutt"><i class="material-icons">control_point</i> Add new</button>
+        <div class="dd">
+            <ol class="kanban To-do">
+                <div class="kanban__title">
+                    <h2><i class="material-icons">report_problem</i> Backlog</h2>
+                    <li class="dd-item" th:each="task : ${backlog}">
+                        <h3 class="jira_title dd-handle">
+                            <i class=" material-icons ">filter_none</i>
+                            <a th:href="@{'/task?id=' + ${task.getId}}" th:text="${task.name}"></a>
+                        </h3>
+                        <div class="text" contenteditable="true" th:text="${task.title}"></div>
+                        <div class="text">
+                            <a th:href="@{'/profile?id=' + ${task.assigneeId}}"
+                               th:text="${task.assigneeName}"></a>
+                        </div>
+                        <div class="actions">
+                            <i class="material-icons">palette</i>
+                            <i class="material-icons">edit</i>
+                            <i class="material-icons">insert_link</i>
+                            <i class="material-icons">attach_file</i>
+                        </div>
+                    </li>
+                </div>
+            </ol>
+            <ol class="kanban progress">
+                <h2><i class="material-icons">build</i> In process</h2>
+                <li class="dd-item" th:each="task : ${processing}">
+                    <h3 class="jira_title dd-handle">
+                        <i class=" material-icons ">filter_none</i>
+                        <a th:href="@{'/task?id=' + ${task.getId}}" th:text="${task.name}"></a>
+                    </h3>
+                    <div class="text" contenteditable="true" th:text="${task.title}"></div>
+                    <div class="text">
+                        <a th:href="@{'/profile?id=' + ${task.assigneeId}}"
+                           th:text="${task.assigneeName}"></a>
+                    </div>
+                    <div class="actions">
+                        <i class="material-icons">palette</i>
+                        <i class="material-icons">edit</i>
+                        <i class="material-icons">insert_link</i>
+                        <i class="material-icons">attach_file</i>
+                    </div>
+                </li>
+            </ol>
+            <ol class="kanban  Done">
+                <h2><i class="material-icons">check_circle</i> Waiting</h2>
+                <li class="dd-item" th:each="task : ${waiting}">
+                    <h3 class="jira_title dd-handle">
+                        <i class=" material-icons ">filter_none</i>
+                        <a th:href="@{'/task?id=' + ${task.getId}}" th:text="${task.name}"></a>
+                    </h3>
+                    <div class="text" contenteditable="true" th:text="${task.title}"></div>
+                    <div class="text">
+                        <a th:href="@{'/profile?id=' + ${task.assigneeId}}"
+                           th:text="${task.assigneeName}"></a>
+                    </div>
+                    <div class="actions">
+                        <i class="material-icons">palette</i>
+                        <i class="material-icons">edit</i>
+                        <i class="material-icons">insert_link</i>
+                        <i class="material-icons">attach_file</i>
+                    </div>
+                </li>
+            </ol>
+            <ol class="kanban  Done">
+                <h2><i class="material-icons">check_circle</i> Production deployment</h2>
+                <li class="dd-item" th:each="task : ${deploying}">
+                    <h3 class="jira_title dd-handle">
+                        <i class=" material-icons ">filter_none</i>
+                        <a th:href="@{'/task?id=' + ${task.getId}}" th:text="${task.name}"></a>
+                    </h3>
+                    <div class="text" contenteditable="true" th:text="${task.title}"></div>
+                    <div class="text">
+                        <a th:href="@{'/profile?id=' + ${task.assigneeId}}"
+                           th:text="${task.assigneeName}"></a>
+                    </div>
+                    <div class="actions">
+                        <i class="material-icons">palette</i>
+                        <i class="material-icons">edit</i>
+                        <i class="material-icons">insert_link</i>
+                        <i class="material-icons">attach_file</i>
+                    </div>
+                </li>
+            </ol>
+            <ol class="kanban Gone">
+                <h2><i class="material-icons">delete</i> Done</h2>
+                <li class="dd-item" th:each="task : ${done}">
+                    <h3 class="jira_title dd-handle">
+                        <i class=" material-icons ">filter_none</i>
+                        <a th:href="@{'/task?id=' + ${task.getId}}" th:text="${task.name}"></a>
+                    </h3>
+                    <div class="text" contenteditable="true" th:text="${task.title}"></div>
+                    <div class="text">
+                        <a th:href="@{'/profile?id=' + ${task.assigneeId}}"
+                           th:text="${task.assigneeName}"></a>
+                    </div>
+                    <div class="actions">
+                        <i class="material-icons">palette</i>
+                        <i class="material-icons">edit</i>
+                        <i class="material-icons">insert_link</i>
+                        <i class="material-icons">attach_file</i>
+                    </div>
+                </li>
+            </ol>
         </div>
-    </ol>
-    <ol class="kanban Gone">
-        <h2><i class="material-icons">delete</i> Gone</h2>
-        <li class="dd-item" data-id="5">
-            <h3 class="title dd-handle"><i class=" material-icons ">filter_none</i> title of job</h3>
-            <div class="text" contenteditable="true">Paul Rand once said, “The public is more familiar with bad fucking
-                design than good design. It is, in effect, conditioned to prefer bad design,
-            </div>
-            <div class="actions">
-                <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i
-                    class="material-icons">attach_file</i></div>
+<!--    </div>-->
+</section>
 
-        </li>
-        <div class="actions">
-            <button class="addbutt"><i class="material-icons">control_point</i> Add new</button>
-        </div>
-    </ol>
+<section class="u-clearfix u-gradient u-section-4" id="sec-51f7">
+    <div class="u-clearfix u-sheet u-sheet-1"></div>
+</section>
 
-</div>
-<menu class="kanban">
-    <button><i class="material-icons">settings</i></button>
-    <button><i class="material-icons">chevron_left</i></button>
-    <button class="viewkanban"><i class="material-icons ">view_column</i></button>
-    <button class="viewlist"><i class="material-icons">view_list</i></button>
-    <button><i class="material-icons">playlist_add</i> Add new Column</button>
-</menu>
-<!-- partial -->
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js'></script>
-<script th:src="@{/js/kanban.js}"></script>
+
+<footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0fc3">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">Sample text. Click to select the text box. Click again or
+            double click to start editing the text.</p>
+    </div>
+</footer>
+<section class="u-backlink u-clearfix u-grey-80">
+    <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Website Templates</span>
+    </a>
+    <p class="u-text">
+        <span>created with</span>
+    </p>
+    <a class="u-link" href="" target="_blank">
+        <span>Website Builder Software</span>
+    </a>.
+</section>
 
 </body>
 </html>

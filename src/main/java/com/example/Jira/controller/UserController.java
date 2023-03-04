@@ -26,14 +26,12 @@ public class UserController {
     private final UserMapper mapper;
     private final IEventLogService log;
 
-    // TODO only admin
     @GetMapping("/save-user")
     public String showCreateUserPage(Model model) {
         model.addAttribute("roles", Roles.values());
         return "create-user";
     }
 
-    // TODO only admins
     @PostMapping("/save-user")
     public String saveUser(CreateUserRequest request){
         UserDto userDto = service.save(request);
@@ -57,6 +55,7 @@ public class UserController {
         return "profile";
     }
 
+//    TODO каждый может только себя
     @PostMapping("/update-user")
     public String updateUser(UserDto userDto) {
         service.update(userDto);

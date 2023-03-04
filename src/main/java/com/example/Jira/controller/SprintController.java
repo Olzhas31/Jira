@@ -21,7 +21,6 @@ public class SprintController {
     private final ISprintService service;
     private final IEventLogService log;
 
-    // TODO only project manager
     @PostMapping("/save-sprint")
     public String saveSprint(CreateSprintRequest request, Authentication authentication){
         User user = (User) authentication.getPrincipal();

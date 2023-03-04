@@ -2,7 +2,6 @@ package com.example.Jira.controller;
 
 import com.example.Jira.entity.User;
 import com.example.Jira.entity.states.Roles;
-import com.example.Jira.service.ITaskService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
