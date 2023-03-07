@@ -27,6 +27,7 @@ public class UserMapper {
                 .urlPicture(userDetail.getUrlPicture())
                 .role(user.getRole())
                 .registerAt(user.getUserDetail().getRegisterDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")))
+                .locked(user.getLocked())
                 .build();
     }
 

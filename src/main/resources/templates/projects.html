@@ -105,9 +105,11 @@
         </nav>
     </div>
 </header>
-<section class="u-clearfix u-grey-10 u-section-1" id="sec-ed9f">
+
+<section class="u-clearfix u-gradient u-section-1" id="sec-f4cc">
     <div class="u-clearfix u-sheet u-sheet-1"></div>
 </section>
+
 <section class="u-clearfix u-section-2" id="sec-40ff">
     <div class="u-clearfix u-sheet u-valign-middle-sm u-valign-middle-xs u-sheet-1">
         <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
@@ -132,6 +134,7 @@
         </div>
     </div>
 </section>
+
 <section class="u-align-center u-clearfix u-section-3" id="sec-2469">
     <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-list u-list-1">
@@ -139,7 +142,10 @@
                 <div class="u-list-item u-repeater-item" data-href="#" th:each="project : ${projects}">
                     <div class="u-container-layout u-similar-container u-container-layout-1">
                         <span class="u-icon u-icon-circle u-text-palette-1-base u-icon-1">
-                            <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 496.158 496.158" style=""><use xlink:href="#svg-a680"></use></svg>
+<!--                            <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 496.158 496.158" style="">-->
+<!--                                <use xlink:href="#svg-a680"></use>-->
+<!--                            </svg>-->
+                            <span th:text="${project.getId()}" style="font-size: 200%"></span>
                             <svg class="u-svg-content" viewBox="0 0 496.158 496.158" x="0px" y="0px" id="svg-a680" style="enable-background:new 0 0 496.158 496.158;"><path style="fill:currentColor;"
                             d="M248.082,0.003C111.07,0.003,0,111.061,0,248.085c0,137,111.07,248.07,248.082,248.07  c137.006,0,248.076-111.07,248.076-248.07C496.158,111.061,385.088,0.003,248.082,0.003z"></path><path
                             style="fill:#FFFFFF;"
@@ -179,12 +185,10 @@
         </div>
     </div>
 </section>
-<section class="u-clearfix u-grey-10 u-section-4" id="sec-da12">
-    <div class="u-clearfix u-sheet u-sheet-1">
 
-    </div>
+<section class="u-clearfix u-gradient u-section-4" id="sec-51f7">
+    <div class="u-clearfix u-sheet u-sheet-1"></div>
 </section>
-
 
 <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0fc3">
     <div class="u-clearfix u-sheet u-sheet-1">
@@ -208,9 +212,25 @@
     <span class="popup__close" onclick="closeProject()">X</span>
     <h2>Create new project</h2>
     <form action="/save-project" method='POST'>
-        <input type='text' name='name' placeholder="name">
-        <input type='text' name='description' placeholder="description">
-        <input name="submit" type="submit" value="submit" />
+        <table>
+            <tr>
+                <td> <label>Name: </label></td>
+                <td><input type='text' name='name' placeholder="Name"> <br></td>
+            </tr>
+            <tr>
+                <td>  <label>Description: </label></td>
+                <td>  <input type='text' name='description' placeholder="Description"> <br></td>
+            </tr>
+            <tr>
+                <td> <label>Goals: </label></td>
+                <td> <input type='text' name='goal' placeholder="Goals"> <br></td>
+            </tr>
+            <tr>
+                <td> <label>Responsibility: </label></td>
+                <td> <input type='text' name='responsibility' placeholder="Responsibility"> <br></td>
+            </tr>
+        </table>
+        <input name="submit" type="submit" value="submit" class="u-btn u-button-style u-btn-2"/>
     </form>
 </div>
 

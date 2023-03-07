@@ -18,6 +18,10 @@ spring:
     hiddenmethod:
       filter:
         enabled: true
-
+  servlet:
+    multipart:
+      max-file-size: 10MB
 server:
   port: 8080
+  error:
+    include-message: always

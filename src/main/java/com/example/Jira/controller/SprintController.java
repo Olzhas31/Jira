@@ -1,18 +1,21 @@
 package com.example.Jira.controller;
 
 import com.example.Jira.entity.User;
-import com.example.Jira.model.ProjectDto;
 import com.example.Jira.model.SprintDto;
-import com.example.Jira.model.UserDto;
 import com.example.Jira.model.requests.CreateSprintRequest;
 import com.example.Jira.service.IEventLogService;
 import com.example.Jira.service.ISprintService;
+import com.example.Jira.service.ITaskService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Map;
+import java.time.LocalDate;
 
 @Controller
 @AllArgsConstructor
@@ -20,6 +23,7 @@ public class SprintController {
 
     private final ISprintService service;
     private final IEventLogService log;
+    private final ITaskService taskService;
 
     @PostMapping("/save-sprint")
     public String saveSprint(CreateSprintRequest request, Authentication authentication){
@@ -28,6 +32,46 @@ public class SprintController {
         SprintDto sprintDto = service.save(request);
         log.save(user, "created new sprint. Sprint: " + sprintDto);
 
-        return "redirect:/projects/" + sprintDto.getProjectId();
+        return "redirect:/sprint/" + sprintDto.getId();
+    }
+
+    @GetMapping("/sprint/{id}")
+    public String showSprintPage(@PathVariable Long id, Model model) {
+        model.addAttribute("sprint", service.getById(id));
+        model.addAttribute("tasks", taskService.getTasksBySprintId(id));
+        return "sprint";
+    }
+
+    // TODO only pm
+    @PostMapping("/edit-sprint")
+    public String updateSprint(@RequestParam("id") Long id,
+                               @RequestParam("name") String name,
+                               @RequestParam("startDate")LocalDate startDate,
+                               @RequestParam("endDate") LocalDate endDate) {
+        service.update(id, name, startDate, endDate);
+        return "redirect:/sprint/" + id;
+    }
+
+    // TODO only pm
+    @GetMapping("/delete-sprint/{id}")
+    public String deleteSprint(@PathVariable(name = "id") Long sprintId) {
+        Long projectId = service.deleteById(sprintId);
+        return "redirect:/projects/" + projectId;
+    }
+
+    // TODO only pm
+    @PostMapping("/add-task-to-sprint")
+    public String addTaskToSprint(@RequestParam("taskId") Long taskId,
+                                  @RequestParam("sprintId") Long sprintId) {
+        service.addTaskToSprint(taskId, sprintId);;
+        return "redirect:/task?id=" + taskId;
+    }
+
+    // TODO only pm
+    @PostMapping("/delete-task-in-sprint")
+    public String deleteTaskInSprint(@RequestParam("taskId") Long taskId,
+                                  @RequestParam("sprintId") Long sprintId) {
+        service.deleteTaskInSprint(taskId, sprintId);;
+        return "redirect:/task?id=" + taskId;
     }
 }

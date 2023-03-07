@@ -32,4 +32,14 @@ public class Sprint {
     @ManyToOne
     @JoinColumn(name = "project", nullable = false)
     private Project project;
+
+    @Override
+    public String toString() {
+        return "Sprint{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                '}';
+    }
 }

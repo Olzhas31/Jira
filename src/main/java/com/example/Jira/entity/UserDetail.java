@@ -30,7 +30,7 @@ public class UserDetail {
     @Column(nullable = false)
     private String surname;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String info;
 
     @Column

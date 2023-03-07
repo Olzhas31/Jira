@@ -95,11 +95,15 @@
 <section class="u-clearfix u-gradient u-section-1" id="sec-f4cc">
     <div class="u-clearfix u-sheet u-sheet-1"></div>
 </section>
-<section class="u-clearfix u-section-3" >
+<section class="u-clearfix u-section-3" style="margin-top: 30px; text-align: center">
     <a th:if="${error == null}"
        th:href="@{'/projects/' + ${projectDto.getId()}}"
-       th:text="${projectDto.getName()}"></a>
+       th:text="'Project: ' + ${projectDto.getName()}"></a>
     <span th:if="${error != null}">Вы не состоите в проектах</span>
+
+    <a th:each="user : ${users}"
+       th:href="@{'/kanban?project-id=' + ${projectDto.id} + '&user-id=' + ${user.id}}"
+       th:text="${user.name} + ' ' + ${user.surname}" style="padding: 10px"></a>
 </section>
 
 <section class="u-clearfix u-section-3" id="sec-126e">

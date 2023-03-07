@@ -13,6 +13,7 @@ import com.example.Jira.service.IHubService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static com.example.Jira.configuration.Constants.HUB_NOT_FOUND;
@@ -37,8 +38,9 @@ public class HubServiceImpl implements IHubService {
 
     @Override
     public HubDto getById(Long id) {
-        return mapper.toDto(repository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException(HUB_NOT_FOUND + id)));
+        return repository.findById(id)
+                .map(mapper::toDto)
+                .orElseThrow(() -> new EntityNotFoundException(HUB_NOT_FOUND + id));
     }
 
     @Override
@@ -48,5 +50,17 @@ public class HubServiceImpl implements IHubService {
         return repository.findAllByProject(project)
                 .stream().map(mapper::toDto)
                 .toList();
+    }
+
+    @Override
+    public void update(Long id, String name, String content, User updater) {
+        Hub hub = repository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(HUB_NOT_FOUND + id));
+        hub.setContent(content);
+        hub.setName(name);
+        hub.setUpdatedTime(LocalDateTime.now());
+        hub.setLastUpdater(updater);
+
+        repository.save(hub);
     }
 }

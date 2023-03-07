@@ -18,4 +18,5 @@ public class SprintDto {
     private LocalDate startDate;
     private LocalDate endDate;
     private Long projectId;
+    private String projectName;
 }

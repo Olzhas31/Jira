@@ -24,6 +24,26 @@
         "name": "",
         "logo": "images/3d1cb46b-c73f-44c9-a49f-f830531c72dd.png"
     }</script>
+    <style>
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #000;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+
+        .popup__close {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+        }
+    </style>
     <meta name="theme-color" content="#5595e8">
     <meta property="og:title" content="Task">
     <meta property="og:type" content="website">
@@ -36,11 +56,21 @@
             <img src="images/3d1cb46b-c73f-44c9-a49f-f830531c72dd.png" class="u-logo-image u-logo-image-1">
         </a>
         <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1" data-responsive-from="MD">
-            <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; text-transform: uppercase; font-weight: 500;">
-                <a class="u-button-style u-custom-active-border-color u-custom-active-color u-custom-border u-custom-border-color u-custom-borders u-custom-hover-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
-                    <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
-                    <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
-                    </g></svg>
+            <div class="menu-collapse"
+                 style="font-size: 1rem; letter-spacing: 0px; text-transform: uppercase; font-weight: 500;">
+                <a class="u-button-style u-custom-active-border-color u-custom-active-color u-custom-border u-custom-border-color u-custom-borders u-custom-hover-border-color u-custom-hover-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                   href="#">
+                    <svg class="u-svg-link" viewBox="0 0 24 24">
+                        <use xlink:href="#menu-hamburger"></use>
+                    </svg>
+                    <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <rect y="1" width="16" height="2"></rect>
+                            <rect y="7" width="16" height="2"></rect>
+                            <rect y="13" width="16" height="2"></rect>
+                        </g>
+                    </svg>
                 </a>
             </div>
             <div class="u-custom-menu u-nav-container">
@@ -59,13 +89,15 @@
                            th:href="@{/projects}" style="padding: 10px 20px;">Projects</a></li>
                     <li class="u-nav-item">
                         <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                           th:href="@{/profile}" sec:authorize="isAuthenticated()" style="padding: 10px 20px;">Profile</a></li>
+                           th:href="@{/profile}" sec:authorize="isAuthenticated()"
+                           style="padding: 10px 20px;">Profile</a></li>
                     <li class="u-nav-item">
                         <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
                            th:href="@{/login}" sec:authorize="isAnonymous()" style="padding: 10px 20px;">Login</a></li>
                     <li class="u-nav-item">
                         <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                           th:href="@{/logout}" sec:authorize="isAuthenticated()" style="padding: 10px 20px;">Log out</a>
+                           th:href="@{/logout}" sec:authorize="isAuthenticated()" style="padding: 10px 20px;">Log
+                            out</a>
                     </li>
                 </ul>
             </div>
@@ -75,12 +107,18 @@
                         <div class="u-menu-close"></div>
                         <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
                             <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/home}">Home</a></li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/kanban}">Kanban board</a></li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/dashboard}">Dashboard</a></li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/projects}">Projects</a></li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/profile}" sec:authorize="isAuthenticated()">Profile</a></li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/login}" sec:authorize="isAnonymous()">Login</a></li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/logout}" sec:authorize="isAuthenticated()">Log out</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/kanban}">Kanban
+                                board</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/dashboard}">Dashboard</a>
+                            </li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link"
+                                                      th:href="@{/projects}">Projects</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/profile}"
+                                                      sec:authorize="isAuthenticated()">Profile</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/login}"
+                                                      sec:authorize="isAnonymous()">Login</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/logout}"
+                                                      sec:authorize="isAuthenticated()">Log out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -91,11 +129,16 @@
 </header>
 <section class="u-clearfix u-container-align-center u-section-1" id="carousel_b80f">
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <a th:href="@{'/projects/' + ${taskDto.getProjectId()}}" th:text="${taskDto.projectName} + ' / ' +  ${taskDto.getName()}"
+        <a th:href="@{'/projects/' + ${taskDto.getProjectId()}}"
+           th:text="${taskDto.projectName} + ' / ' +  ${taskDto.getName()}"
            class="u-align-center u-text u-text-default u-text-1"></a>
 
         <!--        <p class="u-align-center u-text u-text-default u-text-1" th:text="${taskDto.projectName} + ' / ' + ${taskDto.name}"> ASTRUM / ASTRUM-410</p>-->
-        <h2 class="u-align-center u-text u-text-default u-text-2" th:text="${taskDto.title}"> </h2>
+        <h2 class="u-align-center u-text u-text-default u-text-2" th:text="${taskDto.title}"></h2>
+        <button onclick="editTask()"
+                class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2">
+            Edit Task
+        </button>
         <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
             <div class="u-layout">
                 <div class="u-layout-row">
@@ -108,10 +151,13 @@
                                             <h4 class="u-align-center u-text u-text-default u-text-palette-4-base u-text-3">
                                                 Details:</h4>
                                             <p class="u-align-left u-text u-text-default u-text-4">
-<!--                                                Type: <br>-->
+                                                <!--                                                Type: <br>-->
                                                 Priority: <span th:text="${taskDto.priority}"></span>
                                                 <br>Status: <span th:text="${taskDto.status}"></span>
-                                                <br>Hub:&nbsp;
+                                                <br>Hub: <span th:if="${taskDto.hubId}">
+                                                    <a th:href="@{'/hub/' + ${taskDto.hubId}}"
+                                                       th:text="${taskDto.hubName}"></a>
+                                                </span>&nbsp;
                                                 <br>
                                                 <br>
                                             </p>
@@ -121,13 +167,41 @@
                                         <div class="u-container-layout u-similar-container u-container-layout-3">
                                             <h4 class="u-align-center u-text u-text-default u-text-palette-4-base u-text-5">
                                                 Description</h4>
-                                            <p class="u-align-left u-text u-text-default u-text-6" th:text="${taskDto.description}"> </p>
+                                            <p class="u-align-left u-text u-text-default u-text-6"
+                                               th:text="${taskDto.description}"></p>
                                         </div>
                                     </div>
                                     <div class="u-container-align-center u-container-style u-list-item u-repeater-item">
                                         <div class="u-container-layout u-similar-container u-container-layout-3">
                                             <h4 class="u-align-center u-text u-text-default u-text-palette-4-base u-text-5">
                                                 Attachments</h4>
+                                            <p class="u-align-left u-text u-text-default u-text-6">
+                                                <button onclick="addAttachment()"
+                                                        class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2">
+                                                    Add attachment
+                                                </button>
+                                            </p>
+                                            <table>
+                                                <tr th:each="file : ${attachments}">
+                                                    <td th:text="${file.id}"></td>
+                                                    <td th:text="${file.filename}"></td>
+                                                    <td th:text="${file.createdTime}"></td>
+                                                    <td th:text="${file.user.username}"></td>
+                                                    <td>
+                                                        <a th:href="@{/download-attachment/{filename}(filename=${file.filename})}">Download</a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="u-container-align-center u-container-style u-list-item u-repeater-item">
+                                        <div class="u-container-layout u-similar-container u-container-layout-3">
+                                            <h4 class="u-align-center u-text u-text-default u-text-palette-4-base u-text-5">
+                                                Task history</h4>
+                                            <ol>
+                                                <li th:each="item : ${history}" style="font-size: smaller"
+                                                    th:text="${item.transition} + ' ' + ${item.createdTime}"></li>
+                                            </ol>
                                         </div>
                                     </div>
                                 </div>
@@ -146,31 +220,36 @@
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
                                                 <span style="font-weight: 700;"> Assignee:</span>
-                                                <a th:href="@{'/profile?id=' + ${taskDto.assigneeId}}" th:text="${taskDto.assigneeName}"></a>
+                                                <a th:href="@{'/profile?id=' + ${taskDto.assigneeId}}"
+                                                   th:text="${taskDto.assigneeName}"></a>
                                             </p>
                                             <p class="u-align-left u-text u-text-default u-text-9"
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
                                                 <span style="font-weight: 700;"> Expert:</span>
-                                                <a th:href="@{'/profile?id=' + ${taskDto.expertId}}" th:text="${taskDto.expertName}"></a>
+                                                <a th:href="@{'/profile?id=' + ${taskDto.expertId}}"
+                                                   th:text="${taskDto.expertName}"></a>
                                             </p>
                                             <p class="u-align-left u-text u-text-default u-text-10"
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
                                                 <span style="font-weight: 700;"> Developer:</span>
-                                                <a th:href="@{'/profile?id=' + ${taskDto.developerId}}" th:text="${taskDto.developerName}"></a>
+                                                <a th:href="@{'/profile?id=' + ${taskDto.developerId}}"
+                                                   th:text="${taskDto.developerName}"></a>
                                             </p>
                                             <p class="u-align-left u-text u-text-default u-text-11"
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
                                                 <span style="font-weight: 700;"> Reviewer:</span>
-                                                <a th:href="@{'/profile?id=' + ${taskDto.reviewerId}}" th:text="${taskDto.reviewerName}"></a>
+                                                <a th:href="@{'/profile?id=' + ${taskDto.reviewerId}}"
+                                                   th:text="${taskDto.reviewerName}"></a>
                                             </p>
                                             <p class="u-align-left u-text u-text-default u-text-12"
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
                                                 <span style="font-weight: 700;"> Acceptor:</span>
-                                                <a th:href="@{'/profile?id=' + ${taskDto.acceptorId}}" th:text="${taskDto.acceptorName}"></a>
+                                                <a th:href="@{'/profile?id=' + ${taskDto.acceptorId}}"
+                                                   th:text="${taskDto.acceptorName}"></a>
                                             </p>
                                         </div>
                                     </div>
@@ -217,8 +296,19 @@
                                             <p class="u-align-left u-text u-text-default u-text-20"
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
-                                                <span style="font-weight: 700;"> Session:</span> 2003-06
+                                                <a th:each="sprint : ${sprintsByTask}" style="font-weight: 700; display: block"
+                                                   th:href="@{'/sprint/' + ${sprint.id}}"
+                                                   th:text="${sprint.name}">
+                                                </a>
                                             </p>
+                                            <button onclick="addToSprint()"
+                                                    class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2">
+                                                add to sprint
+                                            </button>
+                                            <button onclick="deleteInSprint()"
+                                                    class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2">
+                                                delete in sprint
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -233,12 +323,12 @@
 <section class="u-clearfix u-grey-10 u-section-2" id="sec-ead5">
     <div class="u-clearfix u-sheet u-sheet-1"></div>
 </section>
-<section class="u-clearfix u-section-3" id="sec-2fb0">
-    <div class="u-clearfix u-sheet u-sheet-1"></div>
-</section>
-<section class="u-clearfix u-grey-10 u-section-4" id="sec-4141">
-    <div class="u-clearfix u-sheet u-sheet-1"></div>
-</section>
+<!--<section class="u-clearfix u-section-3" id="sec-2fb0">-->
+<!--    <div class="u-clearfix u-sheet u-sheet-1"></div>-->
+<!--</section>-->
+<!--<section class="u-clearfix u-grey-10 u-section-4" id="sec-4141">-->
+<!--    <div class="u-clearfix u-sheet u-sheet-1"></div>-->
+<!--</section>-->
 
 
 <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0fc3">
@@ -258,6 +348,185 @@
         <span>Website Builder Software</span>
     </a>.
 </section>
+
+<div class="popup" id="attachment_popup" hidden>
+    <span class="popup__close" onclick="closePopup()">X</span>
+    <h2>Add attachment</h2>
+    <form th:action="@{/add-attachment}" method='POST' enctype="multipart/form-data">
+        <input type="hidden" name="taskId" th:value="${taskDto.id}">
+        <table>
+            <tr>
+                <td><label>Select a file: </label></td>
+                <td><input type="file" name="image" accept="image/*" class="form-control-file" required></td>
+            </tr>
+        </table>
+        <input name="submit" type="submit" value="upload" class="u-btn u-button-style u-btn-2"/>
+    </form>
+</div>
+
+<div class="popup" id="sprint_popup" hidden>
+    <span class="popup__close" onclick="closePopup()">X</span>
+    <h2>Add task to sprint</h2>
+    <form th:action="@{/add-task-to-sprint}" method='POST'>
+        <input type="hidden" name="taskId" th:value="${taskDto.id}">
+        <table>
+            <tr>
+                <td><label>Select a sprint: </label></td>
+                <td>
+                    <select name="sprintId" class="u-form-select-wrapper">
+                        <option th:each="sprint : ${sprints}"
+                                th:value="${sprint.id}" th:text="${sprint.name}"></option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <input name="submit" type="submit" value="add" class="u-btn u-button-style u-btn-2"/>
+    </form>
+</div>
+
+<div class="popup" id="delete_sprint_popup" hidden>
+    <span class="popup__close" onclick="closePopup()">X</span>
+    <h2>Delete in sprint</h2>
+    <form th:action="@{/delete-task-in-sprint}" method='POST'>
+        <input type="hidden" name="taskId" th:value="${taskDto.id}">
+        <table>
+            <tr>
+                <td><label>Select a sprint: </label></td>
+                <td>
+                    <select name="sprintId" class="u-form-select-wrapper">
+                        <option th:each="sprint : ${sprintsByTask}"
+                                th:value="${sprint.id}" th:text="${sprint.name}"></option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <input name="submit" type="submit" value="delete" class="u-btn u-button-style u-btn-2"/>
+    </form>
+</div>
+
+<div class="popup" id="task_popup" hidden>
+    <span class="popup__close" onclick="closePopup()">X</span>
+    <h2>Edit task</h2>
+    <form action="/edit-task" method='POST'>
+        <input type="hidden" name="id" th:value="${taskDto.id}">
+        <table>
+            <tr>
+                <td><label>Title: </label></td>
+                <td><input type='text' name='title' th:value="${taskDto.title}" th:placeholder="${taskDto.title}"></td>
+            </tr>
+            <tr>
+                <td><label>Description: </label></td>
+                <td><input type='text' name='description' th:value="${taskDto.description}" placeholder="Description">
+                </td>
+            </tr>
+            <tr>
+                <td><label>Priority: </label></td>
+                <td>
+                    <select name="priority" class="u-form-select-wrapper">
+                        <option th:each="priority : ${T(com.example.Jira.entity.states.Priority).values()}"
+                                th:value="${priority}" th:text="${priority}"
+                                th:selected="${taskDto.priority == priority.name()}"></option>
+                    </select>
+                </td>
+            </tr>
+            <!--            TODO  hub -->
+            <tr>
+                <td><label>Status: </label></td>
+                <td>
+                    <select name="status" class="u-form-select-wrapper">
+                        <option th:each="status : ${T(com.example.Jira.entity.states.TaskStatus).values()}"
+                                th:value="${status}" th:text="${status}"
+                                th:selected="${taskDto.status == status.name()}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Assignee: </label></td>
+                <td>
+                    <select name="assigneeId" class="u-form-select-wrapper">
+                        <option th:value="null">select option</option>
+                        <option th:each="user : ${usersByProject}"
+                                th:value="${user.id}" th:text="${user.name + ' ' + user.surname}"
+                                th:selected="${taskDto.assigneeId == user.id}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Expert: </label></td>
+                <td>
+                    <select name="expertId" class="u-form-select-wrapper">
+                        <option th:each="user : ${experts}"
+                                th:value="${user.id}" th:text="${user.name + ' ' + user.surname}"
+                                th:selected="${taskDto.expertId == user.id}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Developer: </label></td>
+                <td>
+                    <select name="developerId" class="u-form-select-wrapper">
+                        <option th:value="null">select option</option>
+                        <option th:each="user : ${developers}"
+                                th:value="${user.id}" th:text="${user.name + ' ' + user.surname}"
+                                th:selected="${taskDto.developerId == user.id}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Reviewer: </label></td>
+                <td>
+                    <select name="reviewerId" class="u-form-select-wrapper">
+                        <option th:value="null">select option</option>
+                        <option th:each="user : ${usersByProject}"
+                                th:value="${user.id}" th:text="${user.name + ' ' + user.surname}"
+                                th:selected="${taskDto.reviewerId == user.id}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Due date: </label></td>
+                <td> <input type="date" name="dueDate" th:value="${taskDto.dueDate}" placeholder="Due date"></td>
+            </tr>
+<!--            <tr>-->
+<!--                <td><label>Add Sprint: </label></td>-->
+<!--                <td> -->
+<!--                    <select name="reviewerId" class="u-form-select-wrapper">-->
+<!--                        <option th:each="user : ${usersByProject}" -->
+<!--                                th:value="${user.id}" th:text="${user.name + ' ' + user.surname}" -->
+<!--                                th:selected="${taskDto.reviewerId == user.id}">-->
+<!--                        </option>-->
+<!--                    </select>-->
+<!--                </td>-->
+<!--            </tr>-->
+        </table>
+        <input name="submit" type="submit" value="submit" class="u-btn u-button-style u-btn-2"/>
+    </form>
+</div>
+
+<script>
+    function addAttachment() {
+        document.getElementById("attachment_popup").style.display = "block";
+    }
+
+    function addToSprint() {
+        document.getElementById("sprint_popup").style.display = "block";
+    }
+
+    function deleteInSprint() {
+        document.getElementById("delete_sprint_popup").style.display = "block";
+    }
+
+    function editTask() {
+        document.getElementById("task_popup").style.display = "block";
+    }
+
+    function closePopup() {
+        document.getElementById("attachment_popup").style.display = "none";
+        document.getElementById("task_popup").style.display = "none";
+        document.getElementById("sprint_popup").style.display = "none";
+        document.getElementById("delete_sprint_popup").style.display = "none";
+    }
+</script>
 
 </body>
 </html>

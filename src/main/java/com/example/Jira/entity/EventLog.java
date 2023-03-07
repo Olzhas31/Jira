@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Table(name = "event_logs")
 @Entity
-public class EventLog {
+public class EventLog implements Comparable<EventLog> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,4 +31,10 @@ public class EventLog {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @Override
+    public int compareTo(EventLog o) {
+        if (createdTime.isBefore(o.createdTime))
+            return 1;
+        return -1;
+    }
 }

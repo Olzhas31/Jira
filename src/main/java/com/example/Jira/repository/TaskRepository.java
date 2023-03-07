@@ -1,16 +1,14 @@
 package com.example.Jira.repository;
 
+import com.example.Jira.entity.Hub;
 import com.example.Jira.entity.Project;
 import com.example.Jira.entity.Task;
-import com.example.Jira.entity.TaskHistory;
 import com.example.Jira.entity.User;
-import com.example.Jira.entity.states.TaskStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,4 +29,13 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
                     "            and project_id = ?1",
             nativeQuery = true)
     List<Task> findBacklogTasksByProjectId(Long projectId);
+
+    List<Task> findAllByHub(Hub hub);
+
+    @Query(value = " select * from tasks " +
+            "    where id in (select task_id from tasks_sprints " +
+            "                where sprint_id = :sprint_id)",
+            nativeQuery = true
+    )
+    List<Task> findAllBySprint(@Param("sprint_id") Long sprintId);
 }

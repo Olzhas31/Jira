@@ -25,6 +25,7 @@ public class SprintMapper {
                 .name(sprint.getName())
                 .startDate(sprint.getStartDate())
                 .projectId(sprint.getProject().getId())
+                .projectName(sprint.getProject().getName())
                 .build();
     }
 }

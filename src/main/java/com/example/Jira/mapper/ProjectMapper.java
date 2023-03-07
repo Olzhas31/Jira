@@ -19,6 +19,8 @@ public class ProjectMapper {
         return Project.builder()
                 .description(request.getDescription())
                 .name(request.getName())
+                .goal(request.getGoal())
+                .responsibility(request.getResponsibility())
                 .users(Collections.singletonList(pm))
                 .build();
     }

@@ -1,7 +1,6 @@
 package com.example.Jira.controller;
 
 import com.example.Jira.entity.User;
-import com.example.Jira.entity.states.Priority;
 import com.example.Jira.entity.states.Roles;
 import com.example.Jira.mapper.UserMapper;
 import com.example.Jira.model.UserDto;
@@ -15,7 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Objects;
 
 @Controller
@@ -26,10 +27,10 @@ public class UserController {
     private final UserMapper mapper;
     private final IEventLogService log;
 
-    @GetMapping("/save-user")
+    @GetMapping("/admin/create-user")
     public String showCreateUserPage(Model model) {
         model.addAttribute("roles", Roles.values());
-        return "create-user";
+        return "admin/create-user";
     }
 
     @PostMapping("/save-user")
@@ -41,9 +42,9 @@ public class UserController {
     @GetMapping("/profile")
     public String showProfilePage(Authentication authentication,
                                   Model model,
-                                  @RequestParam(value = "id", required = false) Long id) {
+                                  @RequestParam(value = "id", required = false) Long id) throws InterruptedException, IOException {
         User user = (User) authentication.getPrincipal();
-        UserDto userDto = null;
+        UserDto userDto;
         if (Objects.isNull(id)) {
             userDto = mapper.toDto(user);
         } else {
@@ -55,10 +56,30 @@ public class UserController {
         return "profile";
     }
 
-//    TODO каждый может только себя
+    @GetMapping("/admin/users")
+    public String showUsersPage(Model model) {
+        model.addAttribute("users", service.getAll());
+        return "admin/users";
+    }
+
     @PostMapping("/update-user")
-    public String updateUser(UserDto userDto) {
+    public String updateUser(Authentication authentication, UserDto userDto) {
+        User user = (User) authentication.getPrincipal();
+        userDto.setId(user.getId());
         service.update(userDto);
+        return "redirect:/logout";
+    }
+
+    @GetMapping("/change-block")
+    public String changeBlock(@RequestParam("id") Long id) {
+        service.changeBlock(id);
+        return "redirect:/admin/users";
+    }
+
+    @PostMapping("/edit-photo")
+    public String uploadImage(Authentication authentication, @RequestParam("image") MultipartFile file) throws IOException {
+        User user = (User) authentication.getPrincipal();
+        service.editPhotoByUser(user, file);
         return "redirect:/logout";
     }
 }

@@ -22,4 +22,6 @@ public class HubDto {
     private Long updaterId;
     private Long projectId;
     private String updaterName;
+    private String projectName;
+    private String creatorName;
 }

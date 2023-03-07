@@ -1,7 +1,6 @@
 package com.example.Jira.mapper;
 
 import com.example.Jira.entity.Project;
-import com.example.Jira.entity.Sprint;
 import com.example.Jira.entity.Task;
 import com.example.Jira.entity.User;
 import com.example.Jira.entity.states.TaskStatus;
@@ -10,60 +9,40 @@ import com.example.Jira.model.requests.CreateTaskRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.Collections;
+import java.util.Objects;
 
 @Service
 public class TaskMapper {
 
     public TaskDto toDto(Task task) {
-        String assigneeName;
+        String assigneeName = null;
         if (task.getAssignee() != null) {
-            assigneeName = task.getAssignee().getUserDetail().getName() == null ?
-                    " " : task.getAssignee().getUserDetail().getName();
-            assigneeName += task.getAssignee().getUserDetail().getSurname() == null ?
-                    " " : task.getAssignee().getUserDetail().getSurname();
-        } else {
-            assigneeName = null;
+            assigneeName = task.getAssignee().getUserDetail().getName() +
+                    " " + task.getAssignee().getUserDetail().getSurname();
         }
 
-        String expertName;
+        String expertName = null;
         if (task.getExpert() != null) {
-            expertName = task.getExpert().getUserDetail().getName() == null ?
-                    " " : task.getExpert().getUserDetail().getName();
-            expertName += task.getExpert().getUserDetail().getName() == null ?
-                    " " : task.getExpert().getUserDetail().getName();
-        } else {
-            expertName = null;
+            expertName = task.getExpert().getUserDetail().getName() +
+                    " " + task.getExpert().getUserDetail().getSurname();
         }
 
-        String developerName;
+        String developerName = null;
         if (task.getDeveloper() != null) {
-            developerName = task.getDeveloper().getUserDetail().getName() == null ?
-                    " " : task.getDeveloper().getUserDetail().getName();
-            developerName += task.getDeveloper().getUserDetail().getName() == null ?
-                    " " : task.getDeveloper().getUserDetail().getName();
-        } else {
-            developerName = null;
+            developerName = task.getDeveloper().getUserDetail().getName() +
+                    " " + task.getDeveloper().getUserDetail().getSurname();
         }
 
-        String reviewerName;
+        String reviewerName = null;
         if (task.getReviewer() != null) {
-            reviewerName = task.getReviewer().getUserDetail().getName() == null ?
-                    " " : task.getReviewer().getUserDetail().getName();
-            reviewerName += task.getReviewer().getUserDetail().getName() == null ?
-                    " " : task.getReviewer().getUserDetail().getName();
-        } else {
-            reviewerName = null;
+            reviewerName = task.getReviewer().getUserDetail().getName() +
+                    " " + task.getReviewer().getUserDetail().getSurname();
         }
 
-        String acceptorName;
-        if (task.getReviewer() != null) {
-            acceptorName = task.getAcceptor().getUserDetail().getName() == null ?
-                    " " : task.getAcceptor().getUserDetail().getName();
-            acceptorName += task.getAcceptor().getUserDetail().getName() == null ?
-                    " " : task.getAcceptor().getUserDetail().getName();
-        } else {
-            acceptorName = null;
+        String acceptorName = null;
+        if (task.getAcceptor() != null) {
+            acceptorName = task.getAcceptor().getUserDetail().getName() +
+                    " " + task.getAcceptor().getUserDetail().getSurname();
         }
 
         return TaskDto.builder()
@@ -79,17 +58,22 @@ public class TaskMapper {
                 .updatedTime(task.getUpdatedTime())
                 .acceptorId(task.getAcceptor().getId())
                 .acceptorName(acceptorName)
-                .assigneeId(task.getAssignee().getId())
+                .assigneeId(task.getAssignee() == null ?
+                        null : task.getAssignee().getId())
                 .assigneeName(assigneeName)
-                .developerId(task.getDeveloper().getId())
+                .developerId(task.getDeveloper() == null ?
+                        null : task.getDeveloper().getId())
                 .developerName(developerName)
                 .expertId(task.getExpert().getId())
                 .expertName(expertName)
-                .reviewerId(task.getReviewer().getId())
+                .reviewerId(task.getReviewer() == null ?
+                        null : task.getReviewer().getId())
                 .reviewerName(reviewerName)
                 .status(task.getStatus())
                 .projectId(task.getProject().getId())
                 .projectName(task.getProject().getName())
+                .hubName(Objects.isNull(task.getHub()) ? null: task.getHub().getName())
+                .hubId(Objects.isNull(task.getHub()) ? null: task.getHub().getId())
                 .build();
     }
 

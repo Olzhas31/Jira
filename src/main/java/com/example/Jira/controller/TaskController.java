@@ -7,10 +7,7 @@ import com.example.Jira.entity.states.TaskStatus;
 import com.example.Jira.model.ProjectDto;
 import com.example.Jira.model.TaskDto;
 import com.example.Jira.model.requests.CreateTaskRequest;
-import com.example.Jira.service.IEventLogService;
-import com.example.Jira.service.IProjectService;
-import com.example.Jira.service.ITaskService;
-import com.example.Jira.service.IUserService;
+import com.example.Jira.service.*;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -19,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -30,10 +28,14 @@ public class TaskController {
     private final IUserService userService;
     private final IProjectService projectService;
     private final IEventLogService log;
+    private final ITaskHistoryService taskHistoryService;
+    private final IAttachmentService attachmentService;
+    private final ISprintService sprintService;
 
     @GetMapping("/save-task")
     public String showSaveTaskPage(Model model,
                                    @RequestParam("project-id") Long projectId) {
+        model.addAttribute("projectId", projectId);
         model.addAttribute("priorities", Priority.values());
         model.addAttribute("users",
                 projectService.getUsersByProjectId(projectId));
@@ -47,10 +49,8 @@ public class TaskController {
     @PostMapping("/save-task")
     public String saveTask(CreateTaskRequest request, Authentication authentication){
         User user = (User) authentication.getPrincipal();
-//        TODO ?????
-        request.setProjectId(4L);
         TaskDto taskDto = service.save(request, user);
-        return "redirect:/";
+        return "redirect:/task?id=" + taskDto.getId();
     }
 
     @GetMapping("/dashboard")
@@ -74,8 +74,13 @@ public class TaskController {
 
     @GetMapping("/kanban")
     public String showKanbanPage(Model model, Authentication authentication,
-                                 @RequestParam(value = "project-id", required = false) Long projectId) {
+                                 @RequestParam(value = "project-id", required = false) Long projectId,
+                                 @RequestParam(name = "user-id", required = false) Long userId
+    ) {
         User user = (User) authentication.getPrincipal();
+        if (!Objects.isNull(userId)) {
+            user = userService.getEntityById(userId);
+        }
         if (Objects.isNull(projectId)) {
             List<ProjectDto> projects = projectService.getProjectsByUser(user);
             if (projects.size() == 0) {
@@ -86,6 +91,8 @@ public class TaskController {
             }
         }
 
+        model.addAttribute("users",
+                projectService.getUsersByProjectId(projectId));
         model.addAttribute("projectDto", projectService.getProjectById(projectId));
         model.addAttribute("backlog", service.getBacklogTasksByProjectId(projectId));
         model.addAttribute("processing", service.getAllByUserAndProjectIdAndStatusesAtActualSprint(user, projectId,
@@ -102,8 +109,37 @@ public class TaskController {
     @GetMapping("/task")
     public String showTask(Model model,
             @RequestParam("id") Long id) {
-        model.addAttribute("taskDto", service.getById(id));
+        TaskDto taskDto =  service.getById(id);
+        model.addAttribute("taskDto", taskDto);
+        model.addAttribute("history", taskHistoryService.getTaskHistoriesByTaskId(id));
+        model.addAttribute("attachments", attachmentService.getByTaskId(id));
+        model.addAttribute("usersByProject",
+                projectService.getUsersByProjectId(taskDto.getProjectId()));
+        model.addAttribute("developers",
+                projectService.getUsersByProjectIdAndRole(taskDto.getProjectId(), List.of(Roles.BACKEND_DEVELOPER, Roles.FRONTEND_DEVELOPER)));
+        model.addAttribute("experts",
+                projectService.getUsersByProjectIdAndRole(taskDto.getProjectId(), List.of(Roles.EXPERT)));
+        model.addAttribute("sprints",
+                sprintService.getByProjectId(taskDto.getProjectId()));
+        model.addAttribute("sprintsByTask", sprintService.getByTaskId(id));
         return "task";
+    }
+
+    @PostMapping("/edit-task")
+    public String updateTask(
+            @RequestParam("id") Long taskId,
+            @RequestParam(name = "title", required = false) String title,
+            @RequestParam(name = "description", required = false) String description,
+            @RequestParam(name = "priority", required = false) String priority,
+            @RequestParam(name = "status", required = false) String status,
+            @RequestParam(name = "assigneeId", required = false) Long assigneeId,
+            @RequestParam(name = "expertId", required = false) Long expertId,
+            @RequestParam(name = "developerId", required = false) Long developerId,
+            @RequestParam(name = "reviewerId", required = false) Long reviewerId,
+            @RequestParam(name = "dueDate", required = false) LocalDate dueDate
+    ) {
+        service.update(taskId, title, description, priority, status, assigneeId, expertId, developerId, reviewerId, dueDate);
+        return "redirect:/task?id=" + taskId;
     }
 
 }

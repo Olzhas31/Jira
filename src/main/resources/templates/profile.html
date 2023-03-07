@@ -122,13 +122,23 @@
                     </div>
                     <div class="u-align-center-md u-align-left-sm u-align-left-xs u-container-style u-layout-cell u-size-20 u-layout-cell-2">
                         <div class="u-container-layout u-container-layout-2">
-                            <img src="images/cvv.jpg" alt="" class="u-image u-image-circle u-image-1"
+                            <img th:src="@{'/avatars/' + ${userDto.urlPicture}}" alt="" class="u-image u-image-circle u-image-1"
                                  data-image-width="700" data-image-height="700">
-                            <a th:if="${isYourself}"
-                               href="https://nicepage.cloud"
-                               class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2">
+
+<!--                                <img th:src="@{'../avatars/2_IMG_6166.JPG'}" alt="" class="u-image u-image-circle u-image-1"-->
+<!--                                     data-image-width="700" data-image-height="700">-->
+
+<!--                            <button onclick="editDetails()" class="u-btn u-button-style u-btn-3"-->
+<!--                                    th:if="${isYourself}">-->
+<!--                                <span class="u-file-icon u-icon"><img src="images/8272574.png" alt=""></span>-->
+<!--                                Edit-->
+<!--                            </button>-->
+
+                            <button th:if="${isYourself}"
+                                    onclick="editPhoto()"
+                                    class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2">
                                 Edit photo
-                            </a>
+                            </button>
                         </div>
                     </div>
                     <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-3">
@@ -196,13 +206,43 @@
     <h2>Edit details</h2>
     <form th:action="@{/update-user}" method='POST' th:object="${userDto}">
         <input type="hidden" name="id" th:value="*{id}">
-        <input type="text" th:field="*{name}" required>
-        <input type="text" th:field="*{surname}" required>
-        <input type="email" th:field="*{email}">
-        <input type="text" th:field="*{phoneNumber}">
-        <input type="text" th:field="*{info}">
+        <table>
+            <tr>
+                <td> <label>Name: </label></td>
+                <td> <input type="text" th:field="*{name}" required placeholder="Name"></td>
+            </tr>
+            <tr>
+                <td> <label>Surname: </label></td>
+                <td> <input type="text" th:field="*{surname}" placeholder="Surname" required></td>
+            </tr>
+            <tr>
+                <td> <label>Email: </label></td>
+                <td> <input type="email" th:field="*{email}" placeholder="email"></td>
+            </tr>
+            <tr>
+                <td> <label>Phone number: </label></td>
+                <td> <input type="text" th:field="*{phoneNumber}"></td>
+            </tr>
+            <tr>
+                <td> <label>Info: </label></td>
+                <td> <input type="text" th:field="*{info}"></td>
+            </tr>
+        </table>
+        <input name="submit" type="submit" value="submit" class="u-btn u-button-style u-btn-2"/>
+    </form>
+</div>
 
-        <input name="submit" type="submit" value="submit" />
+<div class="popup" id="photo_popup" hidden>
+    <span class="popup__close" onclick="closeEditDetails()">X</span>
+    <h2>Edit photo</h2>
+    <form th:action="@{/edit-photo}" method='POST' enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td> <label>Select a photo: </label></td>
+                <td><input type="file" name="image" accept="image/*" class="form-control-file" required></td>
+            </tr>
+        </table>
+        <input name="submit" type="submit" value="upload" class="u-btn u-button-style u-btn-2"/>
     </form>
 </div>
 
@@ -213,7 +253,13 @@
 
     function closeEditDetails() {
         document.getElementById("users_popup").style.display = "none";
+        document.getElementById("photo_popup").style.display = "none";
     }
+
+    function editPhoto() {
+        document.getElementById("photo_popup").style.display = "block";
+    }
+
 </script>
 
 </body>

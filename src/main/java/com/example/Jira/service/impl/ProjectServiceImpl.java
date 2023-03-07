@@ -4,11 +4,13 @@ import com.example.Jira.entity.Project;
 import com.example.Jira.entity.User;
 import com.example.Jira.entity.states.Roles;
 import com.example.Jira.exception.EntityNotFoundException;
+import com.example.Jira.exception.ProjectNameAlreadyExistsException;
 import com.example.Jira.mapper.ProjectMapper;
 import com.example.Jira.mapper.UserMapper;
 import com.example.Jira.model.ProjectDto;
 import com.example.Jira.model.UserDto;
 import com.example.Jira.model.requests.CreateProjectRequest;
+import com.example.Jira.model.requests.UpdateProjectRequest;
 import com.example.Jira.repository.ProjectRepository;
 import com.example.Jira.repository.UserRepository;
 import com.example.Jira.service.IProjectService;
@@ -20,8 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static com.example.Jira.configuration.Constants.PROJECT_NOT_FOUND;
-import static com.example.Jira.configuration.Constants.USER_NOT_FOUND;
+import static com.example.Jira.configuration.Constants.*;
 
 @Service
 @AllArgsConstructor
@@ -34,6 +35,9 @@ public class ProjectServiceImpl implements IProjectService {
 
     @Override
     public ProjectDto save(CreateProjectRequest request, User pm) {
+        if (repository.existsByName(request.getName())) {
+            throw new ProjectNameAlreadyExistsException(NAME_ALREADY_EXISTS + request.getName());
+        }
         Project project = mapper.toEntity(request, pm);
         project = repository.save(project);
         return mapper.toDto(project);
@@ -92,6 +96,24 @@ public class ProjectServiceImpl implements IProjectService {
     }
 
     @Override
+    public ProjectDto update(UpdateProjectRequest request) {
+        Project project = repository.findById(request.getId())
+                .orElseThrow(()-> new EntityNotFoundException(PROJECT_NOT_FOUND + request.getId()));
+        if (repository.existsByName(request.getName()) &&
+            !project.getName().equalsIgnoreCase(request.getName())) {
+            throw new ProjectNameAlreadyExistsException(NAME_ALREADY_EXISTS + request.getName());
+        }
+        project.setName(request.getName());
+        project.setDescription(request.getDescription());
+        project.setGoal(request.getGoal());
+        project.setResponsibility(request.getResponsibility());
+
+        project = repository.save(project);
+
+        return mapper.toDto(project);
+    }
+
+    @Override
     public Map addUserToProject(Long userId, Long projectId) {
         Project project = repository.findById(projectId)
                 .orElseThrow(()-> new EntityNotFoundException(PROJECT_NOT_FOUND + projectId));
@@ -104,5 +126,16 @@ public class ProjectServiceImpl implements IProjectService {
         Map<ProjectDto, UserDto> map = new HashMap<>();
         map.put(mapper.toDto(project), userMapper.toDto(user));
         return map;
+    }
+
+    @Override
+    public void deleteUserInProject(Long projectId, Long userId) {
+        Project project = repository.findById(projectId)
+                .orElseThrow(()-> new EntityNotFoundException(PROJECT_NOT_FOUND + projectId));
+        User user = userRepository.findById(userId)
+                .orElseThrow(()-> new EntityNotFoundException(USER_NOT_FOUND + projectId));
+
+        project.getUsers().remove(user);
+        repository.save(project);
     }
 }

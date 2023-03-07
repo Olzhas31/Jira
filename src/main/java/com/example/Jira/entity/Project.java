@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.Set;
 
 @Data
 @Builder
@@ -24,13 +23,13 @@ public class Project {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String goal;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String responsibility;
 
     @ManyToMany(fetch = FetchType.EAGER)

@@ -26,11 +26,11 @@ public class WebSecurityConfig {
         http
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/", "/home")
+                .requestMatchers("/", "/home", "/avatars/**", "/uploads/**")
                     .permitAll()
                 .requestMatchers(HttpMethod.POST, "/save-project", "/add-user-to-project", "/save-sprint")
                     .hasAuthority(Roles.PROJECT_MANAGER.name())
-                .requestMatchers("/admin", "/save-user")
+                .requestMatchers("/admin", "/admin/users", "/admin/activity", "/save-user", "/change-block")
                     .hasAuthority(Roles.ADMIN.name())
                 .requestMatchers(HttpMethod.POST, "/save-user")
                     .hasAuthority(Roles.ADMIN.name())
@@ -49,7 +49,7 @@ public class WebSecurityConfig {
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
         return web -> web.ignoring().requestMatchers(
-                "/css/**", "/images/**", "/js/**", "/fonts/**");
+                "/css/**", "/images/**", "/js/**", "/fonts/**", "/avatars/**");
     }
 
     @Bean

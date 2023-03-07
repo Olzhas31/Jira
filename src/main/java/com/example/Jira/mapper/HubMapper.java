@@ -37,6 +37,8 @@ public class HubMapper {
                 .projectId(hub.getProject().getId())
                 .updaterName(hub.getLastUpdater().getUserDetail().getName() + ' ' +
                         hub.getLastUpdater().getUserDetail().getSurname())
+                .projectName(hub.getProject().getName())
+                .creatorName(hub.getCreator().getUserDetail().getName() + hub.getCreator().getUserDetail().getSurname())
                 .build();
     }
 

@@ -37,4 +37,7 @@ public class TaskDto {
     private String projectName;
     private Long projectId;
     private String status;
+
+    private String hubName;
+    private Long hubId;
 }

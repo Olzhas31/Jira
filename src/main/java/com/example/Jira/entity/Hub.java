@@ -6,9 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @Builder
@@ -31,7 +29,7 @@ public class Hub {
     @Column(nullable = false)
     private LocalDateTime updatedTime;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String content;
 
     @ManyToOne

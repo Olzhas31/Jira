@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
+import java.util.Objects;
 
 @Data
 @Builder
@@ -32,7 +32,7 @@ public class Task {
     @Column(nullable = false)
     private String priority;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
 
     @Column(nullable = false, updatable = false)
@@ -85,8 +85,39 @@ public class Task {
 
     //    private List<User> watchers;
 
-//    private Epic epic;
+    @ManyToOne
+    @JoinColumn(name = "hub_id")
+    private Hub hub;
 
 //    private List<Log> workLogs;
 
+
+    @Override
+    public String toString() {
+        String assigneeUsername = assignee == null ? "null" : assignee.getUsername();
+        String reviewerUsername = reviewer == null ? "null" : reviewer.getUsername();
+        String developerUsername = developer == null ? "null" : developer.getUsername();
+        String hubId = Objects.isNull(hub) ? "null" : hub.getName();
+        return "Task{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", title='" + title + '\'' +
+                ", priority='" + priority + '\'' +
+                ", description='" + description + '\'' +
+                ", createdTime=" + createdTime +
+                ", updatedTime=" + updatedTime +
+                ", resolvedTime=" + resolvedTime +
+                ", startDate=" + startDate +
+                ", dueDate=" + dueDate +
+                ", status='" + status + '\'' +
+                ", project=" + project.getId() +
+                ", assignee=" + assigneeUsername +
+                ", reviewer=" + reviewerUsername +
+                ", developer=" + developerUsername +
+                ", expert=" + expert.getUsername() +
+                ", acceptor=" + acceptor.getUsername() +
+                ", sprints=" + sprints +
+                ", hub=" + hubId +
+                '}';
+    }
 }

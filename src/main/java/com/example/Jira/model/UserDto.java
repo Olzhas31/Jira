@@ -19,7 +19,8 @@ public class UserDto {
     private String name;
     private String phoneNumber;
     private String surname;
-    private String urlPicture;
+    private volatile String urlPicture;
     private String role;
     private String registerAt;
+    private Boolean locked;
 }
