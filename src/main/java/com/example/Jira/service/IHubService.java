@@ -14,6 +14,6 @@ public interface IHubService {
 
     List<HubDto> getByProjectId(Long projectId);
 
-    void update(Long id, String name, String content, User updater);
+    HubDto update(Long id, String name, String content, User updater);
 
 }

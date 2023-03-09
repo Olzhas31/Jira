@@ -23,7 +23,8 @@ public interface ITaskService {
 
     List<TaskDto> getBacklogTasksByProjectId(Long projectId);
 
-    void update(Long taskId, String title, String description, String priority, String status, Long assigneeId, Long expertId, Long developerId, Long reviewerId, LocalDate dueDate);
+    TaskDto update(Long taskId, String title, String description, String priority, String status, Long assigneeId, Long expertId,
+                Long developerId, Long reviewerId, LocalDate dueDate, Long hubId);
 
     List<TaskDto> getTasksByHubId(Long hubId);
 

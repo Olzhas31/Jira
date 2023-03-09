@@ -59,7 +59,7 @@ public class SprintServiceImpl implements ISprintService {
     }
 
     @Override
-    public void update(Long id, String name, LocalDate startDate, LocalDate endDate) {
+    public SprintDto update(Long id, String name, LocalDate startDate, LocalDate endDate) {
         Sprint sprint = repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(SPRINT_NOT_FOUND + id));
 
@@ -67,7 +67,8 @@ public class SprintServiceImpl implements ISprintService {
         sprint.setStartDate(startDate);
         sprint.setEndDate(endDate);
 
-        repository.save(sprint);
+        sprint = repository.save(sprint);
+        return mapper.toDto(sprint);
     }
 
     @Transactional

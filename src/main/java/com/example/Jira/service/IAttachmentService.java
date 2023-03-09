@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface IAttachmentService {
 
-    void save(User user, Long taskId, MultipartFile file) throws IOException;
+    String save(User user, Long taskId, MultipartFile file) throws IOException;
 
     List<Attachment> getByTaskId(Long taskId);
 }

@@ -31,6 +31,7 @@ public class TaskController {
     private final ITaskHistoryService taskHistoryService;
     private final IAttachmentService attachmentService;
     private final ISprintService sprintService;
+    private final IHubService hubService;
 
     @GetMapping("/save-task")
     public String showSaveTaskPage(Model model,
@@ -49,7 +50,9 @@ public class TaskController {
     @PostMapping("/save-task")
     public String saveTask(CreateTaskRequest request, Authentication authentication){
         User user = (User) authentication.getPrincipal();
+        log.save(user, "request to create new task. Request: " + request);
         TaskDto taskDto = service.save(request, user);
+        log.save(user, "task created. Task: " + taskDto);
         return "redirect:/task?id=" + taskDto.getId();
     }
 
@@ -122,11 +125,13 @@ public class TaskController {
         model.addAttribute("sprints",
                 sprintService.getByProjectId(taskDto.getProjectId()));
         model.addAttribute("sprintsByTask", sprintService.getByTaskId(id));
+        model.addAttribute("hubs", hubService.getByProjectId(taskDto.getProjectId()));
         return "task";
     }
 
     @PostMapping("/edit-task")
     public String updateTask(
+            Authentication authentication,
             @RequestParam("id") Long taskId,
             @RequestParam(name = "title", required = false) String title,
             @RequestParam(name = "description", required = false) String description,
@@ -136,9 +141,16 @@ public class TaskController {
             @RequestParam(name = "expertId", required = false) Long expertId,
             @RequestParam(name = "developerId", required = false) Long developerId,
             @RequestParam(name = "reviewerId", required = false) Long reviewerId,
-            @RequestParam(name = "dueDate", required = false) LocalDate dueDate
+            @RequestParam(name = "dueDate", required = false) LocalDate dueDate,
+            @RequestParam(name = "hubId", required = false) Long hubId
     ) {
-        service.update(taskId, title, description, priority, status, assigneeId, expertId, developerId, reviewerId, dueDate);
+        User user = (User) authentication.getPrincipal();
+        log.save(user, "request to update task: id=" + taskId + ", title=" + title + ", ddescription= " + description +
+                ", priority=" + priority + ", status=" + status + ", assigneeId=" + assigneeId +
+                ", expertId=" + expertId + ", developerId=" + developerId + ", reviewerId=" + reviewerId +
+                ", dueDate=" + dueDate + ", hubId=" + hubId);
+        TaskDto taskDto = service.update(taskId, title, description, priority, status, assigneeId, expertId, developerId, reviewerId, dueDate, hubId);
+        log.save(user, "task updated, " + taskDto);
         return "redirect:/task?id=" + taskId;
     }
 

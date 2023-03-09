@@ -19,7 +19,7 @@ public interface IUserService extends UserDetailsService {
 
     UserDto getById(Long id);
 
-    void update(UserDto userDto);
+    UserDto update(UserDto userDto);
 
     void changeBlock(Long id);
 

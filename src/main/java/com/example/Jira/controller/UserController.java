@@ -34,8 +34,11 @@ public class UserController {
     }
 
     @PostMapping("/save-user")
-    public String saveUser(CreateUserRequest request){
+    public String saveUser(Authentication authentication, CreateUserRequest request){
+        User user = (User) authentication.getPrincipal();
+        log.save(user, "request to create user: " + request);
         UserDto userDto = service.save(request);
+        log.save(user, "user created: " + userDto);
         return "redirect:/profile?id=" + userDto.getId();
     }
 
@@ -66,13 +69,18 @@ public class UserController {
     public String updateUser(Authentication authentication, UserDto userDto) {
         User user = (User) authentication.getPrincipal();
         userDto.setId(user.getId());
-        service.update(userDto);
+        log.save(user, "request to update user: " + userDto);
+        userDto = service.update(userDto);
+        log.save(user, "user updated: " + userDto);
         return "redirect:/logout";
     }
 
     @GetMapping("/change-block")
-    public String changeBlock(@RequestParam("id") Long id) {
+    public String changeBlock(Authentication authentication, @RequestParam("id") Long id) {
+        User user = (User) authentication.getPrincipal();
+        log.save(user, "request to block by id: " + id);
         service.changeBlock(id);
+        log.save(user, "user blocked by id: " + id);
         return "redirect:/admin/users";
     }
 

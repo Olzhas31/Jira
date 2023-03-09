@@ -83,7 +83,10 @@ public class ProjectController {
 
     @PostMapping("/delete-user-in-project")
     public String deleteUserInProject(AddUserToProjectRequest request, Authentication authentication) {
+        User user = (User) authentication.getPrincipal();
+        log.save(user, "request to delete user in project. Request: " + request);
         service.deleteUserInProject(request.getProjectId(), request.getUserId());
+        log.save(user, "user deleted in project. Request: " + request);
         return "redirect:/projects/" + request.getProjectId();
     }
 }

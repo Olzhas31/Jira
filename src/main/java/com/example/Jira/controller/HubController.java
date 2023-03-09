@@ -1,6 +1,5 @@
 package com.example.Jira.controller;
 
-import com.example.Jira.entity.Hub;
 import com.example.Jira.entity.User;
 import com.example.Jira.model.requests.CreateHubRequest;
 import com.example.Jira.model.HubDto;
@@ -46,7 +45,9 @@ public class HubController {
                             @RequestParam("name") String name,
                             @RequestParam("content") String content) {
         User user = (User) authentication.getPrincipal();
-        service.update(id, name, content, user);
+        log.save(user, "request to edit hub. Request: id=" + id + ", name=" + name + ", content=" + content);
+        HubDto hubDto = service.update(id, name, content, user);
+        log.save(user, "hub updated. HubDto: " + hubDto);
         return "redirect:/hub/" + id;
     }
 

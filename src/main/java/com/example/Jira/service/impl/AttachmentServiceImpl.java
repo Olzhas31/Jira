@@ -33,7 +33,7 @@ public class AttachmentServiceImpl implements IAttachmentService {
 
     @Transactional
     @Override
-    public void save(User user, Long taskId, MultipartFile file) throws IOException {
+    public String save(User user, Long taskId, MultipartFile file) throws IOException {
         Task task = taskRepository.findById(taskId)
                 .orElseThrow(() -> new EntityNotFoundException(TASK_NOT_FOUND + taskId));
 
@@ -54,6 +54,7 @@ public class AttachmentServiceImpl implements IAttachmentService {
                 .build();
 
         repository.save(attachment);
+        return fileName;
     }
 
     @Override

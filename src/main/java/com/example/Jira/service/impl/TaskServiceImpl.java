@@ -158,9 +158,9 @@ public class TaskServiceImpl implements ITaskService {
     }
 
     @Override
-    public void update(Long taskId, String title, String description, String priority, String status,
+    public TaskDto update(Long taskId, String title, String description, String priority, String status,
                        Long assigneeId, Long expertId, Long developerId, Long reviewerId,
-                       LocalDate dueDate
+                       LocalDate dueDate, Long hubId
     ) {
         Task task = repository.findById(taskId)
                 .orElseThrow(() -> new EntityNotFoundException(TASK_NOT_FOUND + taskId));
@@ -191,6 +191,12 @@ public class TaskServiceImpl implements ITaskService {
             }
         }
 
+        if (!Objects.isNull(hubId)) {
+            Hub hub = hubRepository.findById(hubId)
+                    .orElseThrow(() -> new EntityNotFoundException(HUB_NOT_FOUND + hubId));
+            task.setHub(hub);
+        }
+
         task.setTitle(title);
         task.setDescription(description);
         task.setPriority(priority);
@@ -211,6 +217,7 @@ public class TaskServiceImpl implements ITaskService {
                         .task(task)
                         .build()
         );
+        return mapper.toDto(task);
     }
 
     @Override

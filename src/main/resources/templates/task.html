@@ -429,6 +429,16 @@
                     </select>
                 </td>
             </tr>
+            <tr>
+                <td><label>Hub: </label></td>
+                <td>
+                    <select name="hubId" class="u-form-select-wrapper">
+                        <option th:each="hub : ${hubs}"
+                                th:value="${hub.id}" th:text="${hub.name}"
+                                th:selected="${taskDto.hubId == hub.id}"></option>
+                    </select>
+                </td>
+            </tr>
             <!--            TODO  hub -->
             <tr>
                 <td><label>Status: </label></td>

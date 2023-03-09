@@ -2,6 +2,7 @@ package com.example.Jira.controller;
 
 import com.example.Jira.entity.User;
 import com.example.Jira.service.IAttachmentService;
+import com.example.Jira.service.IEventLogService;
 import lombok.AllArgsConstructor;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
@@ -21,6 +22,7 @@ import static com.example.Jira.configuration.Constants.attachmentsPath;
 public class AttachmentController {
 
     private final IAttachmentService service;
+    private final IEventLogService log;
 
     @PostMapping("/add-attachment")
     public String saveAttachment(
@@ -28,8 +30,10 @@ public class AttachmentController {
             @RequestParam("taskId") Long taskId,
             @RequestParam("image") MultipartFile file) throws IOException {
         User user = (User) authentication.getPrincipal();
-
-        service.save(user, taskId, file);
+        log.save(user, "request to add attachment. Task id: " + taskId + "" +
+                ". Filename: " + file.getOriginalFilename());
+        String filename = service.save(user, taskId, file);
+        log.save(user, "attachment added. New filename: " + filename);
         return "redirect:/task?id=" + taskId;
     }
 

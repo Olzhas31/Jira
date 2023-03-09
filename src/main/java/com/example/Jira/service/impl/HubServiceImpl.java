@@ -53,7 +53,7 @@ public class HubServiceImpl implements IHubService {
     }
 
     @Override
-    public void update(Long id, String name, String content, User updater) {
+    public HubDto update(Long id, String name, String content, User updater) {
         Hub hub = repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(HUB_NOT_FOUND + id));
         hub.setContent(content);
@@ -61,6 +61,7 @@ public class HubServiceImpl implements IHubService {
         hub.setUpdatedTime(LocalDateTime.now());
         hub.setLastUpdater(updater);
 
-        repository.save(hub);
+        hub = repository.save(hub);
+        return mapper.toDto(hub);
     }
 }

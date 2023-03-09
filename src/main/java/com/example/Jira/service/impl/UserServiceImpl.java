@@ -99,7 +99,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public void update(UserDto userDto) {
+    public UserDto update(UserDto userDto) {
         User user = repository.findById(userDto.getId())
                 .orElseThrow(() -> new EntityNotFoundException(USER_NOT_FOUND + userDto.getId()));
 
@@ -114,7 +114,8 @@ public class UserServiceImpl implements IUserService {
         user.getUserDetail().setPhoneNumber(userDto.getPhoneNumber());
         user.getUserDetail().setInfo(userDto.getInfo());
 
-        repository.save(user);
+        user = repository.save(user);
+        return mapper.toDto(user);
     }
 
     @Override

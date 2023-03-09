@@ -13,7 +13,7 @@ public interface ISprintService {
 
     SprintDto getById(Long id);
 
-    void update(Long id, String name, LocalDate startDate, LocalDate endDate);
+    SprintDto update(Long id, String name, LocalDate startDate, LocalDate endDate);
 
     Long deleteById(Long sprintId);
 
