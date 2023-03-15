@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <title>Жүйеге кіру парақшасы</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" th:href="@{/fonts/material-icon/css/material-design-iconic-font.min.css}">
@@ -83,36 +83,39 @@
                 <div class="signin-image">
                     <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
 <!--                    <a href="#" class="signup-image-link">Forgo</a>-->
-                    <button onclick="forgotPassword()" class="form-submit">Forgot password?</button>
+                    <button onclick="forgotPassword()" class="form-submit">Құпиясөзді ұмыттыңыз ба?</button>
                 </div>
 
                 <div class="signin-form">
-                    <h2 class="form-title">Sign up</h2>
+                    <h2 class="form-title">Жүйеге кіру</h2>
                     <form action="login" method="POST" class="register-form" id="login-form" >
                         <div class="form-group" th:if="${param.logout}">
-                            <span th:text="${'Вы вышли из аккаунта'}"></span>
+                            <span th:text="${'Сіз жүйеден шықтыңыз'}"></span>
+                        </div>
+                        <div class="form-group" th:if="${param.blocked}">
+                            <span th:text="${'Сіздің аккаунт бұғатталған'}"></span>
                         </div>
                         <div class="form-group u-form-send-error u-form-send-message" th:if="${param.error}">
-                            <span th:text="${'Неправильный username или password'}"></span>
+                            <span th:text="${'Қолданушы аты немесе құпиясөз дұрыс енгізілмеді'}"></span>
                         </div>
                         <div class="form-group">
                             <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="username" id="your_name" placeholder="Your Name"/>
+                            <input type="text" name="username" id="your_name" placeholder="Логин"/>
                         </div>
                         <div class="form-group">
                             <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                            <input type="password" name="password" id="your_pass" placeholder="Password"/>
+                            <input type="password" name="password" id="your_pass" placeholder="Құпиясөз"/>
                         </div>
                         <div class="form-group">
                             <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                            <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                            <label for="remember-me" class="label-agree-term"><span><span></span></span>Жүйеде сақтау</label>
                         </div>
                         <div class="form-group form-button">
-                            <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                            <input type="submit" name="signin" id="signin" class="form-submit" value="Жүйеге кіру"/>
                         </div>
                     </form>
                     <div class="social-login">
-                        <span class="social-label">Or login with</span>
+                        <span class="social-label">электрондық почта арқылы кіру</span>
                         <ul class="socials">
                             <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
                             <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
@@ -128,7 +131,7 @@
 
 <div class="popup" id="popup" hidden>
     <span class="popup__close" onclick="closeForgotPassword()">X</span>
-    <h4>Чтобы восстановить пароль, обратитесь в Хелпдеск. Адрес офиса: ул. аль-Фараби, 71/11.</h4>
+    <h4>Құпия сөзді қалпына келтіру үшін кеңсеге көмекке жүгініңіз. Кеңсенің мекен-жайы: әл-Фараби көшесі, 71/11.</h4>
 </div>
 
 <script>

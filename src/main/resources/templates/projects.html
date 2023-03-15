@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>Projects</title>
+    <title>Жобалар</title>
     <link rel="stylesheet" th:href="@{/css/nicepage.css}" media="screen">
     <link rel="stylesheet" th:href="@{/css/Projects.css}" media="screen">
     <script class="u-script" type="text/javascript" th:src="@{/js/jquery-1.9.1.min.js}" defer=""></script>
@@ -117,14 +117,14 @@
                 <div class="u-layout-row">
                     <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-13 u-layout-cell-1">
                         <div class="u-container-layout u-valign-top u-container-layout-1">
-                            <h3 class="u-text u-text-1">Хотите создать новый проект?</h3>
+                            <h3 class="u-text u-text-1">Жаңа жоба құрғыңыз келеді ме?</h3>
                         </div>
                     </div>
                     <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-47 u-layout-cell-2">
                         <div class="u-container-layout u-valign-top u-container-layout-2">
-                            <p class="u-text u-text-2">Чтобы создать новый проект у вас должен быть уровень менеджера.
-                                Если хотите создать новый проект нажмите на кнопку снизу и заполните соответствующие поля!</p>
-                            <button th:onclick="createProject([[${isRolePM}]])" class="u-btn u-button-style u-btn-2">Create project</button>
+                            <p class="u-text u-text-2">Жаңа жоба жасау үшін сізде менеджер деңгейі болуы керек.
+                                Егер сіз жаңа жоба құрғыңыз келсе төмендегі түймені басып тиісті мәліметтерді толтырыңыз!</p>
+                            <button th:onclick="createProject([[${isRolePM}]])" class="u-btn u-button-style u-btn-2">Жаңа жоба құру</button>
 <!--                            <a th:href="@{/save-project}" class="u-black u-btn u-button-style u-btn-1">Жаңа жоба-->
 <!--                                құру</a>-->
                         </div>
@@ -190,53 +190,46 @@
     <div class="u-clearfix u-sheet u-sheet-1"></div>
 </section>
 
-<footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0fc3">
-    <div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">Sample text. Click to select the text box. Click again or
-            double click to start editing the text.</p>
-    </div>
-</footer>
-<section class="u-backlink u-clearfix u-grey-80">
-    <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Website Templates</span>
-    </a>
-    <p class="u-text">
-        <span>created with</span>
+<footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0fc3"><div class="u-clearfix u-sheet u-sheet-1">
+    <p class="u-small-text u-text u-text-variant u-text-1">
+        Әл-Фараби атындағы Қазақ Ұлттық университеті
     </p>
-    <a class="u-link" href="" target="_blank">
-        <span>Website Builder Software</span>
-    </a>.
+</div></footer>
+<section class="u-backlink u-clearfix u-grey-80">
+    <p class="u-text">
+        <span>© 2023 Арнайы дипломдық жоба үшін</span>
+    </p>
 </section>
 
 <div class="popup" id="project_popup" hidden>
     <span class="popup__close" onclick="closeProject()">X</span>
-    <h2>Create new project</h2>
+    <h2>Жаңа жоба құру</h2>
     <form action="/save-project" method='POST'>
         <table>
             <tr>
-                <td> <label>Name: </label></td>
-                <td><input type='text' name='name' placeholder="Name"> <br></td>
+                <td> <label>Атауы: </label></td>
+                <td><input type='text' name='name' placeholder="Атауын енгізіңіз"> <br></td>
             </tr>
             <tr>
-                <td>  <label>Description: </label></td>
-                <td>  <input type='text' name='description' placeholder="Description"> <br></td>
+                <td>  <label>Сипаттамасы: </label></td>
+                <td>  <input type='text' name='description' placeholder="Сипаттамасын енгізіңіз"> <br></td>
             </tr>
             <tr>
-                <td> <label>Goals: </label></td>
-                <td> <input type='text' name='goal' placeholder="Goals"> <br></td>
+                <td> <label>Мақсаты: </label></td>
+                <td> <input type='text' name='goal' placeholder="Мақсатын енгізіңіз"> <br></td>
             </tr>
             <tr>
-                <td> <label>Responsibility: </label></td>
-                <td> <input type='text' name='responsibility' placeholder="Responsibility"> <br></td>
+                <td> <label>Міндеттері: </label></td>
+                <td> <input type='text' name='responsibility' placeholder="Міндеттерін енгізіңіз"> <br></td>
             </tr>
         </table>
-        <input name="submit" type="submit" value="submit" class="u-btn u-button-style u-btn-2"/>
+        <input name="submit" type="submit" value="Құру" class="u-btn u-button-style u-btn-2"/>
     </form>
 </div>
 
 <div class="popup" id="project_popup2" hidden>
     <span class="popup__close" onclick="closeProject()">X</span>
-    <h2>У вас нет полномочии</h2>
+    <h2>Сізде бұндай өкілеттік жоқ</h2>
 </div>
 
 <script>

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>Kanban</title>
+    <title>Kanban тақтасы</title>
     <link rel="stylesheet" th:href="@{/css/nicepage_dashboard.css}" media="screen">
     <link rel="stylesheet" th:href="@{/css/Dashboard.css}" media="screen">
     <link rel="stylesheet" th:href="@{/css/kanban.css}" media="screen">
@@ -96,11 +96,13 @@
     <div class="u-clearfix u-sheet u-sheet-1"></div>
 </section>
 <section class="u-clearfix u-section-3" style="margin-top: 30px; text-align: center">
+    <span>Жоба: </span>
     <a th:if="${error == null}"
        th:href="@{'/projects/' + ${projectDto.getId()}}"
-       th:text="'Project: ' + ${projectDto.getName()}"></a>
-    <span th:if="${error != null}">Вы не состоите в проектах</span>
+       th:text="${projectDto.getName()}"></a>
+    <span th:if="${error != null}">Сіз жобаларда тіркелмегенсіз</span>
 
+    <span th:if="${error == null}">Орындаушылар: </span>
     <a th:each="user : ${users}"
        th:href="@{'/kanban?project-id=' + ${projectDto.id} + '&user-id=' + ${user.id}}"
        th:text="${user.name} + ' ' + ${user.surname}" style="padding: 10px"></a>
@@ -133,7 +135,7 @@
                 </div>
             </ol>
             <ol class="kanban progress">
-                <h2><i class="material-icons">build</i> In process</h2>
+                <h2><i class="material-icons">build</i> Орындауда</h2>
                 <li class="dd-item" th:each="task : ${processing}">
                     <h3 class="jira_title dd-handle">
                         <i class=" material-icons ">filter_none</i>
@@ -153,7 +155,7 @@
                 </li>
             </ol>
             <ol class="kanban  Done">
-                <h2><i class="material-icons">check_circle</i> Waiting</h2>
+                <h2><i class="material-icons">check_circle</i> Күтілуде</h2>
                 <li class="dd-item" th:each="task : ${waiting}">
                     <h3 class="jira_title dd-handle">
                         <i class=" material-icons ">filter_none</i>
@@ -173,7 +175,7 @@
                 </li>
             </ol>
             <ol class="kanban  Done">
-                <h2><i class="material-icons">check_circle</i> Production deployment</h2>
+                <h2><i class="material-icons">check_circle</i> Өндіріске шығару барысында</h2>
                 <li class="dd-item" th:each="task : ${deploying}">
                     <h3 class="jira_title dd-handle">
                         <i class=" material-icons ">filter_none</i>
@@ -193,7 +195,7 @@
                 </li>
             </ol>
             <ol class="kanban Gone">
-                <h2><i class="material-icons">delete</i> Done</h2>
+                <h2><i class="material-icons">delete</i> Аяқталған</h2>
                 <li class="dd-item" th:each="task : ${done}">
                     <h3 class="jira_title dd-handle">
                         <i class=" material-icons ">filter_none</i>
@@ -221,22 +223,15 @@
 </section>
 
 
-<footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0fc3">
-    <div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">Sample text. Click to select the text box. Click again or
-            double click to start editing the text.</p>
-    </div>
-</footer>
-<section class="u-backlink u-clearfix u-grey-80">
-    <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Website Templates</span>
-    </a>
-    <p class="u-text">
-        <span>created with</span>
+<footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0fc3"><div class="u-clearfix u-sheet u-sheet-1">
+    <p class="u-small-text u-text u-text-variant u-text-1">
+        Әл-Фараби атындағы Қазақ Ұлттық университеті
     </p>
-    <a class="u-link" href="" target="_blank">
-        <span>Website Builder Software</span>
-    </a>.
+</div></footer>
+<section class="u-backlink u-clearfix u-grey-80">
+    <p class="u-text">
+        <span>© 2023 Арнайы дипломдық жоба үшін</span>
+    </p>
 </section>
 
 </body>

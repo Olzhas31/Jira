@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
 @Configuration
 @AllArgsConstructor
@@ -26,7 +27,7 @@ public class WebSecurityConfig {
         http
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/", "/home", "/avatars/**", "/uploads/**")
+                .requestMatchers("/", "/home", "/avatars/**", "/uploads/**", "/error", "/login")
                     .permitAll()
                 .requestMatchers(HttpMethod.POST, "/save-project", "/add-user-to-project", "/save-sprint")
                     .hasAuthority(Roles.PROJECT_MANAGER.name())
@@ -39,11 +40,17 @@ public class WebSecurityConfig {
                 .formLogin()
                     .loginPage("/login")
                     .defaultSuccessUrl("/", true)
+                    .failureHandler(authenticationFailureHandler())
                     .permitAll()
                 .and()
                     .logout()
                     .permitAll();
         return http.build();
+    }
+
+    @Bean
+    public AuthenticationFailureHandler authenticationFailureHandler() {
+        return new CustomAuthenticationFailureHandler();
     }
 
     @Bean

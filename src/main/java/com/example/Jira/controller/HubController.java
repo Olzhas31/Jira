@@ -29,7 +29,7 @@ public class HubController {
         log.save(user, "request to create new hub. Request: " + request);
         HubDto hubDto = service.save(request, user);
         log.save(user, "created new hub. HubDto: " + hubDto);
-        return "redirect:/";
+        return "redirect:/hub/" + hubDto.getId();
     }
 
     @GetMapping("/hub/{id}")

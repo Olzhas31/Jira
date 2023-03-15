@@ -11,7 +11,7 @@
     <meta name="description"
           content="Admin-Pro Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Users</title>
+    <title>Қолданушылар</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/adminpro-lite/"/>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" th:href="@{/admin/images/favicon.png}">
@@ -115,13 +115,13 @@
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
                     <li><a class="waves-effect waves-dark" href="/" aria-expanded="false"><i
-                            class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a></li>
+                            class="mdi mdi-gauge"></i><span class="hide-menu">Басты тақта</span></a></li>
                     <li><a class="waves-effect waves-dark" th:href="@{/admin/users}" aria-expanded="false"><i
-                            class="mdi mdi-account-check"></i><span class="hide-menu">Users</span></a></li>
+                            class="mdi mdi-account-check"></i><span class="hide-menu">Қолданушылар</span></a></li>
                     <li><a class="waves-effect waves-dark" th:href="@{/admin/create-user}" aria-expanded="false"><i
-                            class="mdi mdi-table"></i><span class="hide-menu">New user</span></a></li>
+                            class="mdi mdi-table"></i><span class="hide-menu">Жаңа қолданушыны тіркеу</span></a></li>
                     <li><a class="waves-effect waves-dark" th:href="@{/admin/activity}" aria-expanded="false"><i
-                            class="mdi mdi-emoticon"></i><span class="hide-menu">Activity</span></a></li>
+                            class="mdi mdi-emoticon"></i><span class="hide-menu">Жүйедегі оқиғалар</span></a></li>
                     <!--                    <li><a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i-->
                     <!--                            class="mdi mdi-earth"></i><span class="hide-menu">Map</span></a></li>-->
                     <!--                    <li><a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i-->
@@ -131,7 +131,7 @@
                 </ul>
                 <div class="text-center mt-4">
                     <a href="/logout"
-                       class="btn waves-effect waves-light btn-info hidden-md-down text-white"> Log out</a>
+                       class="btn waves-effect waves-light btn-info hidden-md-down text-white"> Жүйеден шығу</a>
                 </div>
             </nav>
             <!-- End Sidebar navigation -->
@@ -154,7 +154,7 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Admin Dashboard</h3>
+                    <h3 class="text-themecolor">Админдік тақта</h3>
                 </div>
                 <!--                <div class="col-md-7 align-self-center">-->
                 <!--                    <a href="https://wrappixel.com/templates/adminpro/"-->
@@ -173,21 +173,21 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Все пользователи</h4>
+                            <h4 class="card-title">Жүйедегі барлық қолданушылар</h4>
 <!--                            <h6 class="card-subtitle">Add class <code>.table</code></h6>-->
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Username</th>
-                                        <th>Name</th>
-                                        <th>Surname</th>
-                                        <th>Email</th>
-                                        <th>Phone number</th>
-                                        <th>Registration date</th>
-                                        <th>Role</th>
-                                        <th>Locked</th>
+                                        <th>Логин</th>
+                                        <th>Есімі</th>
+                                        <th>Тегі</th>
+                                        <th>Электрондық почта</th>
+                                        <th>Телефон номері</th>
+                                        <th>Тіркелу күні</th>
+                                        <th>Лауазымы</th>
+                                        <th>Аккаунт статусы</th>
                                         <th>Block/unblock</th>
                                     </tr>
                                     </thead>
@@ -201,9 +201,12 @@
                                         <td th:text="${user.phoneNumber}"></td>
                                         <td th:text="${user.registerAt}"></td>
                                         <td th:text="${user.role}"></td>
-                                        <td th:text="${user.locked}"></td>
                                         <td>
-                                            <a th:href="@{'/change-block?id=' + ${user.id}}">block/unblock</a>
+                                            <span th:if="${user.locked == true}">бұғатталған</span>
+                                            <span th:if="${user.locked == false}">актив</span>
+                                        </td>
+                                        <td>
+                                            <a th:href="@{'/change-block?id=' + ${user.id}}">бұағаттау/қосу</a>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -224,7 +227,7 @@
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
-        <footer class="footer"> © 2022 Арнайы димломдық жоба үшін <a href="https://www.instagram/">Name Surname</a></footer>
+        <footer class="footer"> © 2023 Арнайы димломдық жоба үшін </footer>
         <!-- ============================================================== -->
         <!-- End footer -->
         <!-- ============================================================== -->

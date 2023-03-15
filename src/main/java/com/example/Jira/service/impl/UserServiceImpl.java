@@ -6,6 +6,7 @@ import com.example.Jira.entity.UserDetail;
 import com.example.Jira.entity.states.Roles;
 import com.example.Jira.exception.EmailAlreadyExistsException;
 import com.example.Jira.exception.EntityNotFoundException;
+import com.example.Jira.exception.UserBlockedException;
 import com.example.Jira.exception.UsernameAlreadyExistsException;
 import com.example.Jira.mapper.UserDetailMapper;
 import com.example.Jira.mapper.UserMapper;
@@ -44,8 +45,12 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return repository.findByUsername(username)
+        var user = repository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User with username " + username + " not found"));
+        if (user.getLocked()) {
+            throw new UserBlockedException("blocked");
+        }
+        return user;
     }
 
     @Override

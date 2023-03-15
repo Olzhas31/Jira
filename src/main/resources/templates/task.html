@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="​Fundraising for nonprofits made simple">
     <meta name="description" content="">
-    <title>Task</title>
+    <title>Тапсырма</title>
     <link rel="stylesheet" th:href="@{/css/ver2/nicepage.css}" media="screen">
     <link rel="stylesheet" th:href="@{/css/ver2/Task.css}" media="screen">
     <script class="u-script" type="text/javascript" th:src="@{/js/ver2/jquery-1.9.1.min.js}" defer=""></script>
@@ -137,7 +137,7 @@
         <h2 class="u-align-center u-text u-text-default u-text-2" th:text="${taskDto.title}"></h2>
         <button onclick="editTask()"
                 class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2">
-            Edit Task
+            Өзгерту
         </button>
         <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
             <div class="u-layout">
@@ -149,12 +149,12 @@
                                     <div class="u-container-style u-list-item u-repeater-item">
                                         <div class="u-container-layout u-similar-container u-container-layout-2">
                                             <h4 class="u-align-center u-text u-text-default u-text-palette-4-base u-text-3">
-                                                Details:</h4>
+                                                Тапсырма</h4>
                                             <p class="u-align-left u-text u-text-default u-text-4">
                                                 <!--                                                Type: <br>-->
-                                                Priority: <span th:text="${taskDto.priority}"></span>
-                                                <br>Status: <span th:text="${taskDto.status}"></span>
-                                                <br>Hub: <span th:if="${taskDto.hubId}">
+                                                Басымдылығы: <span th:text="${taskDto.priority}"></span>
+                                                <br>Статусы: <span th:text="${taskDto.status}"></span>
+                                                <br>Хаб: <span th:if="${taskDto.hubId}">
                                                     <a th:href="@{'/hub/' + ${taskDto.hubId}}"
                                                        th:text="${taskDto.hubName}"></a>
                                                 </span>&nbsp;
@@ -166,7 +166,7 @@
                                     <div class="u-container-align-center u-container-style u-list-item u-repeater-item">
                                         <div class="u-container-layout u-similar-container u-container-layout-3">
                                             <h4 class="u-align-center u-text u-text-default u-text-palette-4-base u-text-5">
-                                                Description</h4>
+                                                Мазмұны</h4>
                                             <p class="u-align-left u-text u-text-default u-text-6"
                                                th:text="${taskDto.description}"></p>
                                         </div>
@@ -174,11 +174,11 @@
                                     <div class="u-container-align-center u-container-style u-list-item u-repeater-item">
                                         <div class="u-container-layout u-similar-container u-container-layout-3">
                                             <h4 class="u-align-center u-text u-text-default u-text-palette-4-base u-text-5">
-                                                Attachments</h4>
+                                                Тапсырма құжаттары</h4>
                                             <p class="u-align-left u-text u-text-default u-text-6">
                                                 <button onclick="addAttachment()"
                                                         class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2">
-                                                    Add attachment
+                                                    Құжат қосу
                                                 </button>
                                             </p>
                                             <table>
@@ -188,7 +188,7 @@
                                                     <td th:text="${file.createdTime}"></td>
                                                     <td th:text="${file.user.username}"></td>
                                                     <td>
-                                                        <a th:href="@{/download-attachment/{filename}(filename=${file.filename})}">Download</a>
+                                                        <a th:href="@{/download-attachment/{filename}(filename=${file.filename})}">Жүктеу</a>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -197,7 +197,7 @@
                                     <div class="u-container-align-center u-container-style u-list-item u-repeater-item">
                                         <div class="u-container-layout u-similar-container u-container-layout-3">
                                             <h4 class="u-align-center u-text u-text-default u-text-palette-4-base u-text-5">
-                                                Task history</h4>
+                                                Тапсырма өзгерістері</h4>
                                             <ol>
                                                 <li th:each="item : ${history}" style="font-size: smaller"
                                                     th:text="${item.transition} + ' ' + ${item.createdTime}"></li>
@@ -215,39 +215,39 @@
                                     <div class="u-container-style u-list-item u-repeater-item">
                                         <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-5">
                                             <h4 class="u-align-left u-text u-text-default u-text-palette-4-base u-text-7">
-                                                People:</h4>
+                                                Орындаушылар:</h4>
                                             <p class="u-align-left u-text u-text-default u-text-8"
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
-                                                <span style="font-weight: 700;"> Assignee:</span>
+                                                <span style="font-weight: 700;"> Жауапты:</span>
                                                 <a th:href="@{'/profile?id=' + ${taskDto.assigneeId}}"
                                                    th:text="${taskDto.assigneeName}"></a>
                                             </p>
                                             <p class="u-align-left u-text u-text-default u-text-9"
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
-                                                <span style="font-weight: 700;"> Expert:</span>
+                                                <span style="font-weight: 700;"> Сарапшы:</span>
                                                 <a th:href="@{'/profile?id=' + ${taskDto.expertId}}"
                                                    th:text="${taskDto.expertName}"></a>
                                             </p>
                                             <p class="u-align-left u-text u-text-default u-text-10"
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
-                                                <span style="font-weight: 700;"> Developer:</span>
+                                                <span style="font-weight: 700;"> Бағдарламаушы:</span>
                                                 <a th:href="@{'/profile?id=' + ${taskDto.developerId}}"
                                                    th:text="${taskDto.developerName}"></a>
                                             </p>
                                             <p class="u-align-left u-text u-text-default u-text-11"
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
-                                                <span style="font-weight: 700;"> Reviewer:</span>
+                                                <span style="font-weight: 700;"> Тексеруші:</span>
                                                 <a th:href="@{'/profile?id=' + ${taskDto.reviewerId}}"
                                                    th:text="${taskDto.reviewerName}"></a>
                                             </p>
                                             <p class="u-align-left u-text u-text-default u-text-12"
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
-                                                <span style="font-weight: 700;"> Acceptor:</span>
+                                                <span style="font-weight: 700;"> Құрушы:</span>
                                                 <a th:href="@{'/profile?id=' + ${taskDto.acceptorId}}"
                                                    th:text="${taskDto.acceptorName}"></a>
                                             </p>
@@ -256,35 +256,35 @@
                                     <div class="u-container-style u-list-item u-repeater-item">
                                         <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-6">
                                             <h4 class="u-align-left u-text u-text-default u-text-palette-4-base u-text-13">
-                                                Dates:</h4>
+                                                Уақыттар:</h4>
                                             <p class="u-align-left u-text u-text-default u-text-14"
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
-                                                <span style="font-weight: 700;">Due date:</span>
+                                                <span style="font-weight: 700;">Орындау мерзімі:</span>
                                                 <span th:text="${taskDto.dueDate}"></span>
                                             </p>
                                             <p class="u-align-left u-text u-text-default u-text-15"
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
-                                                <span style="font-weight: 700;"> Start date:</span>
+                                                <span style="font-weight: 700;"> Жұмысқа алынған күні:</span>
                                                 <span th:text="${taskDto.startDate}"></span>
                                             </p>
                                             <p class="u-align-left u-text u-text-default u-text-16"
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
-                                                <span style="font-weight: 700;"> Created time:</span>
+                                                <span style="font-weight: 700;"> Құрылған уақыты:</span>
                                                 <span th:text="${taskDto.createdTime}"></span>
                                             </p>
                                             <p class="u-align-left u-text u-text-default u-text-17"
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
-                                                <span style="font-weight: 700;"> Updated time: </span>
+                                                <span style="font-weight: 700;"> Соңғы өзгертілген уақыты: </span>
                                                 <span th:text="${taskDto.updatedTime}"></span>
                                             </p>
                                             <p class="u-align-left u-text u-text-default u-text-18"
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
-                                                <span style="font-weight: 700;"> Resolved time: </span>
+                                                <span style="font-weight: 700;"> Шешілген уақыты: </span>
                                                 <span th:text="${taskDto.resolvedTime}"></span>
                                             </p>
                                         </div>
@@ -292,7 +292,7 @@
                                     <div class="u-container-align-center u-container-style u-list-item u-repeater-item">
                                         <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-7">
                                             <h4 class="u-align-left u-text u-text-default u-text-palette-4-base u-text-19">
-                                                Sprints</h4>
+                                                Спринттер</h4>
                                             <p class="u-align-left u-text u-text-default u-text-20"
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
@@ -303,11 +303,11 @@
                                             </p>
                                             <button onclick="addToSprint()"
                                                     class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2">
-                                                add to sprint
+                                                Спринтке қосу
                                             </button>
                                             <button onclick="deleteInSprint()"
                                                     class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2">
-                                                delete in sprint
+                                                Спринттен өшіру
                                             </button>
                                         </div>
                                     </div>
@@ -331,47 +331,40 @@
 <!--</section>-->
 
 
-<footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0fc3">
-    <div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">Sample text. Click to select the text box. Click again or
-            double click to start editing the text.</p>
-    </div>
-</footer>
-<section class="u-backlink u-clearfix u-grey-80">
-    <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Website Templates</span>
-    </a>
-    <p class="u-text">
-        <span>created with</span>
+<footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0fc3"><div class="u-clearfix u-sheet u-sheet-1">
+    <p class="u-small-text u-text u-text-variant u-text-1">
+        Әл-Фараби атындағы Қазақ Ұлттық университеті
     </p>
-    <a class="u-link" href="" target="_blank">
-        <span>Website Builder Software</span>
-    </a>.
+</div></footer>
+<section class="u-backlink u-clearfix u-grey-80">
+    <p class="u-text">
+        <span>© 2023 Арнайы дипломдық жоба үшін</span>
+    </p>
 </section>
 
 <div class="popup" id="attachment_popup" hidden>
     <span class="popup__close" onclick="closePopup()">X</span>
-    <h2>Add attachment</h2>
+    <h2>Құжат жүктеу</h2>
     <form th:action="@{/add-attachment}" method='POST' enctype="multipart/form-data">
         <input type="hidden" name="taskId" th:value="${taskDto.id}">
         <table>
             <tr>
-                <td><label>Select a file: </label></td>
+                <td><label>Құжатты таңдау: </label></td>
                 <td><input type="file" name="image" accept="image/*" class="form-control-file" required></td>
             </tr>
         </table>
-        <input name="submit" type="submit" value="upload" class="u-btn u-button-style u-btn-2"/>
+        <input name="submit" type="submit" value="жүктеу" class="u-btn u-button-style u-btn-2"/>
     </form>
 </div>
 
 <div class="popup" id="sprint_popup" hidden>
     <span class="popup__close" onclick="closePopup()">X</span>
-    <h2>Add task to sprint</h2>
+    <h2>Тапсырманы спринтке қосу</h2>
     <form th:action="@{/add-task-to-sprint}" method='POST'>
         <input type="hidden" name="taskId" th:value="${taskDto.id}">
         <table>
             <tr>
-                <td><label>Select a sprint: </label></td>
+                <td><label>Спринт таңдау: </label></td>
                 <td>
                     <select name="sprintId" class="u-form-select-wrapper">
                         <option th:each="sprint : ${sprints}"
@@ -380,18 +373,18 @@
                 </td>
             </tr>
         </table>
-        <input name="submit" type="submit" value="add" class="u-btn u-button-style u-btn-2"/>
+        <input name="submit" type="submit" value="Қосу" class="u-btn u-button-style u-btn-2"/>
     </form>
 </div>
 
 <div class="popup" id="delete_sprint_popup" hidden>
     <span class="popup__close" onclick="closePopup()">X</span>
-    <h2>Delete in sprint</h2>
+    <h2>Тапсырманы спринттен өшіру</h2>
     <form th:action="@{/delete-task-in-sprint}" method='POST'>
         <input type="hidden" name="taskId" th:value="${taskDto.id}">
         <table>
             <tr>
-                <td><label>Select a sprint: </label></td>
+                <td><label>Спринт таңдау: </label></td>
                 <td>
                     <select name="sprintId" class="u-form-select-wrapper">
                         <option th:each="sprint : ${sprintsByTask}"
@@ -400,27 +393,27 @@
                 </td>
             </tr>
         </table>
-        <input name="submit" type="submit" value="delete" class="u-btn u-button-style u-btn-2"/>
+        <input name="submit" type="submit" value="Өшіру" class="u-btn u-button-style u-btn-2"/>
     </form>
 </div>
 
 <div class="popup" id="task_popup" hidden>
     <span class="popup__close" onclick="closePopup()">X</span>
-    <h2>Edit task</h2>
+    <h2>Тапсырманы өзгерту</h2>
     <form action="/edit-task" method='POST'>
         <input type="hidden" name="id" th:value="${taskDto.id}">
         <table>
             <tr>
-                <td><label>Title: </label></td>
+                <td><label>Тақырыбы: </label></td>
                 <td><input type='text' name='title' th:value="${taskDto.title}" th:placeholder="${taskDto.title}"></td>
             </tr>
             <tr>
-                <td><label>Description: </label></td>
-                <td><input type='text' name='description' th:value="${taskDto.description}" placeholder="Description">
+                <td><label>Мазмұны: </label></td>
+                <td><input type='text' name='description' th:value="${taskDto.description}" th:placeholder="${taskDto.description}">
                 </td>
             </tr>
             <tr>
-                <td><label>Priority: </label></td>
+                <td><label>Басымдылығы: </label></td>
                 <td>
                     <select name="priority" class="u-form-select-wrapper">
                         <option th:each="priority : ${T(com.example.Jira.entity.states.Priority).values()}"
@@ -430,7 +423,7 @@
                 </td>
             </tr>
             <tr>
-                <td><label>Hub: </label></td>
+                <td><label>Хаб: </label></td>
                 <td>
                     <select name="hubId" class="u-form-select-wrapper">
                         <option th:each="hub : ${hubs}"
@@ -439,9 +432,8 @@
                     </select>
                 </td>
             </tr>
-            <!--            TODO  hub -->
             <tr>
-                <td><label>Status: </label></td>
+                <td><label>Статусы: </label></td>
                 <td>
                     <select name="status" class="u-form-select-wrapper">
                         <option th:each="status : ${T(com.example.Jira.entity.states.TaskStatus).values()}"
@@ -451,10 +443,10 @@
                 </td>
             </tr>
             <tr>
-                <td><label>Assignee: </label></td>
+                <td><label>Жауапты орындаушы: </label></td>
                 <td>
                     <select name="assigneeId" class="u-form-select-wrapper">
-                        <option th:value="null">select option</option>
+                        <option th:value="null">Таңдау</option>
                         <option th:each="user : ${usersByProject}"
                                 th:value="${user.id}" th:text="${user.name + ' ' + user.surname}"
                                 th:selected="${taskDto.assigneeId == user.id}"></option>
@@ -462,7 +454,7 @@
                 </td>
             </tr>
             <tr>
-                <td><label>Expert: </label></td>
+                <td><label>Сарапшы: </label></td>
                 <td>
                     <select name="expertId" class="u-form-select-wrapper">
                         <option th:each="user : ${experts}"
@@ -472,10 +464,10 @@
                 </td>
             </tr>
             <tr>
-                <td><label>Developer: </label></td>
+                <td><label>Бағдарламаушы: </label></td>
                 <td>
                     <select name="developerId" class="u-form-select-wrapper">
-                        <option th:value="null">select option</option>
+                        <option th:value="null">таңдау</option>
                         <option th:each="user : ${developers}"
                                 th:value="${user.id}" th:text="${user.name + ' ' + user.surname}"
                                 th:selected="${taskDto.developerId == user.id}"></option>
@@ -483,10 +475,10 @@
                 </td>
             </tr>
             <tr>
-                <td><label>Reviewer: </label></td>
+                <td><label>Тексеруші: </label></td>
                 <td>
                     <select name="reviewerId" class="u-form-select-wrapper">
-                        <option th:value="null">select option</option>
+                        <option th:value="null">Таңдау</option>
                         <option th:each="user : ${usersByProject}"
                                 th:value="${user.id}" th:text="${user.name + ' ' + user.surname}"
                                 th:selected="${taskDto.reviewerId == user.id}"></option>
@@ -494,7 +486,7 @@
                 </td>
             </tr>
             <tr>
-                <td><label>Due date: </label></td>
+                <td><label>Мерзімі: </label></td>
                 <td> <input type="date" name="dueDate" th:value="${taskDto.dueDate}" placeholder="Due date"></td>
             </tr>
 <!--            <tr>-->
@@ -509,7 +501,7 @@
 <!--                </td>-->
 <!--            </tr>-->
         </table>
-        <input name="submit" type="submit" value="submit" class="u-btn u-button-style u-btn-2"/>
+        <input name="submit" type="submit" value="Өзгерту" class="u-btn u-button-style u-btn-2"/>
     </form>
 </div>
 
