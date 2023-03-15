@@ -65,25 +65,25 @@
                 <ul class="u-nav u-spacing-2 u-unstyled u-nav-1">
                     <li class="u-nav-item">
                         <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                           th:href="@{/home}" style="padding: 10px 20px;">Home</a></li>
+                           th:href="@{/home}" style="padding: 10px 20px;">Басты бет</a></li>
                     <li class="u-nav-item">
                         <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                           th:href="@{/kanban}" style="padding: 10px 20px;">Kanban board</a></li>
+                           th:href="@{/kanban}" style="padding: 10px 20px;">Kanban тақтасы</a></li>
                     <li class="u-nav-item">
                         <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                           th:href="@{/dashboard}" style="padding: 10px 20px;">Dashboard</a></li>
+                           th:href="@{/dashboard}" style="padding: 10px 20px;">Жұмыс тақтасы</a></li>
                     <li class="u-nav-item">
                         <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                           th:href="@{/projects}" style="padding: 10px 20px;">Projects</a></li>
+                           th:href="@{/projects}" style="padding: 10px 20px;">Жобалар</a></li>
                     <li class="u-nav-item">
                         <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                           th:href="@{/profile}" sec:authorize="isAuthenticated()" style="padding: 10px 20px;">Profile</a></li>
+                           th:href="@{/profile}" sec:authorize="isAuthenticated()" style="padding: 10px 20px;">Профиль</a></li>
                     <li class="u-nav-item">
                         <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                           th:href="@{/login}" sec:authorize="isAnonymous()" style="padding: 10px 20px;">Login</a></li>
+                           th:href="@{/login}" sec:authorize="isAnonymous()" style="padding: 10px 20px;">Жүйеге кіру</a></li>
                     <li class="u-nav-item">
                         <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                           th:href="@{/logout}" sec:authorize="isAuthenticated()" style="padding: 10px 20px;">Log out</a>
+                           th:href="@{/logout}" sec:authorize="isAuthenticated()" style="padding: 10px 20px;">Жүйеден шығу</a>
                     </li>
                 </ul>
             </div>
@@ -92,13 +92,13 @@
                     <div class="u-inner-container-layout u-sidenav-overflow">
                         <div class="u-menu-close"></div>
                         <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/home}">Home</a></li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/kanban}">Kanban board</a></li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/dashboard}">Dashboard</a></li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/projects}">Projects</a></li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/profile}" sec:authorize="isAuthenticated()">Profile</a></li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/login}" sec:authorize="isAnonymous()">Login</a></li>
-                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/logout}" sec:authorize="isAuthenticated()">Log out</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/home}">Басты бет</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/kanban}">Kanban тақтасы</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/dashboard}">Жұмыс тақтасы</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/projects}">Жобалар</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/profile}" sec:authorize="isAuthenticated()">Профиль</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/login}" sec:authorize="isAnonymous()">Жүйеге кіру</a></li>
+                            <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/logout}" sec:authorize="isAuthenticated()">Жүйеден шығу</a></li>
                         </ul>
                     </div>
                 </div>

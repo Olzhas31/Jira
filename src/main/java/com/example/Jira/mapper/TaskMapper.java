@@ -97,7 +97,7 @@ public class TaskMapper {
                 .expert(expert)
                 .reviewer(reviewer)
                 .project(project)
-                .status(TaskStatus.NEW.name())
+                .status(TaskStatus.ZHANA.name())
                 .build();
     }
 }

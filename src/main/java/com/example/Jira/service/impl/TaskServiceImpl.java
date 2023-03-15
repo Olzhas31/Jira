@@ -101,7 +101,7 @@ public class TaskServiceImpl implements ITaskService {
     @Override
     public List<DashboardResponse> getBacklogTasks(List<ProjectDto> projects) {
         List<Task> tasks = repository.findAllByStatusIn(List.of(
-                TaskStatus.NEW.name(), TaskStatus.TODO.name()
+                TaskStatus.ZHANA.name(), TaskStatus.TODO.name()
         ));
         List<DashboardResponse> result = new ArrayList<>();
         for (ProjectDto projectDto: projects) {
@@ -184,8 +184,8 @@ public class TaskServiceImpl implements ITaskService {
         }
 
         LocalDateTime now = LocalDateTime.now();
-        if (status.equalsIgnoreCase(TaskStatus.REJECTED_OR_CANCELED.name()) ||
-                status.equalsIgnoreCase(TaskStatus.CLOSED.name())) {
+        if (status.equalsIgnoreCase(TaskStatus.QABYLDANBADY_NEMESE_JOIYLDY.name()) ||
+                status.equalsIgnoreCase(TaskStatus.JABYLDY.name())) {
             if (Objects.isNull(task.getResolvedTime())) {
                 task.setResolvedTime(now);
             }

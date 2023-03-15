@@ -11,4 +11,8 @@ import java.util.List;
 public interface HubRepository extends JpaRepository<Hub, Long> {
 
     List<Hub> findAllByProject(Project project);
+
+    boolean existsByNameAndProject(String name, Project project);
+
+    Hub findByName(String name);
 }

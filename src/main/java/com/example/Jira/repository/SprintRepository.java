@@ -20,4 +20,8 @@ public interface SprintRepository extends JpaRepository<Sprint, Long> {
             "    where sprint_id = :sprint_id",
             nativeQuery = true)
     void deleteTasksInSprint(@Param("sprint_id") Long sprintId);
+
+    boolean existsByName(String name);
+
+    Sprint findByName(String name);
 }

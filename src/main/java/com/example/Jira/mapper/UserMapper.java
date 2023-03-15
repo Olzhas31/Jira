@@ -6,9 +6,6 @@ import com.example.Jira.model.UserDto;
 import com.example.Jira.model.requests.CreateUserRequest;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.DateFormatter;
-import java.text.DateFormat;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Service
@@ -16,6 +13,16 @@ public class UserMapper {
 
     public UserDto toDto(User user) {
         UserDetail userDetail = user.getUserDetail();
+        String role = user.getRole();
+        if (user.getRole().equals("PROJECT_MANAGER")) {
+            role = "Жоба жетекшісі";
+        } else if (user.getRole().equals("EXPERT")) {
+            role = "Сарапшы";
+        } else if (user.getRole().equals("FRONTEND_DEVELOPER")) {
+            role = "Frontend бағдарламаушы";
+        } else if (user.getRole().equals("BACKEND_DEVELOPER")) {
+            role = "Backend бағдарламаушы";
+        }
         return UserDto.builder()
                 .id(user.getId())
                 .username(user.getUsername())
@@ -25,7 +32,7 @@ public class UserMapper {
                 .phoneNumber(userDetail.getPhoneNumber())
                 .surname(userDetail.getSurname())
                 .urlPicture(userDetail.getUrlPicture())
-                .role(user.getRole())
+                .role(role)
                 .registerAt(user.getUserDetail().getRegisterDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")))
                 .locked(user.getLocked())
                 .build();

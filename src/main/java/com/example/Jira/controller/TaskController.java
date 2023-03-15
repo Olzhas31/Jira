@@ -63,15 +63,15 @@ public class TaskController {
         model.addAttribute("projects", userProjects);
         model.addAttribute("backlog", service.getBacklogTasks(userProjects));
         model.addAttribute("analyzing", service.getDashboardTasks(user, userProjects,
-                List.of(TaskStatus.ANALYZING.name())));
+                List.of(TaskStatus.TALDAUDA.name())));
         model.addAttribute("inProgress", service.getDashboardTasks(user, userProjects,
-                List.of(TaskStatus.IN_PROGRESS.name())));
+                List.of(TaskStatus.ORINDALUDA.name())));
         model.addAttribute("waiting", service.getDashboardTasks(user, userProjects,
-                List.of(TaskStatus.WAITING.name(), TaskStatus.IN_REVIEW.name(), TaskStatus.DEPLOYMENT.name(), TaskStatus.ACCEPTANCE_TEST.name())));
+                List.of(TaskStatus.KUTILUDE.name(), TaskStatus.TEKSERISTE.name(), TaskStatus.DEPLOYMENT.name(), TaskStatus.TESTTE.name())));
         model.addAttribute("deploy", service.getDashboardTasks(user, userProjects,
                 List.of(TaskStatus.PRODUCTION_DEPLOYMENT.name())));
         model.addAttribute("done", service.getDashboardTasks(user, userProjects,
-                List.of(TaskStatus.CLOSED.name(), TaskStatus.REJECTED_OR_CANCELED.name())));
+                List.of(TaskStatus.JABYLDY.name(), TaskStatus.QABYLDANBADY_NEMESE_JOIYLDY.name())));
         return "dashboard";
     }
 
@@ -99,13 +99,13 @@ public class TaskController {
         model.addAttribute("projectDto", projectService.getProjectById(projectId));
         model.addAttribute("backlog", service.getBacklogTasksByProjectId(projectId));
         model.addAttribute("processing", service.getAllByUserAndProjectIdAndStatusesAtActualSprint(user, projectId,
-                List.of(TaskStatus.ANALYZING.name(), TaskStatus.IN_PROGRESS.name())));
+                List.of(TaskStatus.TALDAUDA.name(), TaskStatus.ORINDALUDA.name())));
         model.addAttribute("waiting", service.getAllByUserAndProjectIdAndStatusesAtActualSprint(user, projectId,
-                List.of(TaskStatus.WAITING.name(), TaskStatus.IN_REVIEW.name(), TaskStatus.ACCEPTANCE_TEST.name(), TaskStatus.DEPLOYMENT.name())));
+                List.of(TaskStatus.KUTILUDE.name(), TaskStatus.TEKSERISTE.name(), TaskStatus.TESTTE.name(), TaskStatus.DEPLOYMENT.name())));
         model.addAttribute("deploying", service.getAllByUserAndProjectIdAndStatusesAtActualSprint(user, projectId,
                 List.of(TaskStatus.PRODUCTION_DEPLOYMENT.name())));
         model.addAttribute("done", service.getAllByUserAndProjectIdAndStatusesAtActualSprint(user, projectId,
-                List.of(TaskStatus.CLOSED.name(), TaskStatus.REJECTED_OR_CANCELED.name())));
+                List.of(TaskStatus.JABYLDY.name(), TaskStatus.QABYLDANBADY_NEMESE_JOIYLDY.name())));
         return "kanban";
     }
 

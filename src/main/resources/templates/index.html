@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="​IT Company, ​The backbone for internet business, Company Services, ​Large payments volume or unique business model?, ​What’s included, What We Do, Custom software solutions">
     <meta name="description" content="">
-    <title>Главная</title>
+    <title>Басты бет</title>
     <link rel="stylesheet" th:href="@{/css/nicepage.css}" media="screen">
     <link rel="stylesheet" th:href="@{/css/Главная.css}" media="screen">
     <script class="u-script" type="text/javascript" th:src="@{/js/jquery-1.9.1.min.js}" defer=""></script>
@@ -43,25 +43,25 @@
             <ul class="u-nav u-spacing-2 u-unstyled u-nav-1">
                 <li class="u-nav-item">
                     <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white active"
-                       th:href="@{/home}" style="padding: 10px 20px;">Home</a></li>
+                       th:href="@{/home}" style="padding: 10px 20px;">Басты бет</a></li>
                 <li class="u-nav-item">
                     <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                       th:href="@{/kanban}" style="padding: 10px 20px;">Kanban board</a></li>
+                       th:href="@{/kanban}" style="padding: 10px 20px;">Kanban тақтасы</a></li>
                 <li class="u-nav-item">
                     <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                       th:href="@{/dashboard}" style="padding: 10px 20px;">Dashboard</a></li>
+                       th:href="@{/dashboard}" style="padding: 10px 20px;">Жұмыс тақтасы</a></li>
                 <li class="u-nav-item">
                     <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                       th:href="@{/projects}" style="padding: 10px 20px;">Projects</a></li>
+                       th:href="@{/projects}" style="padding: 10px 20px;">Жобалар</a></li>
                 <li class="u-nav-item">
                     <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                       th:href="@{/profile}" sec:authorize="isAuthenticated()" style="padding: 10px 20px;">Profile</a></li>
+                       th:href="@{/profile}" sec:authorize="isAuthenticated()" style="padding: 10px 20px;">Профиль</a></li>
                 <li class="u-nav-item">
                     <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                       th:href="@{/login}" sec:authorize="isAnonymous()" style="padding: 10px 20px;">Login</a></li>
+                       th:href="@{/login}" sec:authorize="isAnonymous()" style="padding: 10px 20px;">Жүйеге кіру</a></li>
                 <li class="u-nav-item">
                     <a class="u-active-palette-1-base u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-palette-1-light-1 u-nav-link u-text-active-white u-text-grey-90 u-text-hover-white"
-                       th:href="@{/logout}" sec:authorize="isAuthenticated()" style="padding: 10px 20px;">Log out</a>
+                       th:href="@{/logout}" sec:authorize="isAuthenticated()" style="padding: 10px 20px;">Жүйеден шығу</a>
                 </li>
             </ul>
         </div>
@@ -70,13 +70,13 @@
                 <div class="u-inner-container-layout u-sidenav-overflow">
                     <div class="u-menu-close"></div>
                     <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/home}">Home</a></li>
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/kanban}">Kanban board</a></li>
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/dashboard}">Dashboard</a></li>
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/projects}">Projects</a></li>
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/profile}" sec:authorize="isAuthenticated()">Profile</a></li>
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/login}" sec:authorize="isAnonymous()">Login</a></li>
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/logout}" sec:authorize="isAuthenticated()">Log out</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/home}">Басты бет</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/kanban}">Kanban тақтасы</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/dashboard}">Жұмыс тақтасы</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/projects}">Жобалар</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/profile}" sec:authorize="isAuthenticated()">Профиль</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/login}" sec:authorize="isAnonymous()">Жүйеге кіру</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/logout}" sec:authorize="isAuthenticated()">Жүйеден шығу</a></li>
                     </ul>
                 </div>
             </div>
@@ -97,8 +97,8 @@
         <img src="images/14-min.png" class="u-align-left u-image u-image-contain u-image-1" data-image-width="2941" data-image-height="1576">
         <div class="u-align-left u-container-style u-expanded-width-xs u-group u-palette-1-light-3 u-radius-10 u-shape-round u-group-1">
             <div class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-container-layout-1">
-                <h1 class="u-custom-font u-text u-text-palette-1-light-1 u-text-1"> IT Company</h1>
-                <p class="u-text u-text-2">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident...</p>
+                <h1 class="u-custom-font u-text u-text-palette-1-light-1 u-text-1"> IT Кәсіпорын</h1>
+                <p class="u-text u-text-2">Онжылдықта біздің кәсіпорын ұйымдарға озық технологиялық шешімдерді және цифрлық трансформация саласындағы үздік әлемдік тәжірибені енгізу арқылы ауқымды нәтижелерге қол жеткізуге көмектеседі</p>
                 </p>
                 <a href="#" class="u-active-palette-1-light-1 u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-6 u-text-active-white u-text-body-alt-color u-text-hover-white u-btn-2">Бізбен байланыс</a>
             </div>
@@ -109,11 +109,10 @@
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="u-align-left u-container-style u-group u-group-1">
             <div class="u-container-layout u-valign-middle u-container-layout-1">
-                <h2 class="u-text u-text-1"> The backbone for internet business </h2>
-                <p class="u-text u-text-2">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id suscipit ex. Suspendisse rhoncus laoreet purus <a href="#" class="u-border-1 u-border-active-palette-1-light-3 u-border-hover-palette-1-light-3 u-border-no-left u-border-no-right u-border-no-top u-border-white u-btn u-button-link u-button-style u-none u-text-active-white u-text-body-alt-color u-text-hover-white u-btn-1">quis elementum</a>. Phasellus sed efficitur dolor, et ultricies sapien. Quisque fringilla sit amet dolor commodo efficitur.
-                    Aliquam et sem odio. In ullamcorper nisi nunc, et molestie ipsum iaculis sit amet.
+                <h2 class="u-text u-text-1"> Интернет-бизнестің негізі</h2>
+                <p class="u-text u-text-2">Бүгінгі таңда Elite Кадрлық кеңес беру қызметтерінің кең спектрін ұсынады. Біз Қазақстанның көптеген өңірлерінде және шетелдерде кең Серіктестік желіге ие боламыз.
                 </p>
-                <a href="#" class="u-active-palette-1-light-3 u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-light-3 u-radius-6 u-text-active-palette-1-base u-text-hover-palette-1-base u-text-palette-1-base u-white u-btn-2">Learn more</a>
+<!--                <a href="#" class="u-active-palette-1-light-3 u-border-none u-btn u-btn-round u-button-style u-hover-palette-1-light-3 u-radius-6 u-text-active-palette-1-base u-text-hover-palette-1-base u-text-palette-1-base u-white u-btn-2">Learn more</a>-->
             </div>
         </div>
         <div class="u-expanded-width u-list u-list-1">
@@ -121,25 +120,25 @@
                 <div class="u-align-left u-container-style u-list-item u-repeater-item u-shape-rectangle">
                     <div class="u-container-layout u-similar-container u-container-layout-2">
                         <h3 class="u-text u-text-default u-text-3">150m+</h3>
-                        <p class="u-text u-text-default u-text-palette-1-light-3 u-text-4">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                        <p class="u-text u-text-default u-text-palette-1-light-3 u-text-4">Қолданушылары бар IT-өнімдер шығару</p>
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-list-item u-repeater-item u-shape-rectangle">
                     <div class="u-container-layout u-similar-container u-container-layout-3">
-                        <h3 class="u-text u-text-default u-text-5">90%</h3>
-                        <p class="u-text u-text-default u-text-palette-1-light-3 u-text-6">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                        <h3 class="u-text u-text-default u-text-5">100%</h3>
+                        <p class="u-text u-text-default u-text-palette-1-light-3 u-text-6">Уақытылы дайын болған IT-өнім</p>
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-list-item u-repeater-item u-shape-rectangle">
                     <div class="u-container-layout u-similar-container u-container-layout-4">
                         <h3 class="u-text u-text-default u-text-7">35+</h3>
-                        <p class="u-text u-text-default u-text-palette-1-light-3 u-text-8">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                        <p class="u-text u-text-default u-text-palette-1-light-3 u-text-8">біздің IT-өнімдердің саны</p>
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-list-item u-repeater-item u-shape-rectangle">
                     <div class="u-container-layout u-similar-container u-container-layout-5">
                         <h3 class="u-text u-text-default u-text-9">148+</h3>
-                        <p class="u-text u-text-default u-text-palette-1-light-3 u-text-10">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                        <p class="u-text u-text-default u-text-palette-1-light-3 u-text-10">Қызметкерлер саны</p>
                     </div>
                 </div>
             </div>
@@ -148,32 +147,32 @@
 </section>
 <section class="u-align-center u-clearfix u-palette-1-light-3 u-valign-middle u-section-3" id="carousel_2df3">
     <h2 class="u-text u-text-default u-text-1">кәсіпорын қызметтері</h2>
-    <p class="u-text u-text-default-lg u-text-default-xl u-text-2">Sample text. Click to select the text box. Click again or double click to start editing the text.&nbsp;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+<!--    <p class="u-text u-text-default-lg u-text-default-xl u-text-2">Sample text. Click to select the text box. Click again or double click to start editing the text.&nbsp;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>-->
     <div class="u-expanded-width u-palette-3-base u-shape u-shape-rectangle u-shape-1"></div>
     <div class="u-list u-list-1">
         <div class="u-repeater u-repeater-1">
             <div class="u-align-center u-container-style u-list-item u-radius-10 u-repeater-item u-shape-round u-white u-list-item-1">
                 <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-1">
                     <img alt="" class="u-expanded-width u-image u-image-contain u-image-default u-image-1" data-image-width="700" data-image-height="500" src="images/11.png">
-                    <h4 class="u-text u-text-default u-text-palette-1-base u-text-3">Prototyping</h4>
-                    <p class="u-text u-text-4">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-                    <a href="#" class="u-active-palette-1-light-2 u-btn u-btn-round u-button-style u-hover-palette-1-light-2 u-palette-3-base u-radius-6 u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base u-btn-1">learn more</a>
+                    <h4 class="u-text u-text-default u-text-palette-1-base u-text-3">Аналитика (Талдау)</h4>
+<!--                    <p class="u-text u-text-4">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>-->
+<!--                    <a href="#" class="u-active-palette-1-light-2 u-btn u-btn-round u-button-style u-hover-palette-1-light-2 u-palette-3-base u-radius-6 u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base u-btn-1">learn more</a>-->
                 </div>
             </div>
             <div class="u-align-center u-container-style u-list-item u-radius-10 u-repeater-item u-shape-round u-white u-list-item-2">
                 <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-2">
                     <img alt="" class="u-expanded-width u-image u-image-contain u-image-default u-image-2" data-image-width="700" data-image-height="500" src="images/2.png">
-                    <h4 class="u-text u-text-default u-text-palette-1-base u-text-5">Development</h4>
-                    <p class="u-text u-text-6">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-                    <a href="#" class="u-active-palette-1-light-2 u-btn u-btn-round u-button-style u-hover-palette-1-light-2 u-palette-3-base u-radius-6 u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base u-btn-2">learn more</a>
+                    <h4 class="u-text u-text-default u-text-palette-1-base u-text-5">Бағдарламалау</h4>
+<!--                    <p class="u-text u-text-6">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>-->
+<!--                    <a href="#" class="u-active-palette-1-light-2 u-btn u-btn-round u-button-style u-hover-palette-1-light-2 u-palette-3-base u-radius-6 u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base u-btn-2">learn more</a>-->
                 </div>
             </div>
             <div class="u-align-center u-container-style u-list-item u-radius-10 u-repeater-item u-shape-round u-white u-list-item-3">
                 <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-3">
                     <img alt="" class="u-expanded-width u-image u-image-contain u-image-default u-image-3" data-image-width="700" data-image-height="500" src="images/6c7decbc-d9d3-4316-5906-19d76e6c84f3.png">
-                    <h4 class="u-text u-text-default u-text-palette-1-base u-text-7">Innovations</h4>
-                    <p class="u-text u-text-8">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-                    <a href="#" class="u-active-palette-1-light-2 u-btn u-btn-round u-button-style u-hover-palette-1-light-2 u-palette-3-base u-radius-6 u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base u-btn-3">learn more</a>
+                    <h4 class="u-text u-text-default u-text-palette-1-base u-text-7">Инновациялар</h4>
+<!--                    <p class="u-text u-text-8">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>-->
+<!--                    <a href="#" class="u-active-palette-1-light-2 u-btn u-btn-round u-button-style u-hover-palette-1-light-2 u-palette-3-base u-radius-6 u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base u-btn-3">learn more</a>-->
                 </div>
             </div>
         </div>
@@ -183,11 +182,10 @@
     <div class="u-clearfix u-sheet u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
         <div class="u-align-left u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-group-1">
             <div class="u-container-layout u-valign-middle u-container-layout-1">
-                <h2 class="u-text u-text-1"> Large payments volume or unique business model? </h2>
-                <p class="u-text u-text-2">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id suscipit ex. Suspendisse rhoncus laoreet purus <a href="#" class="u-border-1 u-border-active-palette-1-light-3 u-border-hover-palette-1-light-3 u-border-no-left u-border-no-right u-border-no-top u-border-white u-btn u-button-link u-button-style u-none u-text-active-white u-text-body-alt-color u-text-hover-white u-btn-1">quis elementum</a>. Phasellus sed efficitur dolor, et ultricies sapien. Quisque fringilla sit amet dolor commodo efficitur.
-                    Aliquam et sem odio. In ullamcorper nisi nunc, et molestie ipsum iaculis sit amet.
+                <h4 class="u-text u-text-1"> БИЗНЕС ФЛАГМАНДАРЫ ҮШІН ИННОВАЦИЯ КӨЗІ </h4>
+                <p class="u-text u-text-2">Біздің технологиялық шешімдерімізді күн сайын мыңдаған адамдар өз жұмыстарында қолданады. Бізге еліміздегі ірі банктер мен қаржы ұйымдарының, өнеркәсіптік және сауда кәсіпорындарының, мемлекеттік органдар мен муниципалдық мекемелердің мамандары мен басшылары сенеді
                 </p>
-                <a href="#" class="u-active-palette-1-light-3 u-btn u-btn-round u-button-style u-hover-palette-1-light-3 u-radius-6 u-text-active-palette-1-base u-text-hover-palette-1-base u-text-palette-1-base u-white u-btn-2">Learn more</a>
+<!--                <a href="#" class="u-active-palette-1-light-3 u-btn u-btn-round u-button-style u-hover-palette-1-light-3 u-radius-6 u-text-active-palette-1-base u-text-hover-palette-1-base u-text-palette-1-base u-white u-btn-2">Learn more</a>-->
             </div>
         </div>
         <div class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-list u-list-1">
@@ -258,55 +256,55 @@
 </section>
 <section class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xl u-align-left-xs u-clearfix u-palette-1-light-3 u-section-5" id="sec-c321">
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <h2 class="u-custom-font u-text u-text-default u-text-palette-1-base u-text-1"> What’s included</h2>
-        <p class="u-text u-text-default u-text-2"> Get 100+ features out of the box with ​ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <h2 class="u-custom-font u-text u-text-default u-text-palette-1-base u-text-1"> БҮГІНГІ ТАҢДА КӨШБАСШЫЛЫҚ-БҰЛ IT-ДАҒЫ КӨШБАСШЫЛЫҚ</h2>
+        <p class="u-text u-text-default u-text-2"> Ұзақ мерзімді өсуге бағытталған компанияларға стратегиялық маңызды функционалдық салалардағы соңғы инновацияларды ұсынамыз</p>
         <div class="u-expanded-width u-list u-list-1">
             <div class="u-repeater u-repeater-1">
                 <div class="u-align-left u-container-style u-list-item u-repeater-item">
                     <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1"><span class="u-icon u-icon-circle u-text-palette-1-base u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 512.001 512.001" style=""><use xlink:href="#svg-2afa"></use></svg><svg class="u-svg-content" viewBox="0 0 512.001 512.001" id="svg-2afa"><g><path d="m497.001 482.001h-15.125v-346.5c0-8.284-6.716-15-15-15h-60.25c-8.284 0-15 6.716-15 15v346.5h-30.25v-286.25c0-8.284-6.716-15-15-15h-60.25c-8.284 0-15 6.716-15 15v286.25h-30.25v-226c0-8.284-6.716-15-15-15h-60.25c-8.284 0-15 6.716-15 15v226h-30.25v-165.75c0-8.284-6.716-15-15-15h-60.25c-8.284 0-15 6.716-15 15v165.75h-15.125c-8.284 0-15 6.716-15 15s6.716 15 15 15h482c8.284 0 15-6.716 15-15s-6.716-15-15-15z"></path><path d="m14.983 210.752c.493 0 .992-.024 1.493-.074 76.631-7.574 148.46-21.938 213.49-42.696 52.234-16.673 100.248-37.492 142.708-61.88 36.106-20.738 62.038-40.508 79.201-55.404v24.553c0 8.284 6.716 15 15 15s15-6.716 15-15v-60.25c0-8.284-6.716-15-15-15h-60.25c-8.284 0-15 6.716-15 15s6.716 15 15 15h23.236c-16.167 13.787-40.426 32.025-73.849 51.071-63.828 36.373-175.058 83.205-342.486 99.751-8.244.815-14.267 8.158-13.452 16.402.765 7.744 7.288 13.527 14.909 13.527z"></path>
-</g></svg>
+                    </g></svg>
 
 
           </span>
-                        <h4 class="u-custom-font u-text u-text-palette-1-base u-text-3"> Manage business</h4>
+                        <h4 class="u-custom-font u-text u-text-palette-1-base u-text-3"> Бизнесті басқару</h4>
                         <ul class="u-custom-list u-text u-text-4">
                             <li>
                                 <div class="u-list-icon u-list-icon-1">
                                     <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-5c29"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
                                     </g>
                                     </g></svg>
-                                </div> Duis aute irure dolor
+                                </div> Бизнес-процестерді тиімдірек басқарыңыз және жақсы нәтижелерге қол жеткізіңіз
                             </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-2">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-5c29"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Velit esse cillum dolore
-                            </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-3">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-5c29"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Excepteur sint occaecat
-                            </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-4">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-5c29"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Cupidatat non proident
-                            </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-5">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-5c29"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Sunt in culpa qui officia
-                            </li>
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-2">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-5c29"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Velit esse cillum dolore-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-3">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-5c29"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Excepteur sint occaecat-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-4">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-5c29"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Cupidatat non proident-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-5">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-5c29"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Sunt in culpa qui officia-->
+<!--                            </li>-->
                         </ul>
-                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-1-light-1 u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-active-palette-1-light-1 u-text-hover-palette-1-light-1 u-text-palette-1-base u-btn-1">learn more</a>
+<!--                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-1-light-1 u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-active-palette-1-light-1 u-text-hover-palette-1-light-1 u-text-palette-1-base u-btn-1">learn more</a>-->
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-list-item u-repeater-item">
@@ -317,45 +315,45 @@
 
 
           </span>
-                        <h4 class="u-custom-font u-text u-text-palette-1-base u-text-5"> Global payments</h4>
+                        <h4 class="u-custom-font u-text u-text-palette-1-base u-text-5"> Сатып алу талдауы</h4>
                         <ul class="u-custom-list u-text u-text-6">
                             <li>
                                 <div class="u-list-icon u-list-icon-6">
                                     <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-55e9"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
                                     </g>
                                     </g></svg>
-                                </div> Duis aute irure dolorIn
+                                </div> Бұл Сізге сатып алуда бәсекелестік артықшылық беретін бірегей өнім
                             </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-7">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-55e9"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Velit esse cillum dolore
-                            </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-8">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-55e9"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Excepteur sint occaecat
-                            </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-9">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-55e9"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Cupidatat non proident
-                            </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-10">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-55e9"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Sunt in culpa qui officia
-                            </li>
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-7">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-55e9"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Velit esse cillum dolore-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-8">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-55e9"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Excepteur sint occaecat-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-9">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-55e9"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Cupidatat non proident-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-10">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-55e9"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Sunt in culpa qui officia-->
+<!--                            </li>-->
                         </ul>
-                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-1-light-1 u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-text-active-palette-1-light-1 u-text-hover-palette-1-light-1 u-text-palette-1-base u-btn-2">learn more</a>
+<!--                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-1-light-1 u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-text-active-palette-1-light-1 u-text-hover-palette-1-light-1 u-text-palette-1-base u-btn-2">learn more</a>-->
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-list-item u-repeater-item">
@@ -367,45 +365,45 @@
 
 
           </span>
-                        <h4 class="u-custom-font u-text u-text-palette-1-base u-text-7"> Comprehensive security</h4>
+                        <h4 class="u-custom-font u-text u-text-palette-1-base u-text-7"> Data Science </h4>
                         <ul class="u-custom-list u-text u-text-8">
                             <li>
                                 <div class="u-list-icon u-list-icon-11">
                                     <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-ef89"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
                                     </g>
                                     </g></svg>
-                                </div> Duis aute irure dolorIn
+                                </div> Серпінді технологиялар арқылы сөзсіз стратегиялық артықшылықтарға қол жеткізіңіз
                             </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-12">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-ef89"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Velit esse cillum dolore
-                            </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-13">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-ef89"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Excepteur sint occaecat
-                            </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-14">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-ef89"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Cupidatat non proident
-                            </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-15">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-ef89"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Sunt in culpa qui officia
-                            </li>
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-12">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-ef89"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Velit esse cillum dolore-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-13">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-ef89"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Excepteur sint occaecat-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-14">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-ef89"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Cupidatat non proident-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-15">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-ef89"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Sunt in culpa qui officia-->
+<!--                            </li>-->
                         </ul>
-                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-1-light-1 u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-text-active-palette-1-light-1 u-text-hover-palette-1-light-1 u-text-palette-1-base u-btn-3">learn more</a>
+<!--                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-1-light-1 u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-text-active-palette-1-light-1 u-text-hover-palette-1-light-1 u-text-palette-1-base u-btn-3">learn more</a>-->
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-list-item u-repeater-item">
@@ -413,45 +411,45 @@
 
 
           </span>
-                        <h4 class="u-custom-font u-text u-text-palette-1-base u-text-9"> Predictable payout</h4>
+                        <h4 class="u-custom-font u-text u-text-palette-1-base u-text-9"> Credit Factory</h4>
                         <ul class="u-custom-list u-text u-text-10">
                             <li>
                                 <div class="u-list-icon u-list-icon-16">
                                     <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-02b3"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
                                     </g>
                                     </g></svg>
-                                </div> Duis aute irure dolorIn
+                                </div>Несиелік процестерді тиімдірек басқарыңыз және жақсы нәтижелерге қол жеткізіңіз
                             </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-17">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-02b3"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Velit esse cillum dolore
-                            </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-18">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-02b3"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Excepteur sint occaecat
-                            </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-19">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-02b3"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Cupidatat non proident
-                            </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-20">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-02b3"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Sunt in culpa qui officia
-                            </li>
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-17">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-02b3"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Velit esse cillum dolore-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-18">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-02b3"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Excepteur sint occaecat-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-19">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-02b3"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Cupidatat non proident-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-20">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-02b3"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Sunt in culpa qui officia-->
+<!--                            </li>-->
                         </ul>
-                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-1-light-1 u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-active-palette-1-light-1 u-text-hover-palette-1-light-1 u-text-palette-1-base u-btn-4">learn more</a>
+<!--                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-1-light-1 u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-active-palette-1-light-1 u-text-hover-palette-1-light-1 u-text-palette-1-base u-btn-4">learn more</a>-->
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-list-item u-repeater-item">
@@ -469,45 +467,45 @@
 
 
           </span>
-                        <h4 class="u-custom-font u-text u-text-palette-1-base u-text-11"> Collaboration notes</h4>
+                        <h4 class="u-custom-font u-text u-text-palette-1-base u-text-11"> Клиенттермен қарым-қатынасты басқару</h4>
                         <ul class="u-custom-list u-text u-text-12">
                             <li>
                                 <div class="u-list-icon u-list-icon-21">
                                     <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-5c88"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
                                     </g>
                                     </g></svg>
-                                </div> Duis aute irure dolorIn
+                                </div> Сату тиімділігін арттырыңыз және клиенттермен жоғары дәлдіктегі байланыс орнатыңыз
                             </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-22">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-5c88"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Velit esse cillum dolore
-                            </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-23">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-5c88"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Excepteur sint occaecat
-                            </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-24">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-5c88"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Cupidatat non proident
-                            </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-25">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-5c88"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Sunt in culpa qui officia
-                            </li>
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-22">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-5c88"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Velit esse cillum dolore-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-23">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-5c88"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Excepteur sint occaecat-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-24">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-5c88"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Cupidatat non proident-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-25">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-5c88"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Sunt in culpa qui officia-->
+<!--                            </li>-->
                         </ul>
-                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-1-light-1 u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-text-active-palette-1-light-1 u-text-hover-palette-1-light-1 u-text-palette-1-base u-btn-5">learn more</a>
+<!--                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-1-light-1 u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-text-active-palette-1-light-1 u-text-hover-palette-1-light-1 u-text-palette-1-base u-btn-5">learn more</a>-->
                     </div>
                 </div>
                 <div class="u-align-left u-container-style u-list-item u-repeater-item">
@@ -516,45 +514,50 @@
 
 
           </span>
-                        <h4 class="u-custom-font u-text u-text-palette-1-base u-text-13"> Developer Dashboard</h4>
+                        <h4 class="u-custom-font u-text u-text-palette-1-base u-text-13"> Бағдарламау тақтасы</h4>
                         <ul class="u-custom-list u-text u-text-14">
                             <li>
                                 <div class="u-list-icon u-list-icon-26">
                                     <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-8d27"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
                                     </g>
                                     </g></svg>
-                                </div> Duis aute irure dolorIn
+                                </div> Біздің жасанды Интеллект және
+                                бұлтты шешімдер әрқайсысына мүмкіндік береді
+                                ұйымдар процесті жеңілдетеді
+                                шешім қабылдау және пайдалану
+                                өсуге, сақтауға және сақтауға арналған деректер
+                                бизнесті жақсарту.
                             </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-27">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-8d27"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Velit esse cillum dolore
-                            </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-28">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-8d27"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Excepteur sint occaecat
-                            </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-29">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-8d27"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Cupidatat non proident
-                            </li>
-                            <li>
-                                <div class="u-list-icon u-list-icon-30">
-                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-8d27"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>
-                                    </g>
-                                    </g></svg>
-                                </div>Sunt in culpa qui officia
-                            </li>
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-27">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-8d27"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Velit esse cillum dolore-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-28">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-8d27"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Excepteur sint occaecat-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-29">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-8d27"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Cupidatat non proident-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <div class="u-list-icon u-list-icon-30">-->
+<!--                                    <svg class="u-svg-content" viewBox="0 0 372.09 372.09" x="0px" y="0px" id="svg-8d27"><g><g><polygon points="339.719,27.855 120.922,282.666 29.143,196.838 0,228.001 124.293,344.235 372.09,55.65   "></polygon>-->
+<!--                                    </g>-->
+<!--                                    </g></svg>-->
+<!--                                </div>Sunt in culpa qui officia-->
+<!--                            </li>-->
                         </ul>
-                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-1-light-1 u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-text-active-palette-1-light-1 u-text-hover-palette-1-light-1 u-text-palette-1-base u-btn-6">learn more</a>
+<!--                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-1-light-1 u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-text-active-palette-1-light-1 u-text-hover-palette-1-light-1 u-text-palette-1-base u-btn-6">learn more</a>-->
                     </div>
                 </div>
             </div>
@@ -564,36 +567,36 @@
 <section class="u-align-center u-clearfix u-palette-1-base u-section-6" id="sec-d5cf">
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <h2 class="u-text u-text-default u-text-1">Біз немен айналысамыз</h2>
-        <p class="u-text u-text-default u-text-2">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+<!--        <p class="u-text u-text-default u-text-2">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>-->
         <img class="u-image u-image-contain u-image-default u-image-1" src="images/-min.png" alt="" data-image-width="1245" data-image-height="707">
         <div class="u-expanded-width u-list u-list-1">
             <div class="u-repeater u-repeater-1">
                 <div class="u-align-left u-border-12 u-border-palette-3-light-2 u-container-style u-custom-item u-list-item u-radius-24 u-repeater-item u-shape-round u-video-cover u-white u-list-item-1">
                     <div class="u-container-layout u-similar-container u-container-layout-1">
-                        <h4 class="u-text u-text-default u-text-palette-3-base u-text-3"> App Development</h4>
-                        <p class="u-text u-text-4">Sample text. Click to select the text box. Click again or double click to start editing the text.&nbsp;Excepteur sint occaecat cupidatat non</p>
-                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-3-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-active-palette-3-base u-text-body-color u-text-hover-palette-3-base u-btn-1">more</a>
+                        <h4 class="u-text u-text-default u-text-palette-3-base u-text-3"> Веб-қосымшалар әзірлеу</h4>
+                        <p class="u-text u-text-4">Біз көп жылдық тәжірибеміз бар, технологиялық және заманауи жобаларды жасаймыз. Күрделі жобаларды әзірлеу тәжірибесін кең UI/UX дағдыларымен және құрылған бизнес-процестермен біріктіреміз</p>
+<!--                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-3-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-active-palette-3-base u-text-body-color u-text-hover-palette-3-base u-btn-1">more</a>-->
                     </div>
                 </div>
                 <div class="u-align-left u-border-12 u-border-palette-3-base u-container-style u-custom-item u-list-item u-radius-24 u-repeater-item u-shape-round u-white u-list-item-2">
                     <div class="u-container-layout u-similar-container u-container-layout-2">
-                        <h4 class="u-text u-text-default u-text-palette-3-base u-text-5"> Mobility Services</h4>
-                        <p class="u-text u-text-6">Sample text. Click to select the text box. Click again or double click to start editing the text.&nbsp;Excepteur sint occaecat cupidatat non</p>
-                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-3-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-active-palette-3-base u-text-body-color u-text-hover-palette-3-base u-btn-2">more</a>
+                        <h4 class="u-text u-text-default u-text-palette-3-base u-text-5"> Сайттар әзірлеу</h4>
+                        <p class="u-text u-text-6">Landing page/Визитка. Бір беттік сату сайты, өтініш формалары және кері қоңырау шалу. Сайт каталог. Клиенттерге сіздің барлық өнімдеріңізді көрсету қажет болса, тамаша шешім</p>
+<!--                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-3-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-active-palette-3-base u-text-body-color u-text-hover-palette-3-base u-btn-2">more</a>-->
                     </div>
                 </div>
                 <div class="u-align-left u-border-12 u-border-palette-3-light-2 u-container-style u-custom-item u-list-item u-radius-23 u-repeater-item u-shape-round u-video-cover u-white u-list-item-3">
                     <div class="u-container-layout u-similar-container u-container-layout-3">
-                        <h4 class="u-text u-text-default u-text-palette-3-base u-text-7"> Consulting</h4>
-                        <p class="u-text u-text-8">Sample text. Click to select the text box. Click again or double click to start editing the text.&nbsp;Excepteur sint occaecat cupidatat non</p>
-                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-3-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-active-palette-3-base u-text-body-color u-text-hover-palette-3-base u-btn-3">more</a>
+                        <h4 class="u-text u-text-default u-text-palette-3-base u-text-7"> Сайт портал әзірлеу</h4>
+                        <p class="u-text u-text-8">Пайдаланушыға осы сайтта жұмыс істейтін әртүрлі интерактивті интернет қызметтерін ұсынатын Сайт.</p>
+<!--                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-3-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-active-palette-3-base u-text-body-color u-text-hover-palette-3-base u-btn-3">more</a>-->
                     </div>
                 </div>
                 <div class="u-align-left u-border-12 u-border-palette-3-base u-container-style u-custom-item u-list-item u-radius-24 u-repeater-item u-shape-round u-video-cover u-white u-list-item-4">
                     <div class="u-container-layout u-similar-container u-container-layout-4">
-                        <h4 class="u-text u-text-default u-text-palette-3-base u-text-9">SEO Services</h4>
-                        <p class="u-text u-text-10">Sample text. Click to select the text box. Click again or double click to start editing the text.&nbsp;Excepteur sint occaecat cupidatat non</p>
-                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-3-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-active-palette-3-base u-text-body-color u-text-hover-palette-3-base u-btn-4">more</a>
+                        <h4 class="u-text u-text-default u-text-palette-3-base u-text-9">Сайттарды техникалық қолдау</h4>
+                        <p class="u-text u-text-10">Бұл проблемаларды тез шешуді және веб-ресурстардың ақауларын жоюды қамтамасыз ететін жұмыстар кешені</p>
+<!--                        <a href="#" class="u-active-none u-border-2 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-no-left u-border-no-right u-border-no-top u-border-palette-3-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-active-palette-3-base u-text-body-color u-text-hover-palette-3-base u-btn-4">more</a>-->
                     </div>
                 </div>
             </div>
@@ -610,9 +613,9 @@
 	C6.9,115.6,25.2,125.2,43.2,126.9z"></path></svg>
         </div>
         <img class="u-image u-image-contain u-image-default u-image-1" alt="" data-image-width="1245" data-image-height="607" src="images/5-min.png">
-        <h2 class="u-custom-font u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-palette-1-base u-text-1">Custom software solutions</h2>
-        <p class="u-large-text u-text u-text-font u-text-variant u-text-2"> Quam nulla porttitor massa id neque aliquam vestibulum morbi blandit. Neque vitae tempus quam pellentesque nec nam aliquam sem. Neque ornare aenean euismod. </p>
-        <a href="#" class="u-active-palette-1-light-2 u-btn u-btn-round u-button-style u-hover-palette-1-light-2 u-palette-3-base u-radius-6 u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base u-btn-1">Learn more</a>
+        <h2 class="u-custom-font u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-palette-1-base u-text-1">Біздің команда</h2>
+        <p class="u-large-text u-text u-text-font u-text-variant u-text-2"> "Біз күшті команда мен нарықты өзгертетін жобалар құрып жатырмыз". Біз әрқашан ұжымда Достық, Көңілді және сонымен бірге барлығымызды мақсатқа жетуге шабыттандыратын жұмыс атмосферасын сақтаймыз.</p>
+<!--        <a href="#" class="u-active-palette-1-light-2 u-btn u-btn-round u-button-style u-hover-palette-1-light-2 u-palette-3-base u-radius-6 u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base u-btn-1">Learn more</a>-->
     </div>
 </section>
 <section class="u-clearfix u-palette-1-base u-section-8" id="carousel_87c6">
@@ -623,16 +626,16 @@
                 <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1"><span class="u-icon u-icon-circle u-text-palette-1-base u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 52 52" style=""><use xlink:href="#svg-077e"></use></svg><svg class="u-svg-content" viewBox="0 0 52 52" x="0px" y="0px" id="svg-077e" style="enable-background:new 0 0 52 52;"><path style="fill:currentColor;" d="M38.853,5.324L38.853,5.324c-7.098-7.098-18.607-7.098-25.706,0h0
 	C6.751,11.72,6.031,23.763,11.459,31L26,52l14.541-21C45.969,23.763,45.249,11.72,38.853,5.324z M26.177,24c-3.314,0-6-2.686-6-6
 	s2.686-6,6-6s6,2.686,6,6S29.491,24,26.177,24z"></path></svg></span>
-                    <h5 class="u-text u-text-default u-text-palette-1-base u-text-1">our main office</h5>
-                    <p class="u-text u-text-2">SoHo 94 Broadway St New York, NY 1001</p>
+                    <h5 class="u-text u-text-default u-text-palette-1-base u-text-1">БІЗДІҢ БАС КЕҢСЕМІЗ</h5>
+                    <p class="u-text u-text-2">Алматы қаласы, әл-Фараби көшесі 71/10</p>
                 </div>
             </div>
             <div class="u-align-center u-container-style u-list-item u-palette-1-light-3 u-radius-10 u-repeater-item u-shape-round u-list-item-2">
                 <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2"><span class="u-icon u-icon-circle u-text-palette-1-base u-icon-2"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 513.64 513.64" style=""><use xlink:href="#svg-9786"></use></svg><svg class="u-svg-content" viewBox="0 0 513.64 513.64" x="0px" y="0px" id="svg-9786" style="enable-background:new 0 0 513.64 513.64;"><g><g><path d="M499.66,376.96l-71.68-71.68c-25.6-25.6-69.12-15.359-79.36,17.92c-7.68,23.041-33.28,35.841-56.32,30.72    c-51.2-12.8-120.32-79.36-133.12-133.12c-7.68-23.041,7.68-48.641,30.72-56.32c33.28-10.24,43.52-53.76,17.92-79.36l-71.68-71.68    c-20.48-17.92-51.2-17.92-69.12,0l-48.64,48.64c-48.64,51.2,5.12,186.88,125.44,307.2c120.32,120.32,256,176.641,307.2,125.44    l48.64-48.64C517.581,425.6,517.581,394.88,499.66,376.96z"></path>
 </g>
 </g></svg></span>
-                    <h5 class="u-text u-text-default u-text-palette-1-base u-text-3">phone number</h5>
-                    <p class="u-text u-text-4">234-9876-5400 <br>888-0123-4567 (Toll Free)
+                    <h5 class="u-text u-text-default u-text-palette-1-base u-text-3">Байланыс телефондары</h5>
+                    <p class="u-text u-text-4">+7 7272 00 44 55 <br> +7 7272 00 11 22
                     </p>
                 </div>
             </div>
@@ -665,9 +668,9 @@
             <div class="u-layout-row">
                 <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
                     <div class="u-container-layout u-container-layout-5">
-                        <h3 class="u-text u-text-default u-text-9">Get in touch</h3>
-                        <h6 class="u-custom-font u-text u-text-font u-text-10">We can ensure reliability, low cost fares and most important, with safety and comfort in mind.</h6>
-                        <p class="u-text u-text-11">Etiam sit amet convallis erat – class aptent taciti sociosqu ad litora torquent per conubia! Maecenas gravida lacus. Lorem etiam sit amet convallis erat.</p>
+                        <h3 class="u-text u-text-default u-text-9">Бізбен байланыс</h3>
+                        <h6 class="u-custom-font u-text u-text-font u-text-10">Біз сенімділікке, төмен тарифтерге және ең бастысы қауіпсіздік пен жайлылыққа кепілдік бере аламыз.</h6>
+                        <p class="u-text u-text-11">"Біз күшті команда мен нарықты өзгертетін жобалар құрып жатырмыз". Біз әрқашан ұжымда Достық, Көңілді және сонымен бірге барлығымызды мақсатқа жетуге шабыттандыратын жұмыс атмосферасын сақтаймыз.</p>
                         <div class="u-social-icons u-spacing-20 u-social-icons-1">
                             <a class="u-social-url" target="_blank" href=""><span class="u-icon u-icon-circle u-social-facebook u-social-icon u-icon-5">
           <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-f107"></use></svg>
@@ -698,24 +701,24 @@
                             <form action="#" class="u-clearfix u-form-spacing-30 u-form-vertical u-inner-form" style="padding: 10px" source="email" name="form">
                                 <div class="u-form-email u-form-group u-form-partition-factor-2">
                                     <label for="email-319a" class="u-label u-text-body-alt-color u-label-1">Email</label>
-                                    <input type="email" placeholder="Enter a valid email address" id="email-319a" name="email" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required="">
+                                    <input type="email" placeholder="Электрондық почтаңызды енгізіңіз" id="email-319a" name="email" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required="">
                                 </div>
                                 <div class="u-form-group u-form-name u-form-partition-factor-2">
-                                    <label for="name-319a" class="u-label u-text-body-alt-color u-label-2">Name</label>
-                                    <input type="text" placeholder="Enter your Name" id="name-319a" name="name" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required="">
+                                    <label for="name-319a" class="u-label u-text-body-alt-color u-label-2">Аты-жөні</label>
+                                    <input type="text" placeholder="Аты-жөніңізді енгізіңіз" id="name-319a" name="name" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required="">
                                 </div>
                                 <div class="u-form-group u-form-message">
-                                    <label for="message-319a" class="u-label u-text-body-alt-color u-label-3">Message</label>
-                                    <textarea placeholder="Enter your message" rows="4" cols="50" id="message-319a" name="message" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required=""></textarea>
+                                    <label for="message-319a" class="u-label u-text-body-alt-color u-label-3">Хабарлама</label>
+                                    <textarea placeholder="Хабарламаңызды енгізіңіз" rows="4" cols="50" id="message-319a" name="message" class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required=""></textarea>
                                 </div>
                                 <div class="u-align-left u-form-group u-form-submit">
-                                    <a href="#" class="u-active-palette-1-light-3 u-border-none u-btn u-btn-submit u-button-style u-hover-palette-1-light-3 u-text-palette-1-base u-white u-btn-2">Submit</a>
-                                    <input type="submit" value="submit" class="u-form-control-hidden">
+                                    <a href="#" class="u-active-palette-1-light-3 u-border-none u-btn u-btn-submit u-button-style u-hover-palette-1-light-3 u-text-palette-1-base u-white u-btn-2">Жіберу</a>
+                                    <input type="submit" value="Жіберу" class="u-form-control-hidden">
                                 </div>
-                                <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
-                                <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
-                                <input type="hidden" value="" name="recaptchaResponse">
-                                <input type="hidden" name="formServices" value="d63bb3e430b0be33c541c12d5118d665">
+<!--                                <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>-->
+<!--                                <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>-->
+<!--                                <input type="hidden" value="" name="recaptchaResponse">-->
+<!--                                <input type="hidden" name="formServices" value="d63bb3e430b0be33c541c12d5118d665">-->
                             </form>
                         </div>
                     </div>

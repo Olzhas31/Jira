@@ -15,6 +15,10 @@ import java.util.Optional;
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
+    boolean existsByName(String name);
+
+    Task findByName(String name);
+
     List<Task> findAllByAssigneeAndProjectAndStatusIn(User user, Project project, List<String> status);
 
     List<Task> findAllByStatusIn(List<String> statuses);
@@ -25,7 +29,7 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
     Optional<Task> findLastTaskByProjectId(Long projectId);
 
     @Query(value = "select * from tasks " +
-                    "         where status in ('TODO', 'NEW') " +
+                    "         where status in ('TODO', 'ZHANA') " +
                     "            and project_id = ?1",
             nativeQuery = true)
     List<Task> findBacklogTasksByProjectId(Long projectId);
