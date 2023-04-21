@@ -109,7 +109,7 @@
         </nav>
     </div>
 </header>
-<section class="u-clearfix u-container-align-center u-section-1" id="carousel_b80f">
+<section class="u-clearfix u-container-align-center u-section-1" id="carousel_b80f" style="background: rgb(84 168 255 / 30%)">
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <h2 class="u-align-center u-text u-text-default u-text-2" th:text="${hub.name}"> </h2>
         <a th:href="@{'/projects/' + ${hub.projectId}}" th:text="'Жоба: ' + ${hub.projectName}"
@@ -125,14 +125,20 @@
                         <div class="u-container-layout u-valign-top u-container-layout-1">
                             <div class="u-list u-list-1">
                                 <div class="u-repeater u-repeater-1">
-                                    <div class="u-container-style u-list-item u-repeater-item">
+                                    <div class="u-container-style u-list-item u-repeater-item"
+                                         style="background-color: white;
+                                         border-radius: 40px;
+                                         margin-bottom: 30px;">
                                         <div class="u-container-layout u-similar-container u-container-layout-2">
                                             <h4 class="u-align-center u-text u-text-default u-text-palette-4-base u-text-3">
                                                 Мазмұны</h4>
                                             <p class="u-align-left u-text u-text-default u-text-4" th:text="${hub.content}"></p>
                                         </div>
                                     </div>
-                                    <div class="u-container-align-center u-container-style u-list-item u-repeater-item">
+                                    <div class="u-container-align-center u-container-style u-list-item u-repeater-item"
+                                         style="background-color: white;
+                                         border-radius: 40px;
+                                         margin-bottom: 30px;">
                                         <div class="u-container-layout u-similar-container u-container-layout-3">
                                             <h4 class="u-align-center u-text u-text-default u-text-palette-4-base u-text-5">
                                                 Тапсырмалар тізімі
@@ -153,10 +159,16 @@
                         <div class="u-container-layout u-valign-top u-container-layout-4">
                             <div class="u-expanded-width u-list u-list-2">
                                 <div class="u-repeater u-repeater-2">
-                                    <div class="u-container-style u-list-item u-repeater-item">
+                                    <div class="u-container-style u-list-item u-repeater-item"
+                                         style="    border-left: 6px solid #ccc!important;
+                                         border-color: #2196F3!important;
+                                         background-color: #fffff6!important;
+                                         margin-bottom: 25px;">
                                         <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-5">
                                             <h4 class="u-align-left u-text u-text-default u-text-palette-4-base u-text-7">
                                                 Қолданушылар</h4>
+                                            <img src="images/73z_2202_w009_n001_107z_p3_107.jpg"
+                                                 style="width: -webkit-fill-available;">
                                             <p class="u-align-left u-text u-text-default u-text-8"
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
@@ -171,10 +183,16 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="u-container-style u-list-item u-repeater-item">
+                                    <div class="u-container-style u-list-item u-repeater-item"
+                                         style="    border-left: 6px solid #ccc!important;
+                                         border-color: #2196F3!important;
+                                         background-color: #fffff6!important;
+                                         margin-bottom: 25px;">
                                         <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-6">
                                             <h4 class="u-align-left u-text u-text-default u-text-palette-4-base u-text-13">
                                                 Күндер</h4>
+                                            <img src="images/Рисунок1.jpg"
+                                                 style="width: -webkit-fill-available;">
                                             <p class="u-align-left u-text u-text-default u-text-14"
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
@@ -198,11 +216,6 @@
         </div>
     </div>
 </section>
-
-<section class="u-clearfix u-grey-10 u-section-4" id="sec-4141">
-    <div class="u-clearfix u-sheet u-sheet-1"></div>
-</section>
-
 
 <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0fc3"><div class="u-clearfix u-sheet u-sheet-1">
     <p class="u-small-text u-text u-text-variant u-text-1">

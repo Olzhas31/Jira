@@ -113,6 +113,16 @@ public class TaskController {
     public String showTask(Model model,
             @RequestParam("id") Long id) {
         TaskDto taskDto =  service.getById(id);
+        boolean isExpired = false;
+        if (taskDto.getResolvedTime() == null) {
+            if (taskDto.getDueDate() != null) {
+                if (taskDto.getDueDate().isBefore(LocalDate.now())) {
+                    isExpired = true;
+                }
+            }
+        }
+
+        model.addAttribute("isExpired", isExpired);
         model.addAttribute("taskDto", taskDto);
         model.addAttribute("history", taskHistoryService.getTaskHistoriesByTaskId(id));
         model.addAttribute("attachments", attachmentService.getByTaskId(id));

@@ -110,7 +110,7 @@
     <div class="u-clearfix u-sheet u-sheet-1"></div>
 </section>
 
-<section class="u-clearfix u-section-2" id="sec-40ff">
+<section class="u-clearfix u-section-2" id="sec-40ff" style="background: rgb(84 168 255 / 30%)">
     <div class="u-clearfix u-sheet u-valign-middle-sm u-valign-middle-xs u-sheet-1">
         <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
             <div class="u-gutter-0 u-layout">
@@ -139,7 +139,11 @@
     <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-list u-list-1">
             <div class="u-repeater u-repeater-1">
-                <div class="u-list-item u-repeater-item" data-href="#" th:each="project : ${projects}">
+                <div class="u-list-item u-repeater-item" data-href="#" th:each="project : ${projects}"
+                     style="border-left: 6px solid #ccc!important;
+                     border-color: #2196F3!important;
+                     background-color: #ddffff!important;
+                     margin-bottom: 25px;">
                     <div class="u-container-layout u-similar-container u-container-layout-1">
                         <span class="u-icon u-icon-circle u-text-palette-1-base u-icon-1">
 <!--                            <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 496.158 496.158" style="">-->

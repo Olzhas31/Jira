@@ -109,7 +109,7 @@
         </nav>
     </div>
 </header>
-<section class="u-clearfix u-container-align-center u-section-1" id="carousel_b80f">
+<section class="u-clearfix u-container-align-center u-section-1" id="carousel_b80f" style="background: rgb(84 168 255 / 30%)">
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <h2 class="u-align-center u-text u-text-default u-text-2" th:text="${sprint.name}"> </h2>
         <a th:href="@{'/projects/' + ${sprint.projectId}}" th:text="'Жоба: ' + ${sprint.projectName}"
@@ -121,7 +121,10 @@
                         <div class="u-container-layout u-valign-top u-container-layout-1">
                             <div class="u-list u-list-1">
                                 <div class="u-repeater u-repeater-1">
-                                    <div class="u-container-align-center u-container-style u-list-item u-repeater-item">
+                                    <div class="u-container-align-center u-container-style u-list-item u-repeater-item"
+                                         style="background-color: white;
+                                         border-radius: 40px;
+                                         margin-bottom: 30px;">
                                         <div class="u-container-layout u-similar-container u-container-layout-3">
                                             <h4 class="u-align-center u-text u-text-default u-text-palette-4-base u-text-5">
                                                 Спринттегі тапсырмалар тізімі
@@ -151,10 +154,17 @@
                         <div class="u-container-layout u-valign-top u-container-layout-4">
                             <div class="u-expanded-width u-list u-list-2">
                                 <div class="u-repeater u-repeater-2">
-                                    <div class="u-container-style u-list-item u-repeater-item">
+                                    <div class="u-container-style u-list-item u-repeater-item"
+                                         style="    border-left: 6px solid #ccc!important;
+                                         border-color: #2196F3!important;
+                                         background-color: #fffff6!important;
+                                         margin-bottom: 25px;">
                                         <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-6">
                                             <h4 class="u-align-left u-text u-text-default u-text-palette-4-base u-text-13">
                                                 Күндер:</h4>
+
+                                            <img src="images/Рисунок1.jpg"
+                                                 style="width: -webkit-fill-available;">
                                             <p class="u-align-left u-text u-text-default u-text-14"
                                                data-animation-name="" data-animation-duration="0"
                                                data-animation-delay="0" data-animation-direction="">
@@ -177,10 +187,6 @@
             </div>
         </div>
     </div>
-</section>
-
-<section class="u-clearfix u-grey-10 u-section-2" id="sec-ead5">
-    <div class="u-clearfix u-sheet u-sheet-1"></div>
 </section>
 
 
